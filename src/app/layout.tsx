@@ -1,7 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./landing.css";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/config/site";
+import { getStructuredDataGraph } from "@/config/structured-data";
+import {
+  SITE_DESCRIPTION,
+  SITE_FAVICON_PATH,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_PAGE_TITLE,
+  SITE_URL,
+} from "@/config/site";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -12,18 +20,14 @@ const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "100CUCI | Slot Free Credit No Deposit New Member Malaysia",
+  title: SITE_PAGE_TITLE,
   description: SITE_DESCRIPTION,
-  keywords: [
-    "100CUCI",
-    "free credit no deposit",
-    "slot Malaysia",
-    "online casino Malaysia",
-    "new member bonus",
-    "free kredit slot",
-  ],
+  keywords: SITE_KEYWORDS,
   alternates: {
     canonical: "/",
+    languages: {
+      "en-MY": "/",
+    },
   },
   robots: {
     index: true,
@@ -40,25 +44,27 @@ export const metadata: Metadata = {
     locale: "en_MY",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "100CUCI | Slot Free Credit No Deposit New Member Malaysia",
+    title: SITE_PAGE_TITLE,
     description: SITE_DESCRIPTION,
-    images: [
-      {
-        url: "/media/f5e0ed4082196f7432355.png",
-        width: 512,
-        height: 512,
-        alt: SITE_NAME,
-      },
-    ],
+    images: [{ url: SITE_FAVICON_PATH, width: 512, height: 512, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "100CUCI | Slot Free Credit No Deposit New Member Malaysia",
+    title: SITE_PAGE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/media/f5e0ed4082196f7432355.png"],
+    images: [SITE_FAVICON_PATH],
   },
   icons: {
-    icon: "/media/f5e0ed4082196f7432355.png",
+    icon: SITE_FAVICON_PATH,
+    apple: SITE_FAVICON_PATH,
+  },
+  appleWebApp: {
+    capable: true,
+    title: "100Cuci - Wallet",
+    statusBarStyle: "black-translucent",
+  },
+  other: {
+    title: "100CUCI | Slot Free Credit No Deposit New Member 2026",
   },
   ...(googleVerification
     ? { verification: { google: googleVerification } }
@@ -71,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-MY">
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
@@ -83,14 +89,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: SITE_NAME,
-              url: SITE_URL,
-              description: SITE_DESCRIPTION,
-              inLanguage: "en-MY",
-            }),
+            __html: JSON.stringify(getStructuredDataGraph()),
           }}
         />
         {children}
