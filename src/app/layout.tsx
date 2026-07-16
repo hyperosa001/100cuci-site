@@ -81,6 +81,9 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         />
+        {googleVerification ? (
+          <meta name="google-site-verification" content={googleVerification} />
+        ) : null}
       </head>
       <body style={{ margin: 0, padding: 0, overflow: "auto" }}>
         <script

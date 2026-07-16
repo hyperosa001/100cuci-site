@@ -3,6 +3,6 @@
  * 保存后刷新页面即可生效。
  */
 export const SITE_LINKS = {
-  login: "https://myjackpot8.net/register",
-  register: "https://myjackpot8.net/register",
+  login: "https://amanahmy.com/RFSEO0001",
+  register: "https://amanahmy.com/RFSEO0001",
 } as const;
