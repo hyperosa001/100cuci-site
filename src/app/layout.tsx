@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./landing.css";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/config/site";
 
 export const viewport: Viewport = {
@@ -72,23 +73,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="/clone/clone.css" />
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-        />
-        {googleVerification ? (
-          <meta name="google-site-verification" content={googleVerification} />
-        ) : null}
       </head>
       <body style={{ margin: 0, padding: 0, overflow: "auto" }}>
         <script
