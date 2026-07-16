@@ -24,6 +24,21 @@ export function CloneSite(props: CloneSiteProps) {
     const home = document.getElementById("home");
     if (home) home.style.visibility = "visible";
 
+    const content = document.getElementById("content");
+    if (content) content.style.visibility = "visible";
+
+    if (window.innerWidth <= 768) {
+      document.querySelectorAll<HTMLElement>(".splide__list").forEach((list) => {
+        list.style.transform = "translateX(0)";
+      });
+      document.querySelectorAll<HTMLElement>(".splide__slide").forEach((slide) => {
+        slide.style.width = "100%";
+      });
+      document.querySelectorAll<HTMLElement>("#home .box-3 td").forEach((cell) => {
+        cell.style.width = "100%";
+      });
+    }
+
     document.querySelectorAll<HTMLAnchorElement>("a.login, a.register, a.register-btn").forEach((link) => {
       const isRegister = link.classList.contains("register") || link.classList.contains("register-btn");
       link.href = isRegister ? SITE_LINKS.register : SITE_LINKS.login;
