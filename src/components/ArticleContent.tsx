@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArticlePagination } from "@/components/ArticlePagination";
 import { SITE_LINKS } from "@/config/site-links";
-import { LinkedText } from "@/components/LinkedText";
 import type { Article, Category } from "@/content/types";
 
 export function ArticleBody({ article }: { article: Article }) {
@@ -13,17 +12,13 @@ export function ArticleBody({ article }: { article: Article }) {
       <p className="lp-article-excerpt">{article.excerpt}</p>
 
       {article.paragraphs?.map((paragraph, index) => (
-        <p key={`${article.slug}-p-${index}`}>
-          <LinkedText text={paragraph} />
-        </p>
+        <p key={`${article.slug}-p-${index}`}>{paragraph}</p>
       ))}
 
       {article.list && (
         <ul>
           {article.list.map((item, index) => (
-            <li key={`${article.slug}-li-${index}`}>
-              <LinkedText text={item} />
-            </li>
+            <li key={`${article.slug}-li-${index}`}>{item}</li>
           ))}
         </ul>
       )}

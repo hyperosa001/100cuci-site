@@ -25,8 +25,8 @@ writeFileSync(
   JSON.stringify(
     {
       lastUpdated: seo.SEO_LAST_UPDATED,
-      keywordLinkHead: seo.SEO_KEYWORD_LINK_HEAD,
-      keywordLinkTail: seo.SEO_KEYWORD_LINK_TAIL,
+      cuciLinkHref: seo.SEO_CUCI_LINK_HREF,
+      cuciLinkExternal: seo.SEO_CUCI_LINK_EXTERNAL,
       sections: seo.SEO_SECTIONS,
       faq: seo.SEO_FAQ,
     },

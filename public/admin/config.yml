@@ -26,20 +26,13 @@ collections:
         file: content/homepage-seo.json
         fields:
           - { label: 最后更新, name: lastUpdated, widget: string, default: "July 2026" }
-          - label: 开头关键词链接（100CUCI）
-            name: keywordLinkHead
-            widget: object
-            fields:
-              - { label: 显示文字, name: text, widget: string, default: "100CUCI" }
-              - { label: 链接 URL, name: href, widget: string }
-              - { label: 站外链接, name: external, widget: boolean, default: true }
-          - label: 结尾关键词链接（100CUCI）
-            name: keywordLinkTail
-            widget: object
-            fields:
-              - { label: 显示文字, name: text, widget: string, default: "100CUCI" }
-              - { label: 链接 URL, name: href, widget: string }
-              - { label: 站外链接, name: external, widget: boolean, default: true }
+          - {
+              label: 100CUCI 链接 URL,
+              name: cuciLinkHref,
+              widget: string,
+              hint: "主页 SEO 区文中第 1 个和最后 1 个「100CUCI」使用此链接，其余不加链",
+            }
+          - { label: 站外链接, name: cuciLinkExternal, widget: boolean, default: true }
           - label: SEO 文章区块
             name: sections
             widget: list
@@ -98,19 +91,3 @@ collections:
                     widget: list
                     required: false
                     field: { label: 条目, name: item, widget: string }
-
-  - name: keyword_links
-    label: 栏目内关键词链接
-    files:
-      - label: 自动加链关键词
-        name: keyword-links
-        file: content/keyword-links.json
-        fields:
-          - label: 关键词链接
-            name: links
-            widget: list
-            summary: "{{fields.keyword}}"
-            fields:
-              - { label: 关键词, name: keyword, widget: string }
-              - { label: 链接 URL, name: href, widget: string, hint: "站内如 /articles/slots/xxx 或完整 https://" }
-              - { label: 站外链接, name: external, widget: boolean, default: false }

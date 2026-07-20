@@ -5,12 +5,17 @@ import { MobileRegisterBar, SiteFooter } from "@/components/ArticleContent";
 import { SITE_LINKS } from "@/config/site-links";
 import { getAllCategories } from "@/lib/content";
 import {
+  SEO_CUCI_LINK_EXTERNAL,
+  SEO_CUCI_LINK_HREF,
   SEO_FAQ,
-  SEO_KEYWORD_LINK_HEAD,
-  SEO_KEYWORD_LINK_TAIL,
   SEO_LAST_UPDATED,
   SEO_SECTIONS,
 } from "@/content/seo-content";
+import {
+  HomepageSeoText,
+  collectHomepageSeoTexts,
+  count100CuciMatches,
+} from "@/lib/homepage-seo-links";
 
 const REGISTER = SITE_LINKS.register;
 
@@ -44,27 +49,17 @@ function RegisterLink({
   );
 }
 
-function SeoKeywordLink({
-  link,
-}: {
-  link: { text: string; href: string; external?: boolean };
-}) {
-  if (link.external) {
-    return (
-      <a href={link.href} className="lp-keyword-link" target="_blank" rel="noopener noreferrer">
-        {link.text}
-      </a>
-    );
-  }
-  return (
-    <Link href={link.href} className="lp-keyword-link">
-      {link.text}
-    </Link>
-  );
-}
-
 export function LandingPage() {
   const categories = getAllCategories();
+  const seoLinkState = { seen: 0 };
+  const seoTexts = collectHomepageSeoTexts(SEO_SECTIONS, SEO_FAQ);
+  const total100Cuci = count100CuciMatches(seoTexts);
+  const seoLinkProps = {
+    href: SEO_CUCI_LINK_HREF,
+    external: SEO_CUCI_LINK_EXTERNAL,
+    state: seoLinkState,
+    totalMatches: total100Cuci,
+  };
 
   return (
     <div className="landing">
@@ -188,20 +183,22 @@ export function LandingPage() {
         <div className="lp-seo-inner">
           <p className="lp-seo-updated">Last updated: {SEO_LAST_UPDATED}</p>
 
-          <p className="lp-seo-keylink-line">
-            <SeoKeywordLink link={SEO_KEYWORD_LINK_HEAD} />
-          </p>
-
           {SEO_SECTIONS.map((section) => (
             <article key={section.title}>
-              <h2>{section.title}</h2>
+              <h2>
+                <HomepageSeoText text={section.title} {...seoLinkProps} />
+              </h2>
               {section.paragraphs?.map((p) => (
-                <p key={p.slice(0, 40)}>{p}</p>
+                <p key={p.slice(0, 40)}>
+                  <HomepageSeoText text={p} {...seoLinkProps} />
+                </p>
               ))}
               {section.list && (
                 <ul>
                   {section.list.map((item) => (
-                    <li key={item.slice(0, 40)}>{item}</li>
+                    <li key={item.slice(0, 40)}>
+                      <HomepageSeoText text={item} {...seoLinkProps} />
+                    </li>
                   ))}
                 </ul>
               )}
@@ -211,14 +208,14 @@ export function LandingPage() {
           <h2>FAQ</h2>
           {SEO_FAQ.map((item) => (
             <div key={item.q} className="lp-faq-item">
-              <h3>{item.q}</h3>
-              <p>{item.a}</p>
+              <h3>
+                <HomepageSeoText text={item.q} {...seoLinkProps} />
+              </h3>
+              <p>
+                <HomepageSeoText text={item.a} {...seoLinkProps} />
+              </p>
             </div>
           ))}
-
-          <p className="lp-seo-keylink-line lp-seo-keylink-tail">
-            <SeoKeywordLink link={SEO_KEYWORD_LINK_TAIL} />
-          </p>
 
           <div className="lp-seo-final-cta">
             <RegisterLink className="lp-btn lp-btn-register lp-btn-lg">

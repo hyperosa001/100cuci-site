@@ -4,9 +4,8 @@
 1. 打开：https://100cuci.ad/admin/
 2. 点「Login with GitHub」用公司给的 GitHub 账号登录
 3. 左侧选要改的内容：
-   - 主页 SEO → 主页底部文章 + 开头/结尾 100CUCI 链接
-   - 栏目文章 → Casino / Slots 等栏目下的文章
-   - 栏目内关键词链接 → 栏目文章里自动加链（主页不用）
+   - 主页 SEO → 主页底部文章 +「100CUCI 链接 URL」（只链文中第1个和最后1个100CUCI）
+   - 栏目文章 → Casino / Slots 等栏目下的文章（无自动关键词链接）
 4. 改完后点右上角「Publish」保存
 5. 等 2～3 分钟 Vercel 部署完成，刷新网站查看
 
