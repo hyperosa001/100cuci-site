@@ -1,6 +1,16 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
+import { SiteHeader } from "@/components/SiteHeader";
+import { MobileRegisterBar, SiteFooter } from "@/components/ArticleContent";
 import { SITE_LINKS } from "@/config/site-links";
-import { SEO_FAQ, SEO_LAST_UPDATED, SEO_SECTIONS } from "@/content/seo-content";
+import { getAllCategories } from "@/lib/content";
+import {
+  SEO_FAQ,
+  SEO_KEYWORD_LINK_HEAD,
+  SEO_KEYWORD_LINK_TAIL,
+  SEO_LAST_UPDATED,
+  SEO_SECTIONS,
+} from "@/content/seo-content";
 
 const REGISTER = SITE_LINKS.register;
 
@@ -34,18 +44,31 @@ function RegisterLink({
   );
 }
 
+function SeoKeywordLink({
+  link,
+}: {
+  link: { text: string; href: string; external?: boolean };
+}) {
+  if (link.external) {
+    return (
+      <a href={link.href} className="lp-keyword-link" target="_blank" rel="noopener noreferrer">
+        {link.text}
+      </a>
+    );
+  }
+  return (
+    <Link href={link.href} className="lp-keyword-link">
+      {link.text}
+    </Link>
+  );
+}
+
 export function LandingPage() {
+  const categories = getAllCategories();
+
   return (
     <div className="landing">
-      <header className="lp-header">
-        <img className="logo" src="/media/d6838063072a67b0cddf5.gif" alt="100CUCI" />
-        <div className="lp-header-actions">
-          <a href={SITE_LINKS.login} className="lp-btn lp-btn-login" target="_blank" rel="noopener noreferrer">
-            LOGIN
-          </a>
-          <RegisterLink className="lp-btn lp-btn-register">REGISTER</RegisterLink>
-        </div>
-      </header>
+      <SiteHeader />
 
       <div className="lp-marquee">
         <span>
@@ -88,6 +111,19 @@ export function LandingPage() {
 
       <section className="lp-section">
         <img src="/media/1ab4589f3219601fbb7cd.png" alt="Payment methods" style={{ width: "100%", borderRadius: 12 }} />
+      </section>
+
+      <section className="lp-section lp-categories">
+        <h2 className="lp-section-title">Explore 100CUCI</h2>
+        <div className="lp-category-grid">
+          {categories.map((category) => (
+            <Link key={category.slug} href={`/articles/${category.slug}`} className="lp-category-card">
+              <h3>{category.title}</h3>
+              <p>{category.description}</p>
+              <span>{category.articles.length} articles →</span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="lp-section">
@@ -152,6 +188,10 @@ export function LandingPage() {
         <div className="lp-seo-inner">
           <p className="lp-seo-updated">Last updated: {SEO_LAST_UPDATED}</p>
 
+          <p className="lp-seo-keylink-line">
+            <SeoKeywordLink link={SEO_KEYWORD_LINK_HEAD} />
+          </p>
+
           {SEO_SECTIONS.map((section) => (
             <article key={section.title}>
               <h2>{section.title}</h2>
@@ -176,6 +216,10 @@ export function LandingPage() {
             </div>
           ))}
 
+          <p className="lp-seo-keylink-line lp-seo-keylink-tail">
+            <SeoKeywordLink link={SEO_KEYWORD_LINK_TAIL} />
+          </p>
+
           <div className="lp-seo-final-cta">
             <RegisterLink className="lp-btn lp-btn-register lp-btn-lg">
               REGISTER NOW — CLAIM FREE RM5
@@ -184,16 +228,15 @@ export function LandingPage() {
         </div>
       </section>
 
-      <footer className="lp-footer">
-        <p>© 2026 100CUCI. All Rights Reserved.</p>
-        <p className="lp-footer-cta">
-          <RegisterLink className="lp-btn lp-btn-register">REGISTER NOW</RegisterLink>
-        </p>
-      </footer>
+      <SiteFooter
+        cta={
+          <p className="lp-footer-cta">
+            <RegisterLink className="lp-btn lp-btn-register">REGISTER NOW</RegisterLink>
+          </p>
+        }
+      />
 
-      <div className="lp-mobile-bar">
-        <RegisterLink className="lp-btn lp-btn-register">REGISTER NOW — FREE RM5</RegisterLink>
-      </div>
+      <MobileRegisterBar />
     </div>
   );
 }
