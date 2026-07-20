@@ -1,0 +1,116 @@
+backend:
+  name: github
+  repo: hyperosa001/100cuci-site
+  branch: main
+  base_url: https://100cuci.ad
+  auth_endpoint: api/auth
+
+# 本地预览后台（可选）: 另开终端运行 npm run cms:local，并取消下一行注释
+# local_backend: true
+
+media_folder: public/media
+public_folder: /media
+
+locale: zh
+
+site_url: https://100cuci.ad
+display_url: https://100cuci.ad
+logo_url: /media/f5e0ed4082196f7432355.png
+
+collections:
+  - name: homepage
+    label: 主页 SEO
+    files:
+      - label: 主页底部文章
+        name: homepage-seo
+        file: content/homepage-seo.json
+        fields:
+          - { label: 最后更新, name: lastUpdated, widget: string, default: "July 2026" }
+          - label: 开头关键词链接（100CUCI）
+            name: keywordLinkHead
+            widget: object
+            fields:
+              - { label: 显示文字, name: text, widget: string, default: "100CUCI" }
+              - { label: 链接 URL, name: href, widget: string }
+              - { label: 站外链接, name: external, widget: boolean, default: true }
+          - label: 结尾关键词链接（100CUCI）
+            name: keywordLinkTail
+            widget: object
+            fields:
+              - { label: 显示文字, name: text, widget: string, default: "100CUCI" }
+              - { label: 链接 URL, name: href, widget: string }
+              - { label: 站外链接, name: external, widget: boolean, default: true }
+          - label: SEO 文章区块
+            name: sections
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: 小标题, name: title, widget: string }
+              - label: 段落
+                name: paragraphs
+                widget: list
+                required: false
+                field: { label: 段落, name: paragraph, widget: text }
+              - label: 列表
+                name: list
+                widget: list
+                required: false
+                field: { label: 条目, name: item, widget: string }
+          - label: FAQ
+            name: faq
+            widget: list
+            summary: "{{fields.q}}"
+            fields:
+              - { label: 问题, name: q, widget: string }
+              - { label: 回答, name: a, widget: text }
+
+  - name: categories
+    label: 栏目文章
+    files:
+      - label: Casino / Slots / Sportsbook 等
+        name: categories
+        file: content/categories.json
+        fields:
+          - label: 栏目
+            name: categories
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: URL标识 slug, name: slug, widget: string, hint: "英文小写+连字符，如 casino" }
+              - { label: 栏目标题, name: title, widget: string }
+              - { label: 栏目描述, name: description, widget: text }
+              - label: 文章
+                name: articles
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: URL标识 slug, name: slug, widget: string, hint: "英文小写+连字符，勿改旧文章slug" }
+                  - { label: 标题, name: title, widget: string }
+                  - { label: 摘要, name: excerpt, widget: text }
+                  - { label: 更新日期, name: updatedAt, widget: string }
+                  - label: 段落
+                    name: paragraphs
+                    widget: list
+                    required: false
+                    field: { label: 段落, name: paragraph, widget: text }
+                  - label: 列表
+                    name: list
+                    widget: list
+                    required: false
+                    field: { label: 条目, name: item, widget: string }
+
+  - name: keyword_links
+    label: 栏目内关键词链接
+    files:
+      - label: 自动加链关键词
+        name: keyword-links
+        file: content/keyword-links.json
+        fields:
+          - label: 关键词链接
+            name: links
+            widget: list
+            summary: "{{fields.keyword}}"
+            fields:
+              - { label: 关键词, name: keyword, widget: string }
+              - { label: 链接 URL, name: href, widget: string, hint: "站内如 /articles/slots/xxx 或完整 https://" }
+              - { label: 站外链接, name: external, widget: boolean, default: false }
