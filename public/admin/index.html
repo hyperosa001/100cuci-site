@@ -63,9 +63,6 @@
         font-size: 14px;
         line-height: 1.5;
       }
-      #cms-login-help a {
-        color: #f5c518;
-      }
       #cms-login-help .cms-login-btn {
         display: inline-block;
         margin-top: 8px;
@@ -75,19 +72,11 @@
         text-decoration: none;
         border-radius: 6px;
         font-weight: 600;
+        border: 0;
+        cursor: pointer;
+        font-size: 14px;
       }
     </style>
-    <script>
-      (function () {
-        try {
-          var msg = localStorage.getItem("decap_cms_auth_message");
-          if (msg) {
-            localStorage.removeItem("decap_cms_auth_message");
-            window.__decapPendingAuth = msg;
-          }
-        } catch (e) {}
-      })();
-    </script>
   </head>
   <body>
     <div id="cms-loading">
@@ -105,9 +94,9 @@
     </div>
     <div id="cms-login-help">
       <strong>Login 按钮没反应？</strong>
-      浏览器可能拦截了弹出窗口。请用下方按钮登录（当前窗口跳转，更稳定）：
+      请先允许弹出窗口，再点下方按钮：
       <br />
-      <a class="cms-login-btn" href="/api/auth">GitHub 登录（推荐）</a>
+      <button type="button" class="cms-login-btn" id="cms-github-login">GitHub 登录（推荐）</button>
       <br />
       <small>必须用 <strong>https://www.100cuci.ad/admin</strong>，并已 Accept GitHub 仓库邀请。</small>
     </div>
@@ -116,6 +105,8 @@
         var loading = document.getElementById("cms-loading");
         var fallback = document.getElementById("cms-fallback");
         var loginHelp = document.getElementById("cms-login-help");
+        var loginBtn = document.getElementById("cms-github-login");
+        var siteId = window.location.host.split(":")[0];
 
         function hideLoading() {
           if (loading) loading.style.display = "none";
@@ -132,13 +123,37 @@
           }
         }
 
-        function deliverPendingAuth() {
-          var msg = window.__decapPendingAuth;
-          if (!msg) return;
-          delete window.__decapPendingAuth;
+        function findDecapLoginButton() {
+          var buttons = document.querySelectorAll("button, a");
+          for (var i = 0; i < buttons.length; i++) {
+            var text = (buttons[i].textContent || "").trim();
+            if (text.indexOf("Login with GitHub") >= 0) {
+              return buttons[i];
+            }
+          }
+          return null;
+        }
+
+        function openGitHubLoginPopup() {
+          var decapBtn = findDecapLoginButton();
+          if (decapBtn) decapBtn.click();
+
           window.setTimeout(function () {
-            window.dispatchEvent(new MessageEvent("message", { data: msg }));
-          }, 800);
+            var authUrl =
+              "/api/auth?provider=github&site_id=" + encodeURIComponent(siteId);
+            var popup = window.open(
+              authUrl,
+              "github-oauth",
+              "width=960,height=600,left=200,top=80",
+            );
+            if (!popup) {
+              alert("浏览器拦截了弹出窗口。请在地址栏右侧允许 www.100cuci.ad 的弹出窗口，然后重试。");
+            }
+          }, 300);
+        }
+
+        if (loginBtn) {
+          loginBtn.addEventListener("click", openGitHubLoginPopup);
         }
 
         window.setTimeout(function () {
@@ -154,7 +169,6 @@
             return;
           }
           hideLoading();
-          deliverPendingAuth();
         };
         script.onerror = function () {
           showError("Decap CMS 脚本未能加载。请刷新页面，或换 Chrome / Edge 浏览器重试。");

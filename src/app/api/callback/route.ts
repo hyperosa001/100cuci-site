@@ -1,12 +1,30 @@
 import { NextResponse } from "next/server";
 import { getSiteUrl } from "@/lib/site-url";
 
-type AuthPayload = {
-  token: string;
-  provider: string;
-};
+function errorHtml(message: string) {
+  return `<!DOCTYPE html>
+<html lang="zh">
+<head><meta charset="utf-8" /><title>100CUCI Admin 登录失败</title></head>
+<body style="font-family:system-ui,sans-serif;padding:32px;line-height:1.6">
+  <h1>GitHub 登录失败</h1>
+  <p>${message}</p>
+  <p><a href="/admin">返回后台</a></p>
+</body>
+</html>`;
+}
 
-function authHtml(message: string) {
+function authHtml(message: string, siteOrigin: string) {
+  const isError = message.includes(":error:");
+  if (isError) {
+    let detail = message;
+    try {
+      detail = JSON.parse(message.match(/:error:(.+)$/)?.[1] ?? "{}").message ?? message;
+    } catch {
+      /* keep raw message */
+    }
+    return errorHtml(String(detail));
+  }
+
   return `<!DOCTYPE html>
 <html lang="zh">
 <head><meta charset="utf-8" /><title>100CUCI Admin</title></head>
@@ -14,18 +32,16 @@ function authHtml(message: string) {
 <script>
   (function () {
     var msg = ${JSON.stringify(message)};
+    var siteOrigin = ${JSON.stringify(siteOrigin)};
     if (window.opener) {
-      window.opener.postMessage(msg, "*");
+      window.opener.postMessage(msg, siteOrigin);
       window.close();
       return;
     }
-    try {
-      localStorage.setItem("decap_cms_auth_message", msg);
-    } catch (e) {}
-    window.location.replace("/admin/");
+    document.body.innerHTML = "<p>登录完成，请关闭此窗口并回到后台页面，点击 Login with GitHub。</p>";
   })();
 </script>
-<p>登录完成，正在返回后台…</p>
+<p>登录完成，正在关闭窗口…</p>
 </body>
 </html>`;
 }
@@ -41,7 +57,10 @@ export async function GET(request: Request) {
 
   if (error || !code) {
     return new NextResponse(
-      authHtml(`authorization:github:error:${JSON.stringify({ message: error ?? "no_code" })}`),
+      authHtml(
+        `authorization:github:error:${JSON.stringify({ message: error ?? "no_code" })}`,
+        siteUrl,
+      ),
       { headers: { "Content-Type": "text/html; charset=utf-8" } },
     );
   }
@@ -50,6 +69,7 @@ export async function GET(request: Request) {
     return new NextResponse(
       authHtml(
         `authorization:github:error:${JSON.stringify({ message: "oauth_not_configured" })}`,
+        siteUrl,
       ),
       { headers: { "Content-Type": "text/html; charset=utf-8" } },
     );
@@ -81,18 +101,19 @@ export async function GET(request: Request) {
         `authorization:github:error:${JSON.stringify({
           message: tokenData.error_description ?? tokenData.error ?? "token_failed",
         })}`,
+        siteUrl,
       ),
       { headers: { "Content-Type": "text/html; charset=utf-8" } },
     );
   }
 
-  const payload: AuthPayload = {
+  const payload = {
     token: tokenData.access_token,
     provider: "github",
   };
 
   return new NextResponse(
-    authHtml(`authorization:github:success:${JSON.stringify(payload)}`),
+    authHtml(`authorization:github:success:${JSON.stringify(payload)}`, siteUrl),
     { headers: { "Content-Type": "text/html; charset=utf-8" } },
   );
 }
