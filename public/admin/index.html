@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>100CUCI 内容后台</title>
+    <link rel="preload" href="/admin/decap-cms.js" as="script" />
     <style>
       body {
         margin: 0;
@@ -11,32 +12,78 @@
         background: #111;
         color: #eee;
       }
+      #cms-loading,
       #cms-fallback {
-        display: none;
         max-width: 520px;
         margin: 48px auto;
         padding: 24px;
         line-height: 1.6;
       }
+      #cms-fallback {
+        display: none;
+      }
+      #cms-loading h1,
       #cms-fallback h1 {
         margin-top: 0;
         font-size: 1.25rem;
       }
+      .cms-spinner {
+        width: 28px;
+        height: 28px;
+        border: 3px solid #444;
+        border-top-color: #f5c518;
+        border-radius: 50%;
+        animation: cms-spin 0.8s linear infinite;
+        margin: 16px 0;
+      }
+      @keyframes cms-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
     </style>
-    <script src="/admin/decap-cms.js"></script>
   </head>
   <body>
+    <div id="cms-loading">
+      <h1>100CUCI 内容后台</h1>
+      <div class="cms-spinner" aria-hidden="true"></div>
+      <p>正在加载编辑界面，首次打开约需 15～30 秒，请稍候…</p>
+      <p>加载完成后会出现 <strong>Login with GitHub</strong> 按钮。</p>
+    </div>
     <div id="cms-fallback">
       <h1>后台加载失败</h1>
       <p>Decap CMS 脚本未能加载。请刷新页面，或换 Chrome / Edge 浏览器重试。</p>
-      <p>若仍空白，请联系管理员检查部署是否包含 <code>/admin/decap-cms.js</code>。</p>
+      <p>也可直接打开：<a href="/admin/decap-cms.js">/admin/decap-cms.js</a> 检查是否能下载。</p>
     </div>
     <script>
-      window.setTimeout(function () {
-        if (typeof window.CMS === "undefined") {
-          document.getElementById("cms-fallback").style.display = "block";
+      (function () {
+        var loading = document.getElementById("cms-loading");
+        var fallback = document.getElementById("cms-fallback");
+
+        function hideLoading() {
+          if (loading) loading.style.display = "none";
         }
-      }, 8000);
+
+        function showError() {
+          hideLoading();
+          if (fallback) fallback.style.display = "block";
+        }
+
+        var script = document.createElement("script");
+        script.src = "/admin/decap-cms.js";
+        script.async = true;
+        script.onload = function () {
+          hideLoading();
+        };
+        script.onerror = showError;
+        document.head.appendChild(script);
+
+        window.setTimeout(function () {
+          if (typeof window.CMS === "undefined") {
+            showError();
+          }
+        }, 120000);
+      })();
     </script>
   </body>
 </html>
