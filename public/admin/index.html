@@ -56,6 +56,8 @@
       <p>也可直接打开：<a href="/admin/decap-cms.js">/admin/decap-cms.js</a> 检查是否能下载。</p>
     </div>
     <script>
+      window.CMS_MANUAL_INIT = true;
+
       (function () {
         var loading = document.getElementById("cms-loading");
         var fallback = document.getElementById("cms-fallback");
@@ -64,23 +66,36 @@
           if (loading) loading.style.display = "none";
         }
 
-        function showError() {
+        function showError(message) {
           hideLoading();
-          if (fallback) fallback.style.display = "block";
+          if (fallback) {
+            if (message) {
+              var hint = fallback.querySelector("p");
+              if (hint) hint.textContent = message;
+            }
+            fallback.style.display = "block";
+          }
         }
 
         var script = document.createElement("script");
         script.src = "/admin/decap-cms.js";
         script.async = true;
         script.onload = function () {
+          if (!window.CMS) {
+            showError("Decap CMS 脚本加载完成但未初始化，请刷新页面重试。");
+            return;
+          }
           hideLoading();
+          window.CMS.init({ config: "/admin/config.yml" });
         };
-        script.onerror = showError;
+        script.onerror = function () {
+          showError("Decap CMS 脚本未能加载。请刷新页面，或换 Chrome / Edge 浏览器重试。");
+        };
         document.head.appendChild(script);
 
         window.setTimeout(function () {
           if (typeof window.CMS === "undefined") {
-            showError();
+            showError("Decap CMS 脚本加载超时，请检查网络后刷新页面。");
           }
         }, 120000);
       })();
