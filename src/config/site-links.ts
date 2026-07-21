@@ -1,8 +1,7 @@
-/**
- * 在这里填写你自己的登录 / 注册链接。
- * 保存后刷新页面即可生效。
- */
+import siteLinks from "../../content/site-links.json";
+
+/** Register / Login 按钮链接（在 CMS「站点按钮链接」中编辑） */
 export const SITE_LINKS = {
-  login: "https://amanahmy.com/RFSEO0001",
-  register: "https://amanahmy.com/RFSEO0001",
+  login: siteLinks.login,
+  register: siteLinks.register,
 } as const;

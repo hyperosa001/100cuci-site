@@ -18,6 +18,26 @@ display_url: https://www.100cuci.ad
 logo_url: /media/f5e0ed4082196f7432355.png
 
 collections:
+  - name: site-links
+    label: 站点按钮链接
+    files:
+      - label: Register / Login
+        name: site-links
+        file: content/site-links.json
+        fields:
+          - {
+              label: Register 链接,
+              name: register,
+              widget: string,
+              hint: "全站 REGISTER 按钮、底部栏、文章页 CTA 使用",
+            }
+          - {
+              label: Login 链接,
+              name: login,
+              widget: string,
+              hint: "顶栏 LOGIN 按钮使用",
+            }
+
   - name: homepage
     label: 主页 SEO
     files:
