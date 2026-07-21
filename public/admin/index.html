@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>100CUCI 内容后台</title>
+    <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
     <link rel="preload" href="/admin/decap-cms.js" as="script" />
     <style>
       body {
@@ -56,8 +57,6 @@
       <p>也可直接打开：<a href="/admin/decap-cms.js">/admin/decap-cms.js</a> 检查是否能下载。</p>
     </div>
     <script>
-      window.CMS_MANUAL_INIT = true;
-
       (function () {
         var loading = document.getElementById("cms-loading");
         var fallback = document.getElementById("cms-fallback");
@@ -86,7 +85,6 @@
             return;
           }
           hideLoading();
-          window.CMS.init({ config: "/admin/config.yml" });
         };
         script.onerror = function () {
           showError("Decap CMS 脚本未能加载。请刷新页面，或换 Chrome / Edge 浏览器重试。");
