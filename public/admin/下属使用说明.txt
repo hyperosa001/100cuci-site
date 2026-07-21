@@ -1,15 +1,19 @@
 100CUCI 内容后台 — 下属使用说明
 ================================
 
-1. 打开：https://www.100cuci.ad/admin/
-2. 点「Login with GitHub」用公司给的 GitHub 账号登录
-3. 左侧选要改的内容：
-   - 主页 SEO → 主页底部文章 +「100CUCI 链接 URL」（只链文中第1个和最后1个100CUCI）
-   - 栏目文章 → Casino / Slots 等栏目下的文章（无自动关键词链接）
-4. 改完后点右上角「Publish」保存
-5. 等 2～3 分钟 Vercel 部署完成，刷新网站查看
+1. 打开：https://www.100cuci.ad/admin
+2. 登录 GitHub（二选一）：
+   - 优先：点页面底部「GitHub 登录（推荐）」
+   - 或：点 CMS 里的「Login with GitHub」（需浏览器允许弹出窗口）
+3. 用公司给的 GitHub 账号，并在邮件/GitHub 通知里 Accept 仓库邀请
+4. 左侧选要改的内容：
+   - 主页 SEO → 主页底部文章 +「100CUCI 链接 URL」
+   - 栏目文章 → Casino / Slots 等栏目下的文章
+5. 改完后点右上角「Publish」保存
+6. 等 2～3 分钟 Vercel 部署完成，刷新网站查看
 
 注意：
+- 必须用 https://www.100cuci.ad/admin（带 https 和 www）
+- Login 没反应 → 用页面底部「GitHub 登录（推荐）」，不要用 HTTP
 - 新文章 slug 用英文小写+连字符，例如 my-new-article
 - 不要改已有文章的 slug，否则旧链接会 404
-- Register 链接仍由管理员在 site-links 配置

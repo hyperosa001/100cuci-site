@@ -20,6 +20,14 @@
         padding: 24px;
         line-height: 1.6;
       }
+      #cms-loading {
+        position: fixed;
+        inset: 0;
+        z-index: 9998;
+        max-width: none;
+        margin: 0;
+        background: #111;
+      }
       #cms-fallback {
         display: none;
       }
@@ -42,24 +50,72 @@
           transform: rotate(360deg);
         }
       }
+      #cms-login-help {
+        display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        padding: 12px 16px;
+        background: #1a1a1a;
+        border-top: 1px solid #333;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      #cms-login-help a {
+        color: #f5c518;
+      }
+      #cms-login-help .cms-login-btn {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 8px 14px;
+        background: #24292f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+      }
     </style>
+    <script>
+      (function () {
+        try {
+          var msg = localStorage.getItem("decap_cms_auth_message");
+          if (msg) {
+            localStorage.removeItem("decap_cms_auth_message");
+            window.__decapPendingAuth = msg;
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="cms-loading">
-      <h1>100CUCI 内容后台</h1>
-      <div class="cms-spinner" aria-hidden="true"></div>
-      <p>正在加载编辑界面，首次打开约需 15～30 秒，请稍候…</p>
-      <p>加载完成后会出现 <strong>Login with GitHub</strong> 按钮。</p>
+      <div style="max-width: 520px; margin: 48px auto; padding: 24px">
+        <h1>100CUCI 内容后台</h1>
+        <div class="cms-spinner" aria-hidden="true"></div>
+        <p>正在加载编辑界面，首次打开约需 15～30 秒，请稍候…</p>
+        <p>加载完成后会出现 <strong>Login with GitHub</strong> 按钮。</p>
+      </div>
     </div>
     <div id="cms-fallback">
       <h1>后台加载失败</h1>
       <p>Decap CMS 脚本未能加载。请刷新页面，或换 Chrome / Edge 浏览器重试。</p>
       <p>也可直接打开：<a href="/admin/decap-cms.js">/admin/decap-cms.js</a> 检查是否能下载。</p>
     </div>
+    <div id="cms-login-help">
+      <strong>Login 按钮没反应？</strong>
+      浏览器可能拦截了弹出窗口。请用下方按钮登录（当前窗口跳转，更稳定）：
+      <br />
+      <a class="cms-login-btn" href="/api/auth">GitHub 登录（推荐）</a>
+      <br />
+      <small>必须用 <strong>https://www.100cuci.ad/admin</strong>，并已 Accept GitHub 仓库邀请。</small>
+    </div>
     <script>
       (function () {
         var loading = document.getElementById("cms-loading");
         var fallback = document.getElementById("cms-fallback");
+        var loginHelp = document.getElementById("cms-login-help");
 
         function hideLoading() {
           if (loading) loading.style.display = "none";
@@ -76,6 +132,19 @@
           }
         }
 
+        function deliverPendingAuth() {
+          var msg = window.__decapPendingAuth;
+          if (!msg) return;
+          delete window.__decapPendingAuth;
+          window.setTimeout(function () {
+            window.dispatchEvent(new MessageEvent("message", { data: msg }));
+          }, 800);
+        }
+
+        window.setTimeout(function () {
+          if (loginHelp) loginHelp.style.display = "block";
+        }, 5000);
+
         var script = document.createElement("script");
         script.src = "/admin/decap-cms.js";
         script.async = true;
@@ -85,6 +154,7 @@
             return;
           }
           hideLoading();
+          deliverPendingAuth();
         };
         script.onerror = function () {
           showError("Decap CMS 脚本未能加载。请刷新页面，或换 Chrome / Edge 浏览器重试。");

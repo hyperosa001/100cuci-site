@@ -1,11 +1,9 @@
 import { NextResponse } from "next/server";
+import { getSiteUrl } from "@/lib/site-url";
 
-export async function GET() {
+export async function GET(request: Request) {
   const clientId = process.env.GITHUB_OAUTH_CLIENT_ID;
-  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(
-    /\/$/,
-    "",
-  );
+  const siteUrl = getSiteUrl(request);
 
   if (!clientId) {
     return NextResponse.json(

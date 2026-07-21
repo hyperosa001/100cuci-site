@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getSiteUrl } from "@/lib/site-url";
 
 type AuthPayload = {
   token: string;
@@ -15,11 +16,16 @@ function authHtml(message: string) {
     var msg = ${JSON.stringify(message)};
     if (window.opener) {
       window.opener.postMessage(msg, "*");
+      window.close();
+      return;
     }
-    window.close();
+    try {
+      localStorage.setItem("decap_cms_auth_message", msg);
+    } catch (e) {}
+    window.location.replace("/admin/");
   })();
 </script>
-<p>登录完成，请关闭此窗口。</p>
+<p>登录完成，正在返回后台…</p>
 </body>
 </html>`;
 }
@@ -27,10 +33,7 @@ function authHtml(message: string) {
 export async function GET(request: Request) {
   const clientId = process.env.GITHUB_OAUTH_CLIENT_ID;
   const clientSecret = process.env.GITHUB_OAUTH_CLIENT_SECRET;
-  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(
-    /\/$/,
-    "",
-  );
+  const siteUrl = getSiteUrl(request);
 
   const { searchParams } = new URL(request.url);
   const code = searchParams.get("code");
