@@ -4,7 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>100CUCI 内容后台</title>
-    <script src="https://unpkg.com/decap-cms@^3.1.11/dist/decap-cms.js"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        background: #111;
+        color: #eee;
+      }
+      #cms-fallback {
+        display: none;
+        max-width: 520px;
+        margin: 48px auto;
+        padding: 24px;
+        line-height: 1.6;
+      }
+      #cms-fallback h1 {
+        margin-top: 0;
+        font-size: 1.25rem;
+      }
+    </style>
+    <script src="/admin/decap-cms.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div id="cms-fallback">
+      <h1>后台加载失败</h1>
+      <p>Decap CMS 脚本未能加载。请刷新页面，或换 Chrome / Edge 浏览器重试。</p>
+      <p>若仍空白，请联系管理员检查部署是否包含 <code>/admin/decap-cms.js</code>。</p>
+    </div>
+    <script>
+      window.setTimeout(function () {
+        if (typeof window.CMS === "undefined") {
+          document.getElementById("cms-fallback").style.display = "block";
+        }
+      }, 8000);
+    </script>
+  </body>
 </html>

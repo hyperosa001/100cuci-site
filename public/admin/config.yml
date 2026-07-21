@@ -2,7 +2,7 @@ backend:
   name: github
   repo: hyperosa001/100cuci-site
   branch: main
-  base_url: https://100cuci.ad
+  base_url: https://www.100cuci.ad
   auth_endpoint: api/auth
 
 # 本地预览后台（可选）: 另开终端运行 npm run cms:local，并取消下一行注释
@@ -13,8 +13,8 @@ public_folder: /media
 
 locale: zh
 
-site_url: https://100cuci.ad
-display_url: https://100cuci.ad
+site_url: https://www.100cuci.ad
+display_url: https://www.100cuci.ad
 logo_url: /media/f5e0ed4082196f7432355.png
 
 collections:
