@@ -146,17 +146,33 @@
 
 .lp-article-list {
   display: grid;
-  gap: 16px;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .lp-article-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .lp-article-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .lp-article-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   border-radius: 12px;
   background: rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, transform 0.2s;
   overflow: hidden;
+  color: var(--lp-text);
+  height: 100%;
 }
 
 .lp-article-card-cover {
@@ -170,6 +186,13 @@
 
 .lp-article-card:hover {
   border-color: var(--lp-gold);
+  transform: translateY(-2px);
+}
+
+.lp-article-card-meta {
+  font-size: 12px;
+  color: var(--lp-text-soft);
+  margin-bottom: 8px;
 }
 
 .lp-article-card h2 {
@@ -184,12 +207,14 @@
   line-height: 1.6;
   color: var(--lp-text-soft);
   margin-bottom: 10px;
+  flex: 1;
 }
 
 .lp-article-read {
   font-size: 13px;
   font-weight: 700;
   color: var(--lp-gold);
+  margin-top: auto;
 }
 
 .lp-article-count {
@@ -287,6 +312,69 @@
   color: #666;
   font-style: italic;
   margin-bottom: 16px;
+}
+
+.lp-article-meta {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.lp-back-link {
+  margin: 0 8px 12px;
+  font-size: 14px;
+}
+
+.lp-back-link a {
+  color: var(--lp-gold);
+  font-weight: 600;
+}
+
+.lp-related {
+  margin: 32px 8px 16px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.lp-related-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.lp-related-list {
+  margin-bottom: 8px;
+}
+
+.lp-article-page .lp-related-title {
+  color: #111;
+}
+
+.lp-article-page .lp-related {
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+.lp-article-page .lp-article-card {
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.lp-article-page .lp-article-card h2 {
+  color: #111;
+}
+
+.lp-article-page .lp-article-card p {
+  color: #555;
+}
+
+.lp-article-html a.lp-keyword-link,
+.lp-article-body .lp-keyword-link {
+  color: var(--lp-blue);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .lp-article-body p,
