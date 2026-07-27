@@ -6,7 +6,8 @@
 - 文中自然出现 SEO 词（`100CUCI`、`live casino`、`slot free credit`、`Register` 等），前台会自动加内链
 - **封面仍由网站代码按 slug 固定**，CMS **不用**设特色图像；正文里也**不要**重复贴封面那张
 - 发完约 1 分钟自动上站（无需 push）
-- 前台已限制正文图片最大宽度/高度，避免「突然一张巨图」
+- 配图全部来自原站 100cuci.com CDN 克隆（`public/media`），**完整显示、等比缩小，不裁切**
+- 正文图建议用下方指定 URL；封面由网站按 slug 自动加，正文不要重复贴封面
 
 ---
 
@@ -39,7 +40,7 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 
 <p>Before you tap Live Casino, write down three numbers: your session budget in RM, your maximum single bet, and your stop time. If the stream feels delayed on mobile data, switch tables or move to Wi-Fi instead of raising stakes to “catch up.” Pace mistakes feel like bad luck, but they are usually connection and tilt.</p>
 
-<img src="https://www.100cuci.ad/media/62f867f8764a68724ee87.png" alt="100CUCI game lobby" />
+<img src="https://www.100cuci.ad/media/01a587def62a6abcb8a32.jpg" alt="100CUCI game lobby" />
 
 <p>Table types Malaysian players usually try first include baccarat and roulette because rules are familiar and rounds are easy to follow on a phone. Blackjack suits players who want more decisions per hand. If a room feels too fast, choose a lower-limit table rather than forcing bigger bets on a shoe you do not understand.</p>
 
@@ -54,7 +55,7 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 
 <p>Banking still matters even on night one. 100CUCI supports Malaysian-friendly rails such as e-wallets and FPX-style banking where listed. Withdrawals make sense only after eligible turnover is cleared. Keep one payout channel verified so reviews do not stall later.</p>
 
-<img src="https://www.100cuci.ad/media/1ab4589f3219601fbb7cd.png" alt="100CUCI payment methods" />
+<img src="https://www.100cuci.ad/media/125476a9d51965d355fb4.png" alt="100CUCI payment methods" />
 
 <p>Bottom line: treat live casino at 100CUCI as a controlled trial. Register when ready, claim only matching Promotions, and open tables with a written RM limit. That is how online casino Malaysia sessions stay readable instead of chaotic.</p>
 ```
@@ -89,7 +90,7 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 <li>Keep screenshots of deposit references until the balance updates.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/5165631054b96399427ff.png" alt="100CUCI secure play reminder" />
+<img src="https://www.100cuci.ad/media/35001f94353a647d86d7e.webp" alt="100CUCI secure play reminder" />
 
 <p>Summary: deposit with a familiar Malaysian rail, understand turnover before you chase cashouts, and withdraw through one verified channel. That routine keeps casino banking at 100CUCI predictable even when tables run hot or cold.</p>
 ```
@@ -112,7 +113,7 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 
 <p>If you hold slot free credit or free credit no deposit, confirm the offer allows slots. Some campaigns exclude high-contribution live games but welcome slot play; others do the opposite. Never assume — check the promo card inside 100CUCI.</p>
 
-<img src="https://www.100cuci.ad/media/cf8789d8764a6e04830fa.png" alt="100CUCI slot providers" />
+<img src="https://www.100cuci.ad/media/ee03e5d7764a66d4b2da0.png" alt="100CUCI slot providers" />
 
 <p>Practical stake plan for new members:</p>
 <ul>
@@ -124,7 +125,7 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 
 <p>100CUCI typically lists a wide catalogue beyond a single studio. Explore other providers only after you are comfortable with one JILI-style game. Moving too fast across themes burns attention and free credit together.</p>
 
-<img src="https://www.100cuci.ad/media/e22f2ef8764a6d3b0a117.png" alt="100CUCI hot games" />
+<img src="https://www.100cuci.ad/media/9bb336e08219612129751.png" alt="100CUCI hot games" />
 
 <p>Takeaway: start with familiar slot brands at 100CUCI, match Promotions to slot eligibility, and keep stakes boring on purpose. That is how slot free credit lasts long enough to learn the lobby without panic deposits.</p>
 ```
@@ -153,7 +154,7 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 <li>Stop when free credit ends — do not instantly deposit “to recover.”</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/0eae92f8764a601b27c2e.png" alt="100CUCI slots lobby" />
+<img src="https://www.100cuci.ad/media/24174c823fa9681119cd8.jpg" alt="100CUCI slots lobby" />
 
 <p>Common mistakes include claiming a sports or live-only promo then trying to clear it on slots; maxing bet size because “it is free”; forgetting OTP verification; and chasing losses after the bonus ends. Each mistake turns a useful trial into pressure.</p>
 
@@ -182,7 +183,7 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 
 <p>Markets to learn first: 1X2 or Asian handicap on big European leagues are enough for week one. Skip exotic player props until you can read settlement rules without guessing. A short menu beats a crowded slip.</p>
 
-<img src="https://www.100cuci.ad/media/e22f2ef8764a6d3b0a117.png" alt="100CUCI betting markets" />
+<img src="https://www.100cuci.ad/media/9bb336e08219612129751.png" alt="100CUCI betting markets" />
 
 <p>Promo caution: sportsbook free credit or cashback may exclude certain bet types or require minimum odds. If your balance came from a slot campaign, do not assume it clears on football. Open Promotions inside 100CUCI and confirm before kick-off.</p>
 
@@ -193,7 +194,7 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 <li>Register and verify OTP before the weekend rush if you plan to deposit.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/5165631054b96399427ff.png" alt="100CUCI sports banking" />
+<img src="https://www.100cuci.ad/media/35001f94353a647d86d7e.webp" alt="100CUCI sports banking" />
 
 <p>Summary: use the 100CUCI sportsbook for football with a small menu of markets, confirmed promo eligibility, and fixed unit size. Place tickets you can explain in one sentence — that habit survives both wins and losing runs.</p>
 ```
@@ -222,11 +223,11 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 <li>Confirm whether live bets count toward turnover on your current promo.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/62f867f8764a68724ee87.png" alt="100CUCI live sports" />
+<img src="https://www.100cuci.ad/media/01a587def62a6abcb8a32.jpg" alt="100CUCI live sports" />
 
 <p>Latency matters. Peak-hour mobile networks can delay bet acceptance. Build a personal rule: one bet per game situation, fixed stake, no revenge clicks. Master pre-match tickets first, then add in-play.</p>
 
-<img src="https://www.100cuci.ad/media/dd267538764a6356b6583.png" alt="100CUCI session control" />
+<img src="https://www.100cuci.ad/media/f01511fb45d9650f4c841.png" alt="100CUCI session control" />
 
 <p>Close: live odds on the 100CUCI sportsbook are a tool, not a requirement. Players who slow down usually keep clearer records — and clearer bankrolls — than those who chase every swing.</p>
 ```
@@ -255,11 +256,11 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 <li>Check whether Promotions include lottery games; many slot credits do not.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/e62a46a7764a6b7535127.png" alt="100CUCI number games" />
+<img src="https://www.100cuci.ad/media/2636a9355b896f5d3413b.png" alt="100CUCI number games" />
 
 <p>Responsible play: set a weekly RM cap. Number games can feel “due” after near misses — that feeling is not mathematics. Walk away when the cap is hit. The same wallet often powers casino, slots, and lottery, so a lottery chase can quietly drain a slots budget.</p>
 
-<img src="https://www.100cuci.ad/media/1ab4589f3219601fbb7cd.png" alt="100CUCI wallet and banking" />
+<img src="https://www.100cuci.ad/media/125476a9d51965d355fb4.png" alt="100CUCI wallet and banking" />
 
 <p>Bottom line: explore 4D-style play at 100CUCI only after you Register, verify your account, and write a budget. Clarity beats superstition — every single draw.</p>
 ```
@@ -288,11 +289,11 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 
 <p>Account hygiene on 100CUCI: enable a strong password, never share OTP, and use official entry links from this site. If you need a break, log out and remove saved passwords from shared phones. Family-shared devices are a common leak point.</p>
 
-<img src="https://www.100cuci.ad/media/dd267538764a6356b6583.png" alt="100CUCI lottery reminder" />
+<img src="https://www.100cuci.ad/media/f01511fb45d9650f4c841.png" alt="100CUCI lottery reminder" />
 
 <p>When to stop: if you hide play from family, borrow to fund tickets, or feel restless without a daily draw, stop and seek local support resources for gambling harm. No promotion — including free credit no deposit elsewhere on the site — is worth that cost.</p>
 
-<img src="https://www.100cuci.ad/media/5165631054b96399427ff.png" alt="100CUCI player safety" />
+<img src="https://www.100cuci.ad/media/35001f94353a647d86d7e.webp" alt="100CUCI player safety" />
 
 <p>Summary: play rare, play small, and keep banking transparent. Responsible lottery habits protect the rest of your 100CUCI experience across casino, slots, and sportsbook.</p>
 ```
@@ -327,7 +328,7 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 
 <p>Stacking tips: daily check-in or referral rewards may stack in some periods. Read whether they share turnover with the welcome free credit. When unsure, clear one campaign before opting into another. Mixing unclear offers is the fastest way to freeze a withdrawal.</p>
 
-<img src="https://www.100cuci.ad/media/5165631054b96399427ff.png" alt="100CUCI promo checklist" />
+<img src="https://www.100cuci.ad/media/35001f94353a647d86d7e.webp" alt="100CUCI promo checklist" />
 
 <p>Final word: use free credit no deposit at 100CUCI as a structured trial for online casino Malaysia play. If terms feel unclear, contact live chat before you spin — questions are cheaper than wasted turnover.</p>
 ```
@@ -360,7 +361,7 @@ WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 <li>Unused campaigns clutter turnover tracking — disable what you will not finish.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/0eae92f8764a601b27c2e.png" alt="100CUCI playable credit" />
+<img src="https://www.100cuci.ad/media/24174c823fa9681119cd8.jpg" alt="100CUCI playable credit" />
 
 <p>Close: referral and daily rewards are slow compounding tools, not jackpots. Pair them with responsible stakes and clear banking habits. Register, open Promotions, and enable only the rewards you will actually complete at 100CUCI.</p>
 ```
