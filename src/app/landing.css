@@ -179,7 +179,7 @@
   width: calc(100% + 40px);
   max-width: none;
   margin: -20px -20px 14px;
-  height: 160px;
+  height: 140px;
   object-fit: cover;
   display: block;
 }
@@ -300,7 +300,7 @@
 
 .lp-article-cover {
   width: 100%;
-  max-height: 320px;
+  max-height: 240px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 16px;
@@ -402,10 +402,18 @@
 }
 
 .lp-article-html img {
-  max-width: 100%;
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  max-height: 280px;
   height: auto;
-  border-radius: 8px;
-  margin: 12px 0;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+.lp-article-html p {
+  margin-bottom: 16px;
 }
 
 .lp-article-html a {

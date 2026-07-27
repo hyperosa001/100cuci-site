@@ -15,6 +15,22 @@ function stripLeadingImgs(html: string): string {
   );
 }
 
+/** 去掉与封面相同的图，避免文章里出现两张一样的 */
+function stripDuplicateCoverImgs(html: string, coverPath?: string): string {
+  let next = stripLeadingImgs(html);
+  if (!coverPath) return next;
+
+  const file = coverPath.split("/").pop();
+  if (!file) return next;
+
+  const escaped = file.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const pattern = new RegExp(
+    `(?:<p>\\s*)?<img\\b[^>]*src=["'][^"']*${escaped}[^"']*["'][^>]*>\\s*(?:</p>\\s*)?`,
+    "gi",
+  );
+  return next.replace(pattern, "");
+}
+
 function articlePlainText(article: Article): string {
   if (article.html) return article.html.replace(/<[^>]+>/g, " ");
   return [article.excerpt, ...(article.paragraphs ?? []), ...(article.list ?? [])]
@@ -31,7 +47,7 @@ export function ArticleBody({
   const cover = getArticleCover(article.slug, categorySlug);
   const minutes = estimateReadMinutes(articlePlainText(article));
   const linkedHtml = article.html
-    ? linkifyHtml(stripLeadingImgs(article.html), KEYWORD_LINKS)
+    ? linkifyHtml(stripDuplicateCoverImgs(article.html, cover), KEYWORD_LINKS)
     : null;
 
   return (

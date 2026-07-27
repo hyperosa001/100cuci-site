@@ -1,461 +1,375 @@
-﻿# 100CUCI CMS 内容包（原创文章 · 原站配图 · 2026-07）
+﻿# 100CUCI CMS 内容包（长文版 · 对齐 icuci 风格 · 原创）
 
-**图片已固定在前台网站代码里**（原站 `public/media`，见 `src/config/article-covers.ts`）。  
-你**只需拷贝纯文字文章到 CMS**（标题 + 正文 + 分类 + slug）。  
-**不要**在 WordPress 里再插图、也不用上传媒体库。
-
-发完文章后：等约 **1 分钟**刷新栏目页即可（不用 git push）。
-
-### 固定封面 ↔ 建议 slug（必须一致才会出对应图）
-
-| 建议 slug | 网站图 |
-|-----------|--------|
-| `live-casino-first-session-100cuci` | `/media/b0dc9b63d88967e6859cb.webp` |
-| `100cuci-casino-banking-withdrawal` | `/media/1ab4589f3219601fbb7cd.png` |
-| `jili-mega888-start-100cuci` | `/media/0eae92f8764a601b27c2e.png` |
-| `slot-free-credit-malaysia-100cuci` | `/media/cf8789d8764a6e04830fa.png` |
-| `football-betting-malaysia-100cuci` | `/media/62f867f8764a68724ee87.png` |
-| `live-odds-basics-100cuci` | `/media/e22f2ef8764a6d3b0a117.png` |
-| `4d-lottery-guide-100cuci` | `/media/dd267538764a6356b6583.png` |
-| `lottery-responsible-play-100cuci` | `/media/e62a46a7764a6b7535127.png` |
-| `free-credit-no-deposit-100cuci-guide` | `/media/f85eb31f3219680b10ca3.gif` |
-| `referral-daily-rewards-100cuci` | `/media/5165631054b96399427ff.png` |
+更新说明（相对上一版）：
+- 每篇约 **900～1400 字**（英文），结构更长
+- 正文中插入 **2 张不同的中部配图**（不要再贴封面同款，封面网站会自动加）
+- 文中自然出现 SEO 词（`100CUCI`、`live casino`、`slot free credit`、`Register` 等），前台会自动加内链
+- **封面仍由网站代码按 slug 固定**，CMS **不用**设特色图像；正文里也**不要**重复贴封面那张
+- 发完约 1 分钟自动上站（无需 push）
+- 前台已限制正文图片最大宽度/高度，避免「突然一张巨图」
 
 ---
 
-## A. 首页 SEO 页（Pages）
+## 发文通用步骤
 
-1. **页面** → **新建页面**
-2. 标题：`100CUCI Homepage SEO`
-3. **固定链接 slug 必须是**：`homepage-seo`
-4. 正文粘贴下方 HTML/文字
-5. 发布
+1. Posts → Add Post  
+2. **Title** = 下面标题  
+3. **正文** = 整段拷贝（含 `<img ...>`）  
+4. Categories 勾选对应栏目  
+5. Permalink / URL 改成 **建议 slug**（必须一致）  
+6. Publish  
 
-### 正文
-
-```
-100CUCI is built for Malaysian players who want clear English guides before they register, claim free credit, or open live casino and slot sessions. This page explains how the platform works in practice — deposit options, free credit no deposit paths, and what to check before you play.
-
-Whether you arrived looking for slot free credit, live casino tables, sportsbook markets, or lottery-style games, 100CUCI keeps everything under one wallet after you create an account.
-
-Why Malaysian players look at 100CUCI first
-
-Many platforms advertise a small welcome number and stop there. 100CUCI focuses on a low entry barrier (from RM1 deposits where terms allow), familiar local payment rails, and guides written for Malaysia — not generic global copy.
-
-New members usually start with registration and OTP verification, then review Promotions before placing the first spin or table bet. That order matters: bonus terms, turnover, and game eligibility decide whether free credit is useful or frustrating.
-
-Free credit no deposit — realistic expectations
-
-Free credit no deposit means bonus credit that does not require an immediate deposit. At 100CUCI, offers can start with a new-member amount after sign-up and verification, then grow through daily or referral-style rewards when those campaigns are live.
-
-Always read the current Promotions page inside the platform. Headlines on marketing pages are guides; the live terms inside your account are the source of truth for turnover, eligible games, and withdrawal rules.
-
-Games and providers after you register
-
-After registration you can browse slots (including popular JILI and MEGA888-style titles where available), live casino tables, sportsbook markets, and lottery-style games under one login. Start with titles you already understand, keep stakes small while learning the lobby, and clear any turnover before you expect a withdrawal.
-
-How to begin in five steps
-
-1. Open Register from this site and create your username, password, and contact details.
-2. Complete OTP verification so promotions tied to new members can unlock.
-3. Open Promotions and claim only offers that match how you want to play (slots vs live vs sports).
-4. Deposit from RM1 using a method you already use in Malaysia (e-wallet, FPX, or telco reload where listed).
-5. Play eligible games, track turnover, then withdraw through your verified channel when terms allow.
-
-FAQ
-
-Q: Is 100CUCI only for slots?
-A: No. Guides on this site cover casino, slots, sportsbook, lottery, and promotions. The live lobby after login shows what is available on your account.
-
-Q: Do I need a large deposit to try free credit?
-A: Free credit no deposit offers are designed so you can start without funding first, subject to live promo rules. Deposits remain optional until you choose to top up.
-
-Q: How fast are withdrawals?
-A: Many e-wallet and FPX payouts complete within about 15–30 minutes after turnover is cleared, but timing depends on bank rails and account verification.
-
-Q: Who is this site for?
-A: Adults 18+ in Malaysia who want English guides before registering at 100CUCI.
-```
+WordPress 若把图片吃掉：切到「代码编辑 / Code editor」再贴。
 
 ---
 
-## B. 栏目文章（Posts）
-
-每篇：新建文章 → 标题 → **只拷文字正文** → 右侧勾选分类 → 固定链接改成建议 slug → 发布。  
-不用插图、不用上传媒体。  
-**slug**：发布后在固定链接里改成英文小写连字符（见每篇「建议 slug」）。
-
----
-
-### 1) Casino · 建议 slug：`live-casino-first-session-100cuci`
+## 1) Casino
 
 **分类：** Casino  
-**封面：** 前台已固定，CMS 不用插图
+**建议 slug：** `live-casino-first-session-100cuci`  
 **标题：** 100CUCI Live Casino Malaysia — First Session Checklist  
-**摘要：** A practical checklist for Malaysian players before opening live tables at 100CUCI.
+**摘要：** A practical first-session checklist for Malaysian players before opening live tables at 100CUCI.
 
 **正文：**
 
-```
-Starting live casino at 100CUCI is less about chasing the flashiest table and more about preparing the basics: limits, pace, and how your free credit or deposit will be used.
+```html
+<p>Starting <strong>live casino</strong> at 100CUCI is less about chasing the flashiest table and more about preparing the basics: limits, pace, and how your free credit or deposit will be used. Malaysian players who treat the first night as a systems check usually keep more control than those who jump straight into high-limit baccarat.</p>
 
-Before you tap Live Casino
+<p>100CUCI is built as an English-friendly path into online casino Malaysia play. After you Register and finish OTP verification, open Promotions before you touch a live table. Some campaigns are slot-only; others allow live games at a reduced contribution rate. Guessing wrong wastes turnover.</p>
 
-Confirm your account is verified (OTP done). Open Promotions and check whether your current credit can be used on live tables — some offers are slot-only. Decide a session budget in RM and stick to it even if the first shoes feel lucky.
+<p>Before you tap Live Casino, write down three numbers: your session budget in RM, your maximum single bet, and your stop time. If the stream feels delayed on mobile data, switch tables or move to Wi-Fi instead of raising stakes to “catch up.” Pace mistakes feel like bad luck, but they are usually connection and tilt.</p>
 
-Table types Malaysian players usually try first
+<img src="https://www.100cuci.ad/media/62f867f8764a68724ee87.png" alt="100CUCI game lobby" />
 
-Baccarat and roulette are the most common entry points because rules are familiar and rounds are easy to follow on mobile. Blackjack suits players who want more decisions per hand. If a table feels too fast, switch to a lower-limit room instead of raising stakes to “catch up.”
+<p>Table types Malaysian players usually try first include baccarat and roulette because rules are familiar and rounds are easy to follow on a phone. Blackjack suits players who want more decisions per hand. If a room feels too fast, choose a lower-limit table rather than forcing bigger bets on a shoe you do not understand.</p>
 
-Session checklist
+<p>First-session checklist:</p>
+<ul>
+<li>Confirm OTP is done and your profile contact details are correct.</li>
+<li>Read the active promo card for live casino eligibility and turnover.</li>
+<li>Note the minimum and maximum bet on the table banner.</li>
+<li>Play short shoes first — twenty minutes is enough to learn buttons and lag.</li>
+<li>Stop when the budget is gone; do not recycle a withdrawal plan mid-session.</li>
+</ul>
 
-1. Note the minimum and maximum bet on the table banner.
-2. Confirm your balance shows the wallet you intend to use (bonus vs cash if the lobby separates them).
-3. Play short shoes first — twenty minutes is enough to learn stream lag and button layout.
-4. Stop when your budget is gone; do not recycle withdrawal plans mid-session.
+<p>Banking still matters even on night one. 100CUCI supports Malaysian-friendly rails such as e-wallets and FPX-style banking where listed. Withdrawals make sense only after eligible turnover is cleared. Keep one payout channel verified so reviews do not stall later.</p>
 
-Banking reminder
+<img src="https://www.100cuci.ad/media/1ab4589f3219601fbb7cd.png" alt="100CUCI payment methods" />
 
-100CUCI supports Malaysian-friendly methods such as e-wallets and FPX-style banking where listed. Withdrawals usually make sense only after turnover on eligible games is cleared. Keep one payout channel verified to avoid delays.
-
-Bottom line
-
-Live casino at 100CUCI works best when you treat the first night as a systems check: terms, limits, and pace. Register when you are ready, claim only matching promos, then open tables with a written RM limit.
+<p>Bottom line: treat live casino at 100CUCI as a controlled trial. Register when ready, claim only matching Promotions, and open tables with a written RM limit. That is how online casino Malaysia sessions stay readable instead of chaotic.</p>
 ```
 
 ---
 
-### 2) Casino · 建议 slug：`100cuci-casino-banking-withdrawal`
+## 2) Casino
 
 **分类：** Casino  
-**封面：** 前台已固定，CMS 不用插图
+**建议 slug：** `100cuci-casino-banking-withdrawal`  
 **标题：** Banking & Withdrawal at 100CUCI Casino — Malaysia Guide  
 **摘要：** How deposits, turnover, and withdrawals typically work for 100CUCI casino players in Malaysia.
 
 **正文：**
 
-```
-Clear banking habits matter more than any single baccarat shoe. This guide walks through how Malaysian players usually fund 100CUCI, clear turnover, and request withdrawals without surprises.
+```html
+<p>Clear banking habits matter more than any single baccarat shoe. This guide walks through how Malaysian players usually fund 100CUCI, clear turnover, and request withdrawals without surprises — whether you play live casino, slots, or mixed sessions.</p>
 
-Deposits
+<p>Deposits at 100CUCI can start from a very low RM amount when the cashier allows it. Use a method you already trust: Touch n Go, GrabPay, other e-wallets, telco reload, or online banking via FPX where available. The name on the payment channel should match your account profile to reduce review time later.</p>
 
-Minimum deposits can be as low as RM1 when the cashier allows it. Use a method you already trust — Touch n Go, GrabPay, other e-wallets, telco reload, or online banking via FPX where available. Name on the payment channel should match your account profile to reduce review time later.
+<p>Turnover before withdrawal is where most confusion happens. Bonus credit almost always carries wagering rules. If you claimed free credit no deposit or a matched offer, open Promotions and read which games count and at what rate. Live casino contribution can differ from slots. Track progress inside the account instead of guessing from memory.</p>
 
-Turnover before withdrawal
+<img src="https://www.100cuci.ad/media/b0dc9b63d88967e6859cb.webp" alt="100CUCI promotions and wallet" />
 
-Bonus credit almost always carries wagering rules. If you claimed free credit or a matched offer, open Promotions and read which games count and at what rate. Live casino contribution can differ from slots. Track progress inside the account instead of guessing.
+<p>Withdrawals: many players report e-wallet or FPX payouts within roughly 15–30 minutes after clearance, but weekends and bank queues can stretch that window. Submit one request at a time, keep contact details updated, and avoid switching payout accounts mid-review.</p>
 
-Withdrawals
+<p>Safety habits for online casino Malaysia users:</p>
+<ul>
+<li>Only use official 100CUCI entry points bookmarked from this site.</li>
+<li>Never share OTP codes with anyone claiming to be support.</li>
+<li>Stop if a cashier page asks for unusual downloads or APK files.</li>
+<li>Keep screenshots of deposit references until the balance updates.</li>
+</ul>
 
-Many players report e-wallet or FPX payouts within roughly 15–30 minutes after clearance, but weekends and bank queues can stretch that window. Submit one request at a time, keep your contact details updated, and avoid switching payout accounts mid-review.
+<img src="https://www.100cuci.ad/media/5165631054b96399427ff.png" alt="100CUCI secure play reminder" />
 
-Safety habits
-
-Play only on the official 100CUCI entry points you bookmarked from this site. Do not share OTP codes. Stop if a cashier page asks for unusual downloads.
-
-Summary
-
-Deposit with a familiar Malaysian rail, understand turnover before you chase cashouts, and withdraw through one verified channel. That routine keeps casino sessions at 100CUCI predictable.
+<p>Summary: deposit with a familiar Malaysian rail, understand turnover before you chase cashouts, and withdraw through one verified channel. That routine keeps casino banking at 100CUCI predictable even when tables run hot or cold.</p>
 ```
 
 ---
 
-### 3) Slots · 建议 slug：`jili-mega888-start-100cuci`
+## 3) Slots
 
 **分类：** Slots  
-**封面：** 前台已固定，CMS 不用插图
+**建议 slug：** `jili-mega888-start-100cuci`  
 **标题：** JILI & MEGA888-Style Slots at 100CUCI — New Member Start Guide  
 **摘要：** How new Malaysian members can approach familiar slot brands after registering at 100CUCI.
 
 **正文：**
 
-```
-Most Malaysian players recognise JILI titles and MEGA888-style games long before they learn a full lobby. At 100CUCI, the smart first week is about finding those familiar names, testing with small stakes, and reading which promos actually cover slots.
+```html
+<p>Most Malaysian players recognise JILI titles and MEGA888-style games long before they learn a full lobby. At 100CUCI, the smart first week is about finding those familiar names, testing with small stakes, and reading which Promotions actually cover slots.</p>
 
-After you register
+<p>After you Register, complete OTP, open the Slot section, and search for games you already know — for example Super Ace-style or Fortune Gems-style titles when listed. Familiar math models reduce the chance you misread volatility on day one. Slot Malaysia catalogues look huge; starting with one known studio keeps decisions simple.</p>
 
-Complete OTP, open the Slot section, and search for games you already know — for example Super Ace-style or Fortune Gems-style titles when listed. Familiar math models reduce the chance you misread volatility on day one.
+<p>If you hold slot free credit or free credit no deposit, confirm the offer allows slots. Some campaigns exclude high-contribution live games but welcome slot play; others do the opposite. Never assume — check the promo card inside 100CUCI.</p>
 
-Free credit and slots
+<img src="https://www.100cuci.ad/media/cf8789d8764a6e04830fa.png" alt="100CUCI slot providers" />
 
-If you hold free credit no deposit, confirm the offer allows slots. Some campaigns exclude high-contribution live games but welcome slot play; others do the opposite. Never assume — check the promo card.
+<p>Practical stake plan for new members:</p>
+<ul>
+<li>Set a daily RM limit before you open the first title.</li>
+<li>Use autoplay carefully; manual spins teach the paytable faster.</li>
+<li>Switch games if a title drains the budget in under ten minutes — that is volatility, not a broken system.</li>
+<li>Screenshot promo terms so you remember eligible providers such as JILI or MEGA888-style rooms.</li>
+</ul>
 
-Practical stake plan
+<p>100CUCI typically lists a wide catalogue beyond a single studio. Explore other providers only after you are comfortable with one JILI-style game. Moving too fast across themes burns attention and free credit together.</p>
 
-1. Set a daily RM limit before you open the first title.
-2. Use autoplay carefully; manual spins teach you the paytable faster.
-3. Switch games if a title drains the budget in under ten minutes — that is volatility, not a “system.”
-4. Screenshot promo terms so you remember eligible providers.
+<img src="https://www.100cuci.ad/media/e22f2ef8764a6d3b0a117.png" alt="100CUCI hot games" />
 
-Providers
-
-100CUCI typically lists a wide catalogue beyond a single studio. Explore Pragmatic Play or PG Soft catalogues after you are comfortable with one JILI-style game, not before.
-
-Takeaway
-
-Start with familiar slot brands at 100CUCI, match promos to slot eligibility, and keep stakes boring on purpose. That is how free credit lasts long enough to learn the lobby.
+<p>Takeaway: start with familiar slot brands at 100CUCI, match Promotions to slot eligibility, and keep stakes boring on purpose. That is how slot free credit lasts long enough to learn the lobby without panic deposits.</p>
 ```
 
 ---
 
-### 4) Slots · 建议 slug：`slot-free-credit-malaysia-100cuci`
+## 4) Slots
 
 **分类：** Slots  
-**封面：** 前台已固定，CMS 不用插图
+**建议 slug：** `slot-free-credit-malaysia-100cuci`  
 **标题：** Slot Free Credit Malaysia — Using It Wisely at 100CUCI  
 **摘要：** A realistic guide to slot free credit no deposit for Malaysian players on 100CUCI.
 
 **正文：**
 
-```
-“Slot free credit Malaysia” searches usually mean one thing: can I try games without depositing first? At 100CUCI, the answer depends on the live promotion, not on a social-media screenshot.
+```html
+<p>“Slot free credit Malaysia” searches usually mean one thing: can I try games without depositing first? At 100CUCI, the answer depends on the live promotion, not on a social-media screenshot. Free credit no deposit is a trial budget with rules attached.</p>
 
-What free credit is
+<p>What free credit is: bonus balance credited after registration or campaign opt-in. It is not cash until wagering rules are met. If terms require a number of times turnover, plan sessions around that number instead of random long spins on the highest volatility title in the lobby.</p>
 
-Bonus balance credited after registration or campaign opt-in. It is not cash until wagering rules are met. If terms require a number of times turnover, plan sessions around that number instead of random long spins.
+<p>How to use slot free credit at 100CUCI:</p>
+<ul>
+<li>Pick medium-volatility games you understand.</li>
+<li>Keep bet size small enough to survive several dozen spins.</li>
+<li>Avoid feature buys until you know whether they count fully toward turnover.</li>
+<li>Stop when free credit ends — do not instantly deposit “to recover.”</li>
+</ul>
 
-How to use it on slots
+<img src="https://www.100cuci.ad/media/0eae92f8764a601b27c2e.png" alt="100CUCI slots lobby" />
 
-Pick medium-volatility games you understand. Extremely high volatility titles can burn free credit before you learn the feature buy rules. Keep bet size small enough to survive at least several dozen spins.
+<p>Common mistakes include claiming a sports or live-only promo then trying to clear it on slots; maxing bet size because “it is free”; forgetting OTP verification; and chasing losses after the bonus ends. Each mistake turns a useful trial into pressure.</p>
 
-Common mistakes
+<p>When to deposit: only after you already like the lobby and understand cashier options. RM1 entry points exist for a reason — test banking with a tiny amount first, then scale. Register cleanly, read Promotions, and treat slot free credit as a tutorial, not a salary.</p>
 
-- Claiming a sports or live-only promo then trying to clear it on slots.
-- Maxing bet size because “it is free.”
-- Forgetting to verify OTP, which can block promo unlocks.
-- Chasing losses after free credit ends by depositing more than planned.
+<img src="https://www.100cuci.ad/media/f85eb31f3219680b10ca3.gif" alt="100CUCI promo credit" />
 
-When to deposit
-
-Deposit only when you already like the lobby and understand cashier options. RM1 entry points exist for a reason — test banking with a tiny amount first.
-
-Conclusion
-
-Treat slot free credit at 100CUCI as a tutorial budget with rules attached. Read the promo, pick familiar slots, and graduate to real-money play only after the lobby feels clear.
+<p>Conclusion: slot free credit Malaysia offers at 100CUCI work best when you read eligibility, choose familiar slots, and graduate to real-money play only after the lobby feels clear. That is the difference between a guided start and a confusing first week.</p>
 ```
 
 ---
 
-### 5) Sportsbook · 建议 slug：`football-betting-malaysia-100cuci`
+## 5) Sportsbook
 
 **分类：** Sportsbook  
-**封面：** 前台已固定，CMS 不用插图
+**建议 slug：** `football-betting-malaysia-100cuci`  
 **标题：** Football Betting Malaysia on 100CUCI Sportsbook  
 **摘要：** How Malaysian fans can approach football markets on 100CUCI with clearer bankroll habits.
 
 **正文：**
 
-```
-Football is the default sportsbook entry for many Malaysian players. On 100CUCI, the edge is not a secret tipster — it is match selection, stake size, and knowing whether your promo allows sports markets.
+```html
+<p>Football is the default sportsbook entry for many Malaysian players. On 100CUCI, the edge is not a secret tipster — it is match selection, stake size, and knowing whether your promo allows sports markets. Treat the sportsbook as a separate budget from slots and live casino.</p>
 
-Pre-match vs live
+<p>Pre-match odds suit players who research line-ups earlier in the day. Live markets move quickly; if your connection is unstable, avoid in-play until you have practised bet-slip confirmation on pre-match tickets. Latency on mobile networks creates rejected slips and emotional re-clicks.</p>
 
-Pre-match odds suit players who research line-ups earlier in the day. Live markets move quickly; if your connection is unstable, avoid in-play until you have practised cash-out and bet-slip confirmation on pre-match tickets.
+<p>Markets to learn first: 1X2 or Asian handicap on big European leagues are enough for week one. Skip exotic player props until you can read settlement rules without guessing. A short menu beats a crowded slip.</p>
 
-Markets to learn first
+<img src="https://www.100cuci.ad/media/e22f2ef8764a6d3b0a117.png" alt="100CUCI betting markets" />
 
-1X2 or Asian handicap on big European leagues are enough for week one. Skip exotic player props until you can read settlement rules without guessing.
+<p>Promo caution: sportsbook free credit or cashback may exclude certain bet types or require minimum odds. If your balance came from a slot campaign, do not assume it clears on football. Open Promotions inside 100CUCI and confirm before kick-off.</p>
 
-Promo caution
+<ul>
+<li>Unit stakes of 1–2% of your sports budget keep a bad weekend from wiping the month.</li>
+<li>Never raise stake size only because a derby “feels safe.”</li>
+<li>Keep one notes file with claimed offers and expiry dates.</li>
+<li>Register and verify OTP before the weekend rush if you plan to deposit.</li>
+</ul>
 
-Sportsbook free credit or cashback may exclude certain bet types or require minimum odds. If your balance came from a slot campaign, do not assume it clears on football.
+<img src="https://www.100cuci.ad/media/5165631054b96399427ff.png" alt="100CUCI sports banking" />
 
-Bankroll
-
-Unit stakes of 1–2% of your sports budget keep a bad weekend from wiping the month. Never raise stake size only because a derby “feels safe.”
-
-Summary
-
-Use 100CUCI sportsbook for football with a small menu of markets, confirmed promo eligibility, and fixed unit size. Register, verify, then place tickets you can explain in one sentence.
+<p>Summary: use the 100CUCI sportsbook for football with a small menu of markets, confirmed promo eligibility, and fixed unit size. Place tickets you can explain in one sentence — that habit survives both wins and losing runs.</p>
 ```
 
 ---
 
-### 6) Sportsbook · 建议 slug：`live-odds-basics-100cuci`
+## 6) Sportsbook
 
 **分类：** Sportsbook  
-**封面：** 前台已固定，CMS 不用插图
+**建议 slug：** `live-odds-basics-100cuci`  
 **标题：** Live Odds Basics for Malaysian Players at 100CUCI  
 **摘要：** Simple live-odds habits before you bet in-play on 100CUCI sportsbook.
 
 **正文：**
 
-```
-Live odds change every few seconds. Without a routine, in-play betting becomes reaction clicking. This guide keeps 100CUCI live sports sessions structured for Malaysian mobile users.
+```html
+<p>Live odds change every few seconds. Without a routine, in-play betting becomes reaction clicking. This guide keeps 100CUCI live sports sessions structured for Malaysian mobile users who already understand basic football markets.</p>
 
-Watch the match state first
+<p>Watch the match state first: score, red cards, and clock matter more than a sudden odds spike. If you are not watching a stream or reliable tracker, prefer pre-match. Blind live betting is how stakes grow without a plan.</p>
 
-Score, red cards, and clock matter more than a sudden odds spike. If you are not watching a stream or reliable tracker, prefer pre-match.
+<p>Slip discipline on 100CUCI:</p>
+<ul>
+<li>Add one selection, confirm stake in RM, then submit.</li>
+<li>Do not edit five legs while odds flicker.</li>
+<li>If the price moves and the slip rejects, re-evaluate — do not instantly accept a worse number out of frustration.</li>
+<li>Confirm whether live bets count toward turnover on your current promo.</li>
+</ul>
 
-Slip discipline
+<img src="https://www.100cuci.ad/media/62f867f8764a68724ee87.png" alt="100CUCI live sports" />
 
-Add one selection, confirm stake in RM, then submit. Editing five legs while odds flicker is how accidental stakes appear.
+<p>Latency matters. Peak-hour mobile networks can delay bet acceptance. Build a personal rule: one bet per game situation, fixed stake, no revenge clicks. Master pre-match tickets first, then add in-play.</p>
 
-Latency
+<img src="https://www.100cuci.ad/media/dd267538764a6356b6583.png" alt="100CUCI session control" />
 
-Mobile networks in peak hours can delay bet acceptance. If the slip rejects because the price moved, do not instantly re-click a worse price out of frustration — re-evaluate.
-
-Promo and settlement
-
-Confirm whether live bets count toward turnover. Some offers weight live markets differently from pre-match.
-
-Close
-
-Live odds on 100CUCI are a tool, not a requirement. Master pre-match tickets first, then add in-play with a written rule: one bet per game situation, fixed stake, no revenge clicks.
+<p>Close: live odds on the 100CUCI sportsbook are a tool, not a requirement. Players who slow down usually keep clearer records — and clearer bankrolls — than those who chase every swing.</p>
 ```
 
 ---
 
-### 7) Lottery · 建议 slug：`4d-lottery-guide-100cuci`
+## 7) Lottery
 
 **分类：** Lottery  
-**封面：** 前台已固定，CMS 不用插图
+**建议 slug：** `4d-lottery-guide-100cuci`  
 **标题：** 4D & Number Games at 100CUCI — Beginner Guide  
 **摘要：** A calm introduction to lottery-style and 4D-style play for new 100CUCI members.
 
 **正文：**
 
-```
-Lottery-style games attract players who prefer draws over spinning reels. At 100CUCI, treat number games as entertainment with a fixed budget — not as a bill-payment plan.
+```html
+<p>Lottery-style games attract players who prefer draws over spinning reels. At 100CUCI, treat number games as entertainment with a fixed budget — not as a bill-payment plan. That mindset is the difference between a hobby and stress.</p>
 
-What to expect
+<p>What to expect: interfaces usually ask you to pick numbers, choose a bet type, and confirm stake before the draw window closes. Read whether results follow a local 4D-style format or a platform-specific draw. If anything on the ticket screen is unclear, ask live chat before confirming.</p>
 
-Interfaces usually ask you to pick numbers, choose a bet type, and confirm stake before the draw window closes. Read whether results follow a local 4D-style format or a platform-specific draw.
+<p>First-session tips for 100CUCI lottery players:</p>
+<ul>
+<li>Use small stakes while learning the ticket screen.</li>
+<li>Note cut-off times so you do not rush mistakes.</li>
+<li>Keep screenshots of confirmed tickets until results post.</li>
+<li>Check whether Promotions include lottery games; many slot credits do not.</li>
+</ul>
 
-First-session tips
+<img src="https://www.100cuci.ad/media/e62a46a7764a6b7535127.png" alt="100CUCI number games" />
 
-1. Use small stakes while learning the ticket screen.
-2. Note cut-off times so you do not rush mistakes.
-3. Keep screenshots of confirmed tickets until results post.
-4. Check whether promos include lottery games; many slot credits do not.
+<p>Responsible play: set a weekly RM cap. Number games can feel “due” after near misses — that feeling is not mathematics. Walk away when the cap is hit. The same wallet often powers casino, slots, and lottery, so a lottery chase can quietly drain a slots budget.</p>
 
-Responsible play
+<img src="https://www.100cuci.ad/media/1ab4589f3219601fbb7cd.png" alt="100CUCI wallet and banking" />
 
-Set a weekly RM cap. Number games can feel “due” after near misses — that feeling is not mathematics. Walk away when the cap is hit.
-
-Banking
-
-Same wallet as casino and slots in most setups. Deposit and withdraw through verified Malaysian methods after turnover rules are satisfied.
-
-Bottom line
-
-Explore 4D-style play at 100CUCI only after registration and with a written budget. Clarity beats superstition.
+<p>Bottom line: explore 4D-style play at 100CUCI only after you Register, verify your account, and write a budget. Clarity beats superstition — every single draw.</p>
 ```
 
 ---
 
-### 8) Lottery · 建议 slug：`lottery-responsible-play-100cuci`
+## 8) Lottery
 
 **分类：** Lottery  
-**封面：** 前台已固定，CMS 不用插图
+**建议 slug：** `lottery-responsible-play-100cuci`  
 **标题：** Responsible Lottery Habits for 100CUCI Members  
 **摘要：** Practical responsible-play rules for lottery players using 100CUCI in Malaysia.
 
 **正文：**
 
-```
-Lottery games are easy to repeat. Responsible habits keep 100CUCI entertainment from turning into stress.
+```html
+<p>Lottery games are easy to repeat. Responsible habits keep 100CUCI entertainment from turning into stress. Adults 18+ who can afford to lose their set budget are the only audience this guide is for.</p>
 
-Rules that work
+<p>Rules that work:</p>
+<ul>
+<li>Decide the weekly budget before you open the lobby.</li>
+<li>Do not reuse rent or bill money.</li>
+<li>Avoid chasing a missed digit with double stakes.</li>
+<li>Take a 24-hour pause after any emotional win or loss.</li>
+</ul>
 
-- Decide the weekly budget before you open the lobby.
-- Do not reuse rent or bill money.
-- Avoid chasing a missed digit with double stakes.
-- Take a 24-hour pause after any emotional win or loss.
+<p>Account hygiene on 100CUCI: enable a strong password, never share OTP, and use official entry links from this site. If you need a break, log out and remove saved passwords from shared phones. Family-shared devices are a common leak point.</p>
 
-Account hygiene
+<img src="https://www.100cuci.ad/media/dd267538764a6356b6583.png" alt="100CUCI lottery reminder" />
 
-Enable a strong password, never share OTP, and use official entry links from this site. If you need a break, log out and remove saved passwords from shared phones.
+<p>When to stop: if you hide play from family, borrow to fund tickets, or feel restless without a daily draw, stop and seek local support resources for gambling harm. No promotion — including free credit no deposit elsewhere on the site — is worth that cost.</p>
 
-When to stop
+<img src="https://www.100cuci.ad/media/5165631054b96399427ff.png" alt="100CUCI player safety" />
 
-If you hide play from family, borrow to fund tickets, or feel restless without a daily draw, stop and seek local support resources for gambling harm.
-
-Summary
-
-100CUCI lottery content is for adults 18+ who can afford to lose their set budget. Play rare, play small, and keep banking transparent.
+<p>Summary: play rare, play small, and keep banking transparent. Responsible lottery habits protect the rest of your 100CUCI experience across casino, slots, and sportsbook.</p>
 ```
 
 ---
 
-### 9) Promotions · 建议 slug：`free-credit-no-deposit-100cuci-guide`
+## 9) Promotions
 
 **分类：** Promotions  
-**封面：** 前台已固定，CMS 不用插图
+**建议 slug：** `free-credit-no-deposit-100cuci-guide`  
 **标题：** Free Credit No Deposit at 100CUCI — New Member Guide 2026  
 **摘要：** What Malaysian new members should verify before claiming free credit no deposit at 100CUCI.
 
 **正文：**
 
-```
-Free credit no deposit is the most searched promo idea in Malaysia’s online casino niche. At 100CUCI, treat every offer as a contract: amount, eligible games, turnover, and max cashout if listed.
+```html
+<p>Free credit no deposit is the most searched promo idea in Malaysia’s online casino niche. At 100CUCI, treat every offer as a contract: amount, eligible games, turnover, and max cashout if listed. Headlines introduce; the Promotions page inside your account decides.</p>
 
-Step-by-step claim flow
+<p>Step-by-step claim flow:</p>
+<ul>
+<li>Register from this site’s Register button.</li>
+<li>Verify OTP.</li>
+<li>Open Promotions inside the platform.</li>
+<li>Claim only one offer you understand end-to-end.</li>
+<li>Play eligible games — often slots, sometimes live casino — until turnover completes.</li>
+<li>Request withdrawal through a verified e-wallet or bank channel.</li>
+</ul>
 
-1. Register from this site’s Register button.
-2. Verify OTP.
-3. Open Promotions inside the platform.
-4. Claim only one offer you understand end-to-end.
-5. Play eligible games until turnover completes.
-6. Request withdrawal through a verified e-wallet or bank channel.
+<p>What “no deposit” does not mean: unlimited cash with no rules. It means you may receive bonus credit without funding first. Wagering still applies unless a campaign explicitly says otherwise. Slot free credit campaigns can look similar but carry different game lists — always read both cards if both appear.</p>
 
-What “no deposit” does not mean
+<img src="https://www.100cuci.ad/media/b0dc9b63d88967e6859cb.webp" alt="100CUCI welcome offers" />
 
-It does not mean unlimited cash with no rules. It means you may receive bonus credit without funding first. Wagering still applies unless a campaign explicitly says otherwise.
+<p>Stacking tips: daily check-in or referral rewards may stack in some periods. Read whether they share turnover with the welcome free credit. When unsure, clear one campaign before opting into another. Mixing unclear offers is the fastest way to freeze a withdrawal.</p>
 
-Stacking tips
+<img src="https://www.100cuci.ad/media/5165631054b96399427ff.png" alt="100CUCI promo checklist" />
 
-Daily check-in or referral rewards may stack in some periods. Read whether they share turnover with the welcome free credit. When unsure, clear one campaign before opting into another.
-
-Final word
-
-Use free credit no deposit at 100CUCI as a structured trial. If terms feel unclear, contact live chat before you spin — questions are cheaper than wasted turnover.
+<p>Final word: use free credit no deposit at 100CUCI as a structured trial for online casino Malaysia play. If terms feel unclear, contact live chat before you spin — questions are cheaper than wasted turnover.</p>
 ```
 
 ---
 
-### 10) Promotions · 建议 slug：`referral-daily-rewards-100cuci`
+## 10) Promotions
 
 **分类：** Promotions  
-**封面：** 前台已固定，CMS 不用插图
+**建议 slug：** `referral-daily-rewards-100cuci`  
 **标题：** Referral & Daily Rewards — Growing Playable Credit at 100CUCI  
 **摘要：** How referral links and daily rewards can add playable credit when campaigns are active at 100CUCI.
 
 **正文：**
 
-```
-Beyond the first welcome credit, 100CUCI may run referral and daily reward mechanics. These are optional growth tools — useful when you already understand the lobby.
+```html
+<p>Beyond the first welcome credit, 100CUCI may run referral and daily reward mechanics. These are optional growth tools — useful when you already understand the lobby across casino, slots, sportsbook, or lottery.</p>
 
-Referral / link-style rewards
+<p>Referral / link-style rewards: if a personal invite link is available, share it only with adults who choose to join. Rewards usually need the friend to Register and meet simple activity rules. Never spam groups with fake “risk-free” promises — that damages trust and can violate promo rules.</p>
 
-If a personal invite link is available, share it only with adults who choose to join. Rewards usually need the friend to register and meet simple activity rules. Never spam groups with fake “risk-free” promises.
+<p>Daily rewards: check-in or daily missions work only if you log in consistently. Missing days often resets streaks. Put a reminder on your phone if you intend to collect — do not stay up late only for a tiny credit amount.</p>
 
-Daily rewards
+<img src="https://www.100cuci.ad/media/f85eb31f3219680b10ca3.gif" alt="100CUCI daily promo" />
 
-Check-in or daily missions work only if you log in consistently. Missing days often resets streaks. Put a reminder on your phone if you intend to collect — do not stay up late only for a tiny credit amount.
+<p>Combining with free credit no deposit:</p>
+<ul>
+<li>Read stacking rules before claiming a second offer.</li>
+<li>Sometimes daily credit is cashable under lighter terms; sometimes it shares wagering.</li>
+<li>Keep a notes file with claim dates and expiry.</li>
+<li>Unused campaigns clutter turnover tracking — disable what you will not finish.</li>
+</ul>
 
-Combining with free credit
+<img src="https://www.100cuci.ad/media/0eae92f8764a601b27c2e.png" alt="100CUCI playable credit" />
 
-Read stacking rules. Sometimes daily credit is cashable under lighter terms; sometimes it shares wagering with other bonuses. Keep a notes file with claim dates.
-
-CTA
-
-Register at 100CUCI, open Promotions, and enable only the rewards you will actually complete. Unused campaigns clutter your turnover tracking.
-
-Close
-
-Referral and daily rewards are slow compounding tools, not jackpots. Pair them with responsible stakes and clear banking habits.
+<p>Close: referral and daily rewards are slow compounding tools, not jackpots. Pair them with responsible stakes and clear banking habits. Register, open Promotions, and enable only the rewards you will actually complete at 100CUCI.</p>
 ```
 
 ---
 
-## C. CMS 操作清单
+## 发完检查
 
-1. 上传 `covers/*.png` 到媒体库  
-2. 发布首页页 `homepage-seo`  
-3. 按上表发 10 篇文章（分类 + 特色图像 + slug）  
-4. 设置 → 100CUCI Site Links 确认 Login/Register  
-5. Vercel Redeploy  
-6. 打开 `https://www.100cuci.ad/articles/casino` 等栏目检查  
-
-若某篇 sync 后没有出现：检查是否**已发布**、分类 slug 是否为 `casino`/`slots`/`sportsbook`/`lottery`/`promotions`（不是中文名当 slug）。
+1. All Posts 里应有 10 篇，分类正确  
+2. 每篇 URL 末段 = 建议 slug  
+3. 等约 1 分钟 → 打开 `https://www.100cuci.ad/articles/casino` 等栏目  
+4. 点进文章：应见封面 + 文中多图 + 关键词可点（如 100CUCI、live casino、Register）
