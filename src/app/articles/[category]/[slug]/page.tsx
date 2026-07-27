@@ -61,7 +61,7 @@ export default async function ArticlePage({ params }: Props) {
           <span>/</span>
           <span>{article.title}</span>
         </nav>
-        <ArticleBody article={article} />
+        <ArticleBody article={article} categorySlug={category.slug} />
         <div className="lp-article-cta">
           <a href={SITE_LINKS.register} className="lp-btn lp-btn-register lp-btn-lg" target="_blank" rel="noopener noreferrer">
             REGISTER NOW — CLAIM FREE RM5

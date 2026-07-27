@@ -1,25 +1,25 @@
 ﻿# 100CUCI CMS 内容包（原创文章 · 原站配图 · 2026-07）
 
-**图片已在前台网站上**（原站克隆的 `public/media`，部署后可直接访问）。  
-你**只需把下面原创文章拷进 CMS**；正文开头已带图片地址，贴进去图就会显示。不用再往 WordPress 媒体库传图。
+**图片已固定在前台网站代码里**（原站 `public/media`，见 `src/config/article-covers.ts`）。  
+你**只需拷贝纯文字文章到 CMS**（标题 + 正文 + 分类 + slug）。  
+**不要**在 WordPress 里再插图、也不用上传媒体库。
 
-发完文章后：等约 **1 分钟**，打开栏目页刷新即可（**不用 git push / Redeploy**）。  
-前台会自动从 WordPress 拉取已发布文章。
+发完文章后：等约 **1 分钟**刷新栏目页即可（不用 git push）。
 
-### 文章配图（线上地址）
+### 固定封面 ↔ 建议 slug（必须一致才会出对应图）
 
-| 文章 | 图片 URL（已在网站） |
-|------|----------------------|
-| Casino 1 | https://www.100cuci.ad/media/b0dc9b63d88967e6859cb.webp |
-| Casino 2 | https://www.100cuci.ad/media/1ab4589f3219601fbb7cd.png |
-| Slots 1 | https://www.100cuci.ad/media/0eae92f8764a601b27c2e.png |
-| Slots 2 | https://www.100cuci.ad/media/cf8789d8764a6e04830fa.png |
-| Sports 1 | https://www.100cuci.ad/media/62f867f8764a68724ee87.png |
-| Sports 2 | https://www.100cuci.ad/media/e22f2ef8764a6d3b0a117.png |
-| Lottery 1 | https://www.100cuci.ad/media/dd267538764a6356b6583.png |
-| Lottery 2 | https://www.100cuci.ad/media/e62a46a7764a6b7535127.png |
-| Promo 1 | https://www.100cuci.ad/media/f85eb31f3219680b10ca3.gif |
-| Promo 2 | https://www.100cuci.ad/media/5165631054b96399427ff.png |
+| 建议 slug | 网站图 |
+|-----------|--------|
+| `live-casino-first-session-100cuci` | `/media/b0dc9b63d88967e6859cb.webp` |
+| `100cuci-casino-banking-withdrawal` | `/media/1ab4589f3219601fbb7cd.png` |
+| `jili-mega888-start-100cuci` | `/media/0eae92f8764a601b27c2e.png` |
+| `slot-free-credit-malaysia-100cuci` | `/media/cf8789d8764a6e04830fa.png` |
+| `football-betting-malaysia-100cuci` | `/media/62f867f8764a68724ee87.png` |
+| `live-odds-basics-100cuci` | `/media/e22f2ef8764a6d3b0a117.png` |
+| `4d-lottery-guide-100cuci` | `/media/dd267538764a6356b6583.png` |
+| `lottery-responsible-play-100cuci` | `/media/e62a46a7764a6b7535127.png` |
+| `free-credit-no-deposit-100cuci-guide` | `/media/f85eb31f3219680b10ca3.gif` |
+| `referral-daily-rewards-100cuci` | `/media/5165631054b96399427ff.png` |
 
 ---
 
@@ -81,8 +81,8 @@ A: Adults 18+ in Malaysia who want English guides before registering at 100CUCI.
 
 ## B. 栏目文章（Posts）
 
-每篇：新建文章 → 标题 → **整段正文（含开头图片）拷贝进去** → 右侧勾选分类 → 发布。  
-不用上传特色图像。  
+每篇：新建文章 → 标题 → **只拷文字正文** → 右侧勾选分类 → 固定链接改成建议 slug → 发布。  
+不用插图、不用上传媒体。  
 **slug**：发布后在固定链接里改成英文小写连字符（见每篇「建议 slug」）。
 
 ---
@@ -90,15 +90,13 @@ A: Adults 18+ in Malaysia who want English guides before registering at 100CUCI.
 ### 1) Casino · 建议 slug：`live-casino-first-session-100cuci`
 
 **分类：** Casino  
-**封面：** 正文开头已含网站图片，无需上传媒体库
+**封面：** 前台已固定，CMS 不用插图
 **标题：** 100CUCI Live Casino Malaysia — First Session Checklist  
 **摘要：** A practical checklist for Malaysian players before opening live tables at 100CUCI.
 
 **正文：**
 
 ```
-<img src="https://www.100cuci.ad/media/b0dc9b63d88967e6859cb.webp" alt="100CUCI live casino" />
-
 Starting live casino at 100CUCI is less about chasing the flashiest table and more about preparing the basics: limits, pace, and how your free credit or deposit will be used.
 
 Before you tap Live Casino
@@ -130,15 +128,13 @@ Live casino at 100CUCI works best when you treat the first night as a systems ch
 ### 2) Casino · 建议 slug：`100cuci-casino-banking-withdrawal`
 
 **分类：** Casino  
-**封面：** 正文开头已含网站图片，无需上传媒体库
+**封面：** 前台已固定，CMS 不用插图
 **标题：** Banking & Withdrawal at 100CUCI Casino — Malaysia Guide  
 **摘要：** How deposits, turnover, and withdrawals typically work for 100CUCI casino players in Malaysia.
 
 **正文：**
 
 ```
-<img src="https://www.100cuci.ad/media/1ab4589f3219601fbb7cd.png" alt="100CUCI banking" />
-
 Clear banking habits matter more than any single baccarat shoe. This guide walks through how Malaysian players usually fund 100CUCI, clear turnover, and request withdrawals without surprises.
 
 Deposits
@@ -167,15 +163,13 @@ Deposit with a familiar Malaysian rail, understand turnover before you chase cas
 ### 3) Slots · 建议 slug：`jili-mega888-start-100cuci`
 
 **分类：** Slots  
-**封面：** 正文开头已含网站图片，无需上传媒体库
+**封面：** 前台已固定，CMS 不用插图
 **标题：** JILI & MEGA888-Style Slots at 100CUCI — New Member Start Guide  
 **摘要：** How new Malaysian members can approach familiar slot brands after registering at 100CUCI.
 
 **正文：**
 
 ```
-<img src="https://www.100cuci.ad/media/0eae92f8764a601b27c2e.png" alt="100CUCI slots" />
-
 Most Malaysian players recognise JILI titles and MEGA888-style games long before they learn a full lobby. At 100CUCI, the smart first week is about finding those familiar names, testing with small stakes, and reading which promos actually cover slots.
 
 After you register
@@ -207,15 +201,13 @@ Start with familiar slot brands at 100CUCI, match promos to slot eligibility, an
 ### 4) Slots · 建议 slug：`slot-free-credit-malaysia-100cuci`
 
 **分类：** Slots  
-**封面：** 正文开头已含网站图片，无需上传媒体库
+**封面：** 前台已固定，CMS 不用插图
 **标题：** Slot Free Credit Malaysia — Using It Wisely at 100CUCI  
 **摘要：** A realistic guide to slot free credit no deposit for Malaysian players on 100CUCI.
 
 **正文：**
 
 ```
-<img src="https://www.100cuci.ad/media/cf8789d8764a6e04830fa.png" alt="100CUCI slot free credit" />
-
 “Slot free credit Malaysia” searches usually mean one thing: can I try games without depositing first? At 100CUCI, the answer depends on the live promotion, not on a social-media screenshot.
 
 What free credit is
@@ -247,15 +239,13 @@ Treat slot free credit at 100CUCI as a tutorial budget with rules attached. Read
 ### 5) Sportsbook · 建议 slug：`football-betting-malaysia-100cuci`
 
 **分类：** Sportsbook  
-**封面：** 正文开头已含网站图片，无需上传媒体库
+**封面：** 前台已固定，CMS 不用插图
 **标题：** Football Betting Malaysia on 100CUCI Sportsbook  
 **摘要：** How Malaysian fans can approach football markets on 100CUCI with clearer bankroll habits.
 
 **正文：**
 
 ```
-<img src="https://www.100cuci.ad/media/62f867f8764a68724ee87.png" alt="100CUCI football" />
-
 Football is the default sportsbook entry for many Malaysian players. On 100CUCI, the edge is not a secret tipster — it is match selection, stake size, and knowing whether your promo allows sports markets.
 
 Pre-match vs live
@@ -284,15 +274,13 @@ Use 100CUCI sportsbook for football with a small menu of markets, confirmed prom
 ### 6) Sportsbook · 建议 slug：`live-odds-basics-100cuci`
 
 **分类：** Sportsbook  
-**封面：** 正文开头已含网站图片，无需上传媒体库
+**封面：** 前台已固定，CMS 不用插图
 **标题：** Live Odds Basics for Malaysian Players at 100CUCI  
 **摘要：** Simple live-odds habits before you bet in-play on 100CUCI sportsbook.
 
 **正文：**
 
 ```
-<img src="https://www.100cuci.ad/media/e22f2ef8764a6d3b0a117.png" alt="100CUCI live odds" />
-
 Live odds change every few seconds. Without a routine, in-play betting becomes reaction clicking. This guide keeps 100CUCI live sports sessions structured for Malaysian mobile users.
 
 Watch the match state first
@@ -321,15 +309,13 @@ Live odds on 100CUCI are a tool, not a requirement. Master pre-match tickets fir
 ### 7) Lottery · 建议 slug：`4d-lottery-guide-100cuci`
 
 **分类：** Lottery  
-**封面：** 正文开头已含网站图片，无需上传媒体库
+**封面：** 前台已固定，CMS 不用插图
 **标题：** 4D & Number Games at 100CUCI — Beginner Guide  
 **摘要：** A calm introduction to lottery-style and 4D-style play for new 100CUCI members.
 
 **正文：**
 
 ```
-<img src="https://www.100cuci.ad/media/dd267538764a6356b6583.png" alt="100CUCI lottery" />
-
 Lottery-style games attract players who prefer draws over spinning reels. At 100CUCI, treat number games as entertainment with a fixed budget — not as a bill-payment plan.
 
 What to expect
@@ -361,15 +347,13 @@ Explore 4D-style play at 100CUCI only after registration and with a written budg
 ### 8) Lottery · 建议 slug：`lottery-responsible-play-100cuci`
 
 **分类：** Lottery  
-**封面：** 正文开头已含网站图片，无需上传媒体库
+**封面：** 前台已固定，CMS 不用插图
 **标题：** Responsible Lottery Habits for 100CUCI Members  
 **摘要：** Practical responsible-play rules for lottery players using 100CUCI in Malaysia.
 
 **正文：**
 
 ```
-<img src="https://www.100cuci.ad/media/e62a46a7764a6b7535127.png" alt="100CUCI responsible play" />
-
 Lottery games are easy to repeat. Responsible habits keep 100CUCI entertainment from turning into stress.
 
 Rules that work
@@ -397,15 +381,13 @@ Summary
 ### 9) Promotions · 建议 slug：`free-credit-no-deposit-100cuci-guide`
 
 **分类：** Promotions  
-**封面：** 正文开头已含网站图片，无需上传媒体库
+**封面：** 前台已固定，CMS 不用插图
 **标题：** Free Credit No Deposit at 100CUCI — New Member Guide 2026  
 **摘要：** What Malaysian new members should verify before claiming free credit no deposit at 100CUCI.
 
 **正文：**
 
 ```
-<img src="https://www.100cuci.ad/media/f85eb31f3219680b10ca3.gif" alt="100CUCI free credit" />
-
 Free credit no deposit is the most searched promo idea in Malaysia’s online casino niche. At 100CUCI, treat every offer as a contract: amount, eligible games, turnover, and max cashout if listed.
 
 Step-by-step claim flow
@@ -435,15 +417,13 @@ Use free credit no deposit at 100CUCI as a structured trial. If terms feel uncle
 ### 10) Promotions · 建议 slug：`referral-daily-rewards-100cuci`
 
 **分类：** Promotions  
-**封面：** 正文开头已含网站图片，无需上传媒体库
+**封面：** 前台已固定，CMS 不用插图
 **标题：** Referral & Daily Rewards — Growing Playable Credit at 100CUCI  
 **摘要：** How referral links and daily rewards can add playable credit when campaigns are active at 100CUCI.
 
 **正文：**
 
 ```
-<img src="https://www.100cuci.ad/media/5165631054b96399427ff.png" alt="100CUCI referral" />
-
 Beyond the first welcome credit, 100CUCI may run referral and daily reward mechanics. These are optional growth tools — useful when you already understand the lobby.
 
 Referral / link-style rewards
