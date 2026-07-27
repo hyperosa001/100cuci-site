@@ -30,7 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = getCategory(categorySlug);
   if (!category) return {};
 
-  const page = normalizePageNumber(Number(pageParam), getCategoryTotalPages(category));
+  const page = normalizePageNumber(
+    Number(pageParam),
+    getCategoryTotalPages(category),
+  );
 
   return {
     title: `${category.title} — Page ${page} | 100CUCI Malaysia`,

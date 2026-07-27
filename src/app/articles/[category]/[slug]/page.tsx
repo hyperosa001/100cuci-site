@@ -13,7 +13,7 @@ import { articleUrl, getAllArticlePaths, getArticle } from "@/lib/content";
 
 type Props = { params: Promise<{ category: string; slug: string }> };
 
-/** 允许未在构建时预生成的文章路径，新增文章部署后不会 404 */
+/** 允许未在构建时预生成的文章路径（下次 build sync 后会纳入静态） */
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
@@ -25,9 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const result = getArticle(category, slug);
   if (!result) return {};
 
+  const title = result.article.yoastTitle ?? result.article.title;
+  const description =
+    result.article.yoastDescription ?? result.article.excerpt;
+
   return {
-    title: `${result.article.title} | 100CUCI`,
-    description: result.article.excerpt,
+    title: `${title} | 100CUCI`,
+    description,
     alternates: {
       canonical: `${SITE_URL}${articleUrl(category, slug)}`,
     },

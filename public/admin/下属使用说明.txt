@@ -1,22 +1,18 @@
-100CUCI 内容后台 — 下属使用说明
+100CUCI 内容后台说明
 ================================
 
-1. 打开：https://www.100cuci.ad/admin
-2. 登录 GitHub（二选一）：
-   - 优先：点页面底部「GitHub 登录（推荐）」
-   - 或：点 CMS 里的「Login with GitHub」
-3. 若浏览器提示「拦截弹出窗口」→ 点允许，然后重试
-4. 在弹出的小窗口里完成 GitHub 授权，小窗口会自动关闭
-5. 用公司给的 GitHub 账号，并在邮件/GitHub 通知里 Accept 仓库邀请
-6. 左侧选要改的内容 → 改完点 Publish → 等 2～3 分钟部署
+【栏目文章】请用 WordPress（不要用本页发栏目文）
+详见项目文档：docs/WORDPRESS_CMS.md
 
-可改内容：
-- 站点按钮链接 → Register / Login 跳转地址
+1. 登录 WordPress 后台
+2. 写文章 → 勾选分类（casino / slots / sportsbook / lottery / promotions）
+3. 发布 → 约 1 分钟后出现在 https://www.100cuci.ad
+
+【本页 /admin 仍可改】
+- 站点按钮链接 → Register / Login
 - 主页 SEO → 首页底部文章与 FAQ
-- 栏目文章 → 各栏目下的文章
 
-注意：
-- 必须用 https://www.100cuci.ad/admin
-- 不要用「当前窗口跳转」—— 必须用弹出小窗口完成登录
-- 新文章 slug 用英文小写+连字符，例如 my-new-article
-- 不要改已有文章的 slug，否则旧链接会 404
+登录本页：
+1. 打开：https://www.100cuci.ad/admin
+2. GitHub 登录（弹出小窗口授权）
+3. 改完点 Publish → 等 2～3 分钟部署

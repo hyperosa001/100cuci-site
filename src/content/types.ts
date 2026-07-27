@@ -29,8 +29,13 @@ export type Article = {
   title: string;
   excerpt: string;
   updatedAt: string;
+  /** WordPress HTML body (from sync) */
+  html?: string;
   paragraphs?: string[];
   list?: string[];
+  /** Yoast SEO (from sync yoast_head_json) */
+  yoastTitle?: string;
+  yoastDescription?: string;
 };
 
 export type Category = {

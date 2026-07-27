@@ -11,16 +11,25 @@ export function ArticleBody({ article }: { article: Article }) {
       <h1>{article.title}</h1>
       <p className="lp-article-excerpt">{article.excerpt}</p>
 
-      {article.paragraphs?.map((paragraph, index) => (
-        <p key={`${article.slug}-p-${index}`}>{paragraph}</p>
-      ))}
-
-      {article.list && (
-        <ul>
-          {article.list.map((item, index) => (
-            <li key={`${article.slug}-li-${index}`}>{item}</li>
+      {article.html ? (
+        <div
+          className="lp-article-html"
+          dangerouslySetInnerHTML={{ __html: article.html }}
+        />
+      ) : (
+        <>
+          {article.paragraphs?.map((paragraph, index) => (
+            <p key={`${article.slug}-p-${index}`}>{paragraph}</p>
           ))}
-        </ul>
+
+          {article.list && (
+            <ul>
+              {article.list.map((item, index) => (
+                <li key={`${article.slug}-li-${index}`}>{item}</li>
+              ))}
+            </ul>
+          )}
+        </>
       )}
     </article>
   );
@@ -37,6 +46,14 @@ export function CategoryArticleList({
   currentPage: number;
   totalPages: number;
 }) {
+  if (category.articles.length === 0) {
+    return (
+      <p className="lp-article-empty">
+        No articles yet. Publish in WordPress, then rebuild / Redeploy.
+      </p>
+    );
+  }
+
   return (
     <>
       <p className="lp-article-count">
