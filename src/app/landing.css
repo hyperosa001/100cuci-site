@@ -127,6 +127,22 @@
   line-height: 1.7;
   color: var(--lp-text-soft);
   margin-bottom: 24px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--lp-blue);
+  background: #f5f8fc;
+  border-radius: 0 8px 8px 0;
+}
+
+.lp-article-html .lp-summary {
+  margin: 28px 0 8px;
+  padding: 16px 18px;
+  background: #f5f8fc;
+  border: 1px solid #d9e4f2;
+  border-radius: 10px;
+}
+
+.lp-article-html .lp-summary h2 {
+  margin-top: 0;
 }
 
 .lp-breadcrumb {

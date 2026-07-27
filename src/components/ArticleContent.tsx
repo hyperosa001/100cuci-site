@@ -6,7 +6,7 @@ import { getArticleCover } from "@/config/article-covers";
 import { SITE_LINKS } from "@/config/site-links";
 import { KEYWORD_LINKS } from "@/content/keyword-links";
 import type { Article, Category } from "@/content/types";
-import { estimateReadMinutes, linkifyHtml } from "@/lib/linkify-html";
+import { estimateReadMinutes, linkifyHtml, scrubCmsHtml } from "@/lib/linkify-html";
 
 function stripLeadingImgs(html: string): string {
   return html.replace(
@@ -17,7 +17,7 @@ function stripLeadingImgs(html: string): string {
 
 /** 去掉与封面相同的图，避免文章里出现两张一样的 */
 function stripDuplicateCoverImgs(html: string, coverPath?: string): string {
-  let next = stripLeadingImgs(html);
+  let next = stripLeadingImgs(scrubCmsHtml(html));
   if (!coverPath) return next;
 
   const file = coverPath.split("/").pop();
