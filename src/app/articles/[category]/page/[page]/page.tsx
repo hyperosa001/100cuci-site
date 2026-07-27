@@ -9,6 +9,7 @@ import {
 import { SiteHeader } from "@/components/SiteHeader";
 import { SITE_URL } from "@/config/site";
 import {
+  CONTENT_REVALIDATE_SECONDS,
   categoryUrl,
   getAllCategoryPagePaths,
   getCategory,
@@ -19,6 +20,7 @@ import {
 
 type Props = { params: Promise<{ category: string; page: string }> };
 
+export const revalidate = CONTENT_REVALIDATE_SECONDS;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
@@ -27,7 +29,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category: categorySlug, page: pageParam } = await params;
-  const category = getCategory(categorySlug);
+  const category = await getCategory(categorySlug);
   if (!category) return {};
 
   const page = normalizePageNumber(
@@ -44,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryPagedPage({ params }: Props) {
   const { category: categorySlug, page: pageParam } = await params;
-  const category = getCategory(categorySlug);
+  const category = await getCategory(categorySlug);
   if (!category) notFound();
 
   const parsedPage = Number(pageParam);

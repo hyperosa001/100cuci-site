@@ -33,7 +33,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "check": "npm run lint && npm run typecheck && npm run build",
-    "prebuild": "node scripts/sync-wp-content.mjs",
+    "sync:wp": "node scripts/sync-wp-content.mjs",
     "cms:local": "npx decap-server",
     "package:plugin": "node scripts/package-plugin.mjs",
     "package": "npm run package:plugin"

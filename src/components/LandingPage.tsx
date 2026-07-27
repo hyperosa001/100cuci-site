@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { MobileRegisterBar, SiteFooter } from "@/components/ArticleContent";
 import { SITE_LINKS } from "@/config/site-links";
-import { getAllCategories } from "@/lib/content";
+import type { Category } from "@/content/types";
 import {
   SEO_CUCI_LINK_EXTERNAL,
   SEO_CUCI_LINK_HREF,
@@ -49,8 +49,7 @@ function RegisterLink({
   );
 }
 
-export function LandingPage() {
-  const categories = getAllCategories();
+export function LandingPage({ categories }: { categories: Category[] }) {
   const seoLinkState = { seen: 0 };
   const seoTexts = collectHomepageSeoTexts(SEO_SECTIONS, SEO_FAQ);
   const total100Cuci = count100CuciMatches(seoTexts);

@@ -9,6 +9,7 @@ import {
 import { SiteHeader } from "@/components/SiteHeader";
 import { SITE_URL } from "@/config/site";
 import {
+  CONTENT_REVALIDATE_SECONDS,
   categoryUrl,
   getAllCategories,
   getCategory,
@@ -17,15 +18,17 @@ import {
 
 type Props = { params: Promise<{ category: string }> };
 
+export const revalidate = CONTENT_REVALIDATE_SECONDS;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  return getAllCategories().map((category) => ({ category: category.slug }));
+  const categories = await getAllCategories();
+  return categories.map((category) => ({ category: category.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category: categorySlug } = await params;
-  const category = getCategory(categorySlug);
+  const category = await getCategory(categorySlug);
   if (!category) return {};
 
   return {
@@ -37,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryPage({ params }: Props) {
   const { category: categorySlug } = await params;
-  const category = getCategory(categorySlug);
+  const category = await getCategory(categorySlug);
   if (!category) notFound();
 
   const { page, totalPages, articles } = getCategoryArticlesPage(category, 1);

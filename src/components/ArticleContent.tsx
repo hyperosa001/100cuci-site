@@ -49,7 +49,7 @@ export function CategoryArticleList({
   if (category.articles.length === 0) {
     return (
       <p className="lp-article-empty">
-        No articles yet. Publish in WordPress, then rebuild / Redeploy.
+        No articles yet. Publish in WordPress CMS — they appear here within about 1 minute.
       </p>
     );
   }

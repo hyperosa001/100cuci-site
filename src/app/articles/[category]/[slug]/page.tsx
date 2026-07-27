@@ -9,11 +9,16 @@ import {
 import { SiteHeader } from "@/components/SiteHeader";
 import { SITE_LINKS } from "@/config/site-links";
 import { SITE_URL } from "@/config/site";
-import { articleUrl, getAllArticlePaths, getArticle } from "@/lib/content";
+import {
+  CONTENT_REVALIDATE_SECONDS,
+  articleUrl,
+  getAllArticlePaths,
+  getArticle,
+} from "@/lib/content";
 
 type Props = { params: Promise<{ category: string; slug: string }> };
 
-/** 允许未在构建时预生成的文章路径（下次 build sync 后会纳入静态） */
+export const revalidate = CONTENT_REVALIDATE_SECONDS;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
@@ -22,7 +27,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, slug } = await params;
-  const result = getArticle(category, slug);
+  const result = await getArticle(category, slug);
   if (!result) return {};
 
   const title = result.article.yoastTitle ?? result.article.title;
@@ -40,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticlePage({ params }: Props) {
   const { category: categorySlug, slug } = await params;
-  const result = getArticle(categorySlug, slug);
+  const result = await getArticle(categorySlug, slug);
   if (!result) notFound();
 
   const { category, article } = result;

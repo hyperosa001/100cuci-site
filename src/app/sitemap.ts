@@ -7,7 +7,7 @@ import {
   getCategoryTotalPages,
 } from "@/lib/content";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const home = {
     url: SITE_URL,
@@ -16,7 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1,
   };
 
-  const categoryPages = getAllCategories().flatMap((category) => {
+  const categories = await getAllCategories();
+  const categoryPages = categories.flatMap((category) => {
     const totalPages = getCategoryTotalPages(category);
     return Array.from({ length: totalPages }, (_, index) => ({
       url: `${SITE_URL}${categoryUrl(category.slug, index + 1)}`,
@@ -26,7 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
   });
 
-  const articlePages = getAllArticlePaths().map(({ category, slug }) => ({
+  const articlePaths = await getAllArticlePaths();
+  const articlePages = articlePaths.map(({ category, slug }) => ({
     url: `${SITE_URL}/articles/${category}/${slug}`,
     lastModified: now,
     changeFrequency: "weekly" as const,
