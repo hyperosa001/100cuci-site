@@ -1,11 +1,6 @@
 import { ARTICLES_PER_PAGE } from "@/config/content";
 import type { Article, Category } from "@/content/types";
-import {
-  CONTENT_REVALIDATE_SECONDS,
-  fetchCategoriesLive,
-} from "@/lib/wordpress";
-
-export { CONTENT_REVALIDATE_SECONDS };
+import { fetchCategoriesLive } from "@/lib/wordpress";
 
 export async function getAllCategories(): Promise<Category[]> {
   return fetchCategoriesLive();

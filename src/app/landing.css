@@ -167,8 +167,6 @@
   object-fit: cover;
   display: block;
 }
-  color: var(--lp-text);
-}
 
 .lp-article-card:hover {
   border-color: var(--lp-gold);

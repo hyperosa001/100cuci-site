@@ -9,7 +9,6 @@ import {
 import { SiteHeader } from "@/components/SiteHeader";
 import { SITE_URL } from "@/config/site";
 import {
-  CONTENT_REVALIDATE_SECONDS,
   categoryUrl,
   getAllCategories,
   getCategory,
@@ -18,7 +17,7 @@ import {
 
 type Props = { params: Promise<{ category: string }> };
 
-export const revalidate = CONTENT_REVALIDATE_SECONDS;
+export const revalidate = 60;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {

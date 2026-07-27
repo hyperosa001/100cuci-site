@@ -10,7 +10,6 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SITE_LINKS } from "@/config/site-links";
 import { SITE_URL } from "@/config/site";
 import {
-  CONTENT_REVALIDATE_SECONDS,
   articleUrl,
   getAllArticlePaths,
   getArticle,
@@ -18,7 +17,7 @@ import {
 
 type Props = { params: Promise<{ category: string; slug: string }> };
 
-export const revalidate = CONTENT_REVALIDATE_SECONDS;
+export const revalidate = 60;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
