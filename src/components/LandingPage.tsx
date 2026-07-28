@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { MobileRegisterBar, SiteFooter } from "@/components/ArticleContent";
+import { CATEGORY_COVERS } from "@/config/article-covers";
 import { SITE_LINKS } from "@/config/site-links";
 import type { Category } from "@/content/types";
 import {
@@ -19,15 +20,23 @@ import {
 
 const REGISTER = SITE_LINKS.register;
 
+/** Hot game thumbs from origin CDN — avoid World Cup / tiny category icons */
 const HOT_GAMES = [
-  "/media/0eae92f8764a601b27c2e.png",
-  "/media/62f867f8764a68724ee87.png",
-  "/media/e22f2ef8764a6d3b0a117.png",
-  "/media/cf8789d8764a6e04830fa.png",
-  "/media/675f046b521960cbf355d.png",
-  "/media/68307716f769627cd0efd.png",
-  "/media/b1ebdc6b521963aa4ff72.png",
-  "/media/9042727b52196a5bc5d90.png",
+  { src: "/media/0eae92f8764a601b27c2e.png", alt: "Muscle Fortune Cat slot" },
+  { src: "/media/62f867f8764a68724ee87.png", alt: "DJ Boom Boom slot" },
+  { src: "/media/e22f2ef8764a6d3b0a117.png", alt: "Super Elements 2 slot" },
+  { src: "/media/ba426dcef62a678dcc70a.webp", alt: "Super Gems 100 slot" },
+  { src: "/media/f01511fb45d9650f4c841.png", alt: "Fastspin slot game" },
+  { src: "/media/689de2def62a6bad84fc6.webp", alt: "Rage of Rex 2 slot" },
+  { src: "/media/24174c823fa9681119cd8.jpg", alt: "100CUCI slots lobby" },
+  { src: "/media/01a587def62a6abcb8a32.jpg", alt: "100CUCI game lobby" },
+];
+
+const STEPS = [
+  "Register & verify OTP",
+  "Claim free credit no deposit",
+  "Play eligible games",
+  "Withdraw via e-wallet / FPX",
 ];
 
 function RegisterLink({
@@ -66,18 +75,25 @@ export function LandingPage({ categories }: { categories: Category[] }) {
 
       <div className="lp-marquee">
         <span>
-          100CUCI | Minimum Deposit RM1 | Free Credit No Deposit | New Member RM5 Free | 24 Hours Service | Safe &amp; Fast Withdrawal | JILI · MEGA888 · PRAGMATIC PLAY ·&nbsp;
-          100CUCI | Minimum Deposit RM1 | Free Credit No Deposit | New Member RM5 Free | 24 Hours Service | Safe &amp; Fast Withdrawal | JILI · MEGA888 · PRAGMATIC PLAY ·&nbsp;
+          100CUCI | Minimum Deposit RM1 | Free Credit No Deposit | New Member RM5
+          Free | 24 Hours Service | Safe &amp; Fast Withdrawal | JILI · MEGA888 ·
+          PRAGMATIC PLAY ·&nbsp; 100CUCI | Minimum Deposit RM1 | Free Credit No
+          Deposit | New Member RM5 Free | 24 Hours Service | Safe &amp; Fast
+          Withdrawal | JILI · MEGA888 · PRAGMATIC PLAY ·&nbsp;
         </span>
       </div>
 
       <section className="lp-hero">
         <div className="lp-hero-banner">
-          <img src="/media/b0dc9b63d88967e6859cb.webp" alt="100CUCI Welcome Bonus" />
+          <img
+            src="/media/b0dc9b63d88967e6859cb.webp"
+            alt="100CUCI Syarikat Cuci welcome — free credit no deposit for new members"
+          />
         </div>
         <h1>100CUCI | Free Credit No Deposit New Member Malaysia</h1>
         <p className="lp-hero-sub">
-          Malaysia&apos;s trusted online casino platform. Register now to claim your free credit and start playing top slot games instantly.
+          Online casino Malaysia play with local banking, slot free credit
+          campaigns when live, and a clear Register → claim → withdraw path.
         </p>
         <RegisterLink className="lp-btn lp-btn-register lp-btn-lg">
           REGISTER NOW — PLAY FREE
@@ -103,20 +119,46 @@ export function LandingPage({ categories }: { categories: Category[] }) {
         </div>
       </div>
 
-      <section className="lp-section">
-        <img src="/media/1ab4589f3219601fbb7cd.png" alt="Payment methods" style={{ width: "100%", borderRadius: 12 }} />
+      <section className="lp-section lp-home-pay">
+        <h2 className="lp-section-title">Malaysian Banking Rails</h2>
+        <img
+          className="lp-home-banner"
+          src="/media/5165631054b96399427ff.png"
+          alt="100CUCI accepts Malaysia banks, e-wallets, FPX and more"
+        />
+        <img
+          className="lp-home-banner lp-home-banner-strip"
+          src="/media/1ab4589f3219601fbb7cd.png"
+          alt="Safe and fast withdrawal — we accept most payment methods"
+        />
       </section>
 
       <section className="lp-section lp-categories">
-        <h2 className="lp-section-title">Explore 100CUCI</h2>
+        <h2 className="lp-section-title">Explore 100CUCI Guides</h2>
         <div className="lp-category-grid">
-          {categories.map((category) => (
-            <Link key={category.slug} href={`/articles/${category.slug}`} className="lp-category-card">
-              <h3>{category.title}</h3>
-              <p>{category.description}</p>
-              <span>{category.articles.length} articles →</span>
-            </Link>
-          ))}
+          {categories.map((category) => {
+            const cover = CATEGORY_COVERS[category.slug];
+            return (
+              <Link
+                key={category.slug}
+                href={`/articles/${category.slug}`}
+                className="lp-category-card"
+              >
+                {cover ? (
+                  <img
+                    src={cover}
+                    alt=""
+                    className="lp-category-card-cover"
+                  />
+                ) : null}
+                <h3>{category.title}</h3>
+                <p>{category.description}</p>
+                <span>
+                  {category.articles.length} articles · Read More →
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
@@ -126,9 +168,9 @@ export function LandingPage({ categories }: { categories: Category[] }) {
           HOT GAMES — Register to Play
         </h2>
         <div className="lp-games">
-          {HOT_GAMES.map((src) => (
-            <RegisterLink key={src} className="lp-game-card">
-              <img src={src} alt="Hot game" />
+          {HOT_GAMES.map((game) => (
+            <RegisterLink key={game.src} className="lp-game-card">
+              <img src={game.src} alt={game.alt} />
             </RegisterLink>
           ))}
         </div>
@@ -139,9 +181,24 @@ export function LandingPage({ categories }: { categories: Category[] }) {
         </div>
       </section>
 
+      <section className="lp-section lp-home-steps">
+        <h2 className="lp-section-title">Start in Four Steps</h2>
+        <ol className="lp-steps">
+          {STEPS.map((step, index) => (
+            <li key={step}>
+              <span className="lp-step-num">{index + 1}</span>
+              <span>{step}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       <section className="lp-section">
         <div className="lp-promo">
-          <img src="/media/f85eb31f3219680b10ca3.gif" alt="10% Weekly Commission" />
+          <img
+            src="/media/f85eb31f3219680b10ca3.gif"
+            alt="100CUCI weekly commission and ongoing rewards"
+          />
         </div>
         <RegisterLink className="lp-btn lp-btn-register lp-btn-lg lp-promo-btn">
           REGISTER &amp; GET COMMISSION
@@ -153,15 +210,24 @@ export function LandingPage({ categories }: { categories: Category[] }) {
         <div className="lp-features">
           <div className="lp-feature">
             <h3>Free Credit No Deposit</h3>
-            <p>New members receive RM5 free credit instantly after registration — no deposit required to start playing.</p>
+            <p>
+              New members can claim a small welcome credit after Register and OTP
+              when the campaign is live — use it to learn the lobby first.
+            </p>
           </div>
           <div className="lp-feature">
             <h3>30+ Game Providers</h3>
-            <p>Play JILI, MEGA888, Pragmatic Play, PG Soft, Evolution and more — all accessible after you register.</p>
+            <p>
+              Slots, live casino, sportsbook and more — JILI, MEGA888-style
+              rooms, Pragmatic Play, PG Soft and other studios when listed.
+            </p>
           </div>
           <div className="lp-feature">
             <h3>Safe &amp; Fast Withdrawal</h3>
-            <p>Bank-grade SSL encryption. Withdraw via Touch n Go, GrabPay, FPX within 15–30 minutes.</p>
+            <p>
+              Local rails such as Touch n Go, GrabPay and FPX. Many payouts
+              finish in roughly 15–30 minutes after eligible turnover clears.
+            </p>
           </div>
         </div>
       </section>
@@ -172,7 +238,12 @@ export function LandingPage({ categories }: { categories: Category[] }) {
         </RegisterLink>
         <p className="lp-cta-note">
           Already a member?{" "}
-          <a href={SITE_LINKS.login} target="_blank" rel="noopener noreferrer" className="lp-cta-link">
+          <a
+            href={SITE_LINKS.login}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lp-cta-link"
+          >
             Log in here
           </a>
         </p>
@@ -188,14 +259,14 @@ export function LandingPage({ categories }: { categories: Category[] }) {
                 <HomepageSeoText text={section.title} {...seoLinkProps} />
               </h2>
               {section.paragraphs?.map((p) => (
-                <p key={p.slice(0, 40)}>
+                <p key={p.slice(0, 48)}>
                   <HomepageSeoText text={p} {...seoLinkProps} />
                 </p>
               ))}
               {section.list && (
                 <ul>
                   {section.list.map((item) => (
-                    <li key={item.slice(0, 40)}>
+                    <li key={item.slice(0, 48)}>
                       <HomepageSeoText text={item} {...seoLinkProps} />
                     </li>
                   ))}
@@ -227,7 +298,9 @@ export function LandingPage({ categories }: { categories: Category[] }) {
       <SiteFooter
         cta={
           <p className="lp-footer-cta">
-            <RegisterLink className="lp-btn lp-btn-register">REGISTER NOW</RegisterLink>
+            <RegisterLink className="lp-btn lp-btn-register">
+              REGISTER NOW
+            </RegisterLink>
           </p>
         }
       />

@@ -20,7 +20,7 @@ export const ARTICLE_COVERS: Record<string, string> = {
 export const CATEGORY_COVERS: Record<string, string> = {
   casino: "/media/7a68e80182196c00919f4.png",
   slots: "/media/62f867f8764a68724ee87.png",
-  sportsbook: "/media/18008343353a64f8a4481.png",
+  sportsbook: "/media/a2629340ed2a69e4fa4c7.webp",
   lottery: "/media/125476a9d51965d355fb4.png",
   promotions: "/media/b0dc9b63d88967e6859cb.webp",
 };
