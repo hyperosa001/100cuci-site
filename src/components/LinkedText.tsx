@@ -1,5 +1,8 @@
 import type { ReactNode } from "react";
-import { KEYWORD_LINKS } from "@/content/keyword-links";
+import {
+  KEYWORD_LINKS,
+  KEYWORD_MAX_PER_ARTICLE,
+} from "@/content/keyword-links";
 import type { KeywordLink } from "@/content/types";
 
 type Segment =
@@ -10,40 +13,51 @@ function escapeRegex(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function applyKeywordLinks(text: string, links: KeywordLink[]): Segment[] {
+/** 每个关键词只链第一次；全文最多 maxLinks 个 */
+function applyKeywordLinks(
+  text: string,
+  links: KeywordLink[],
+  maxLinks: number,
+): Segment[] {
   let segments: Segment[] = [{ type: "text", value: text }];
   const sorted = [...links].sort((a, b) => b.keyword.length - a.keyword.length);
+  let linked = 0;
 
   for (const link of sorted) {
+    if (linked >= maxLinks) break;
+
     const next: Segment[] = [];
-    const pattern = new RegExp(escapeRegex(link.keyword), "gi");
+    const pattern = new RegExp(escapeRegex(link.keyword), "i");
+    let placed = false;
 
     for (const segment of segments) {
-      if (segment.type !== "text") {
+      if (segment.type !== "text" || placed) {
         next.push(segment);
         continue;
       }
 
-      let lastIndex = 0;
-      let match: RegExpExecArray | null;
       const source = segment.value;
-
-      while ((match = pattern.exec(source)) !== null) {
-        if (match.index > lastIndex) {
-          next.push({ type: "text", value: source.slice(lastIndex, match.index) });
-        }
-        next.push({
-          type: "link",
-          value: match[0],
-          href: link.href,
-          external: link.external,
-        });
-        lastIndex = match.index + match[0].length;
+      const match = source.match(pattern);
+      if (!match || match.index === undefined) {
+        next.push(segment);
+        continue;
       }
 
-      if (lastIndex < source.length) {
-        next.push({ type: "text", value: source.slice(lastIndex) });
+      if (match.index > 0) {
+        next.push({ type: "text", value: source.slice(0, match.index) });
       }
+      next.push({
+        type: "link",
+        value: match[0],
+        href: link.href,
+        external: link.external,
+      });
+      const end = match.index + match[0].length;
+      if (end < source.length) {
+        next.push({ type: "text", value: source.slice(end) });
+      }
+      placed = true;
+      linked += 1;
     }
 
     segments = next.length > 0 ? next : segments;
@@ -55,13 +69,15 @@ function applyKeywordLinks(text: string, links: KeywordLink[]): Segment[] {
 export function LinkedText({
   text,
   links = KEYWORD_LINKS,
+  maxLinks = KEYWORD_MAX_PER_ARTICLE,
   className,
 }: {
   text: string;
   links?: KeywordLink[];
+  maxLinks?: number;
   className?: string;
 }) {
-  const segments = applyKeywordLinks(text, links);
+  const segments = applyKeywordLinks(text, links, maxLinks);
 
   const nodes: ReactNode[] = segments.map((segment, index) => {
     if (segment.type === "text") {

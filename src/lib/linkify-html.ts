@@ -47,8 +47,13 @@ function matchInPlainText(
 
 /**
  * 给纯文本段落加关键词链接；跳过已有 <a> 内文本与标签属性。
+ * 每个关键词最多链一次；全文最多 maxLinks 个（栏目文章默认 2）。
  */
-export function linkifyHtml(html: string, links: KeywordLink[]): string {
+export function linkifyHtml(
+  html: string,
+  links: KeywordLink[],
+  maxLinks = 2,
+): string {
   const cleaned = scrubCmsHtml(html);
   const sorted = [...links].sort((a, b) => b.keyword.length - a.keyword.length);
   const used = new Set<string>();
@@ -84,6 +89,8 @@ export function linkifyHtml(html: string, links: KeywordLink[]): string {
     let text = cleaned.slice(i, nextTag);
 
     for (const link of sorted) {
+      if (used.size >= maxLinks) break;
+
       const key = link.keyword.toLowerCase();
       if (used.has(key)) continue;
 

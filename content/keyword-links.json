@@ -1,4 +1,5 @@
 {
+  "maxPerArticle": 2,
   "links": [
     {
       "keyword": "online casino Malaysia",
@@ -12,5 +13,12 @@
       "keyword": "free credit no deposit",
       "href": "/articles/promotions/free-credit-no-deposit-at-100cuci-new-member-guide-2026"
     }
-  ]
+  ],
+  "byCategory": {
+    "casino": ["online casino Malaysia", "free credit no deposit"],
+    "slots": ["slot free credit", "free credit no deposit"],
+    "sportsbook": ["online casino Malaysia", "free credit no deposit"],
+    "lottery": ["free credit no deposit", "online casino Malaysia"],
+    "promotions": ["free credit no deposit", "slot free credit"]
+  }
 }

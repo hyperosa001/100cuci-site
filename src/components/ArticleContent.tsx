@@ -4,7 +4,7 @@ import { ArticlePagination } from "@/components/ArticlePagination";
 import { LinkedText } from "@/components/LinkedText";
 import { getArticleCover } from "@/config/article-covers";
 import { SITE_LINKS } from "@/config/site-links";
-import { KEYWORD_LINKS } from "@/content/keyword-links";
+import { getKeywordLinksForCategory, KEYWORD_MAX_PER_ARTICLE } from "@/content/keyword-links";
 import type { Article, Category } from "@/content/types";
 import { estimateReadMinutes, linkifyHtml, scrubCmsHtml } from "@/lib/linkify-html";
 
@@ -104,10 +104,12 @@ export function ArticleBody({
 }) {
   const cover = getArticleCover(article.slug, categorySlug);
   const minutes = estimateReadMinutes(articlePlainText(article));
+  const keywordLinks = getKeywordLinksForCategory(categorySlug);
   const linkedHtml = article.html
     ? linkifyHtml(
         stripDuplicateCoverImgs(article.html, cover, article.slug),
-        KEYWORD_LINKS,
+        keywordLinks,
+        KEYWORD_MAX_PER_ARTICLE,
       )
     : null;
 
@@ -121,7 +123,7 @@ export function ArticleBody({
       </p>
       <h1>{article.title}</h1>
       <p className="lp-article-excerpt">
-        <LinkedText text={article.excerpt} />
+        <LinkedText text={article.excerpt} links={keywordLinks} />
       </p>
 
       {linkedHtml ? (
@@ -133,7 +135,7 @@ export function ArticleBody({
         <>
           {article.paragraphs?.map((paragraph, index) => (
             <p key={`${article.slug}-p-${index}`}>
-              <LinkedText text={paragraph} />
+              <LinkedText text={paragraph} links={keywordLinks} />
             </p>
           ))}
 
@@ -141,7 +143,7 @@ export function ArticleBody({
             <ul>
               {article.list.map((item, index) => (
                 <li key={`${article.slug}-li-${index}`}>
-                  <LinkedText text={item} />
+                  <LinkedText text={item} links={keywordLinks} />
                 </li>
               ))}
             </ul>
