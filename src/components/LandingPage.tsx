@@ -20,16 +20,80 @@ import {
 
 const REGISTER = SITE_LINKS.register;
 
-/** Hot game thumbs from origin CDN — avoid World Cup / tiny category icons */
+/** Origin CDN portrait game thumbs — marquee like 100cuci.com Hot Games */
 const HOT_GAMES = [
-  { src: "/media/0eae92f8764a601b27c2e.png", alt: "Muscle Fortune Cat slot" },
-  { src: "/media/62f867f8764a68724ee87.png", alt: "DJ Boom Boom slot" },
-  { src: "/media/e22f2ef8764a6d3b0a117.png", alt: "Super Elements 2 slot" },
-  { src: "/media/ba426dcef62a678dcc70a.webp", alt: "Super Gems 100 slot" },
-  { src: "/media/f01511fb45d9650f4c841.png", alt: "Fastspin slot game" },
-  { src: "/media/689de2def62a6bad84fc6.webp", alt: "Rage of Rex 2 slot" },
-  { src: "/media/24174c823fa9681119cd8.jpg", alt: "100CUCI slots lobby" },
-  { src: "/media/01a587def62a6abcb8a32.jpg", alt: "100CUCI game lobby" },
+  {
+    src: "/media/e7a9b547005a602d5804f.png",
+    name: "Tai Chi",
+    provider: "VertexPlay",
+    rtp: "98.80",
+  },
+  {
+    src: "/media/0eae92f8764a601b27c2e.png",
+    name: "Muscle Fortune Cat",
+    provider: "JILI",
+    rtp: "97.50",
+  },
+  {
+    src: "/media/62f867f8764a68724ee87.png",
+    name: "DJ Boom Boom",
+    provider: "JILI",
+    rtp: "97.20",
+  },
+  {
+    src: "/media/e22f2ef8764a6d3b0a117.png",
+    name: "Super Elements 2",
+    provider: "Fastspin",
+    rtp: "97.10",
+  },
+  {
+    src: "/media/ee03e5d7764a66d4b2da0.png",
+    name: "100 CUCI Super Gems",
+    provider: "Playstar",
+    rtp: "98.21",
+  },
+  {
+    src: "/media/e62a46a7764a6b7535127.png",
+    name: "Gates of Olympus",
+    provider: "Pragmatic Play",
+    rtp: "96.50",
+  },
+  {
+    src: "/media/6d1e31c7764a63937268b.png",
+    name: "Golden Empire",
+    provider: "JILI",
+    rtp: "96.91",
+  },
+  {
+    src: "/media/1a0946b7764a6362c5d12.png",
+    name: "Safari Mystery",
+    provider: "JILI",
+    rtp: "97.88",
+  },
+  {
+    src: "/media/dd267538764a6356b6583.png",
+    name: "100 CUCI Rage T-Rex 2",
+    provider: "VPlus",
+    rtp: "97.34",
+  },
+  {
+    src: "/media/ba1b4f97764a68084359f.png",
+    name: "Monkey King Rush",
+    provider: "Pragmatic Play",
+    rtp: "97.09",
+  },
+  {
+    src: "/media/c713dca7764a60edc131a.png",
+    name: "The Myth Wukong",
+    provider: "Meta Gaming",
+    rtp: "97.65",
+  },
+  {
+    src: "/media/f01511fb45d9650f4c841.png",
+    name: "Fastspin Slot",
+    provider: "Fastspin",
+    rtp: "96.80",
+  },
 ];
 
 const STEPS = [
@@ -162,17 +226,27 @@ export function LandingPage({ categories }: { categories: Category[] }) {
         </div>
       </section>
 
-      <section className="lp-section">
+      <section className="lp-section lp-hot-games">
         <h2 className="lp-section-title">
           <img src="/media/a633e1ae197967554ac5e.webp" alt="" />
           HOT GAMES — Register to Play
         </h2>
-        <div className="lp-games">
-          {HOT_GAMES.map((game) => (
-            <RegisterLink key={game.src} className="lp-game-card">
-              <img src={game.src} alt={game.alt} />
-            </RegisterLink>
-          ))}
+        <div className="lp-games-marquee" aria-label="Hot games marquee">
+          <div className="lp-games-track">
+            {[...HOT_GAMES, ...HOT_GAMES].map((game, index) => (
+              <RegisterLink
+                key={`${game.src}-${index}`}
+                className="lp-game-card"
+              >
+                <img src={game.src} alt={game.name} />
+                <span className="lp-game-name">{game.name}</span>
+                <span className="lp-game-meta">
+                  <span className="lp-game-provider">{game.provider}</span>
+                  <span className="lp-game-rtp">RTP {game.rtp}</span>
+                </span>
+              </RegisterLink>
+            ))}
+          </div>
         </div>
         <div className="lp-section-cta">
           <RegisterLink className="lp-btn lp-btn-register lp-btn-lg">
