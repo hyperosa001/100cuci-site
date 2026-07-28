@@ -126,7 +126,16 @@
   margin-bottom: 12px;
 }
 
-.lp-content-header p,
+.lp-content-header p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--lp-text-soft);
+  margin-bottom: 24px;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
 .lp-article-excerpt {
   font-size: 15px;
   line-height: 1.7;
@@ -872,7 +881,10 @@
     word-break: break-word;
   }
 
-  .lp-content-header p,
+  .lp-content-header p {
+    font-size: 14px;
+  }
+
   .lp-article-excerpt {
     font-size: 14px;
     padding: 12px 14px;
