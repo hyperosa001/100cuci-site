@@ -4,7 +4,10 @@
  */
 export const ARTICLE_COVERS: Record<string, string> = {
   "live-casino-first-session-100cuci": "/media/7a68e80182196c00919f4.png",
-  "100cuci-casino-banking-withdrawal": "/media/31081511821962ba4e3a6.png",
+  "100cuci-casino-banking-withdrawal": "/media/1ab4589f3219601fbb7cd.png",
+  // WP 若用标题自动生成 slug，也覆盖
+  "banking-withdrawal-at-100cuci-casino-malaysia-guide": "/media/1ab4589f3219601fbb7cd.png",
+  "100cuci-casino-banking-withdrawal-malaysia-guide": "/media/1ab4589f3219601fbb7cd.png",
   "jili-mega888-start-100cuci": "/media/62f867f8764a68724ee87.png",
   "slot-free-credit-malaysia-100cuci": "/media/cf8789d8764a6e04830fa.png",
   "football-betting-malaysia-100cuci": "/media/e22f2ef8764a6d3b0a117.png",

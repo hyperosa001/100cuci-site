@@ -143,7 +143,7 @@
 <p>Boring banking is good banking. Pick one primary channel and one backup. Test both with tiny amounts before you need a large top-up during a weekend peak. Keep screenshots of references until the balance updates. If a deposit is delayed, wait for the listed processing window before submitting a duplicate — double deposits create support tickets and temporary confusion.</p>
 <p>Never share OTP codes. Support will not ask you to forward SMS codes to a personal chat. Bookmark official 100CUCI entry points from this site so phishing pages that look similar do not catch you on a rushed mobile search.</p>
 
-<img src="https://www.100cuci.ad/media/b0dc9b63d88967e6859cb.webp" alt="100CUCI promotions and wallet" />
+<img src="https://www.100cuci.ad/media/125476a9d51965d355fb4.png" alt="100CUCI deposit lucky draw" />
 
 <h2>Turnover before withdrawal</h2>
 <p>Turnover is where most confusion happens. Bonus credit almost always carries wagering rules. If you claimed free credit no deposit or a matched offer, open Promotions and read which games count and at what rate. Live casino contribution can differ from slots. Sportsbook or lottery play may not count at all. Track progress inside the account instead of guessing from memory.</p>
@@ -159,7 +159,18 @@
 <li>Stop if a cashier page asks for unusual downloads or remote-access apps.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/35001f94353a647d86d7e.webp" alt="100CUCI secure play reminder" />
+<img src="https://www.100cuci.ad/media/1ab4589f3219601fbb7cd.png" alt="100CUCI accepted payment methods — safe and fast withdrawal" />
+
+<p class="lp-pay-row" aria-label="Payment methods from 100CUCI">
+<img src="https://www.100cuci.ad/media/05e7a1e2f1896511635ab.png" alt="Touch n Go" />
+<img src="https://www.100cuci.ad/media/5562d248f18965b39167e.png" alt="Boost" />
+<img src="https://www.100cuci.ad/media/d2e1b078f18963aa6ef7b.webp" alt="GrabPay" />
+<img src="https://www.100cuci.ad/media/c11f77a8f1896ca34a6d9.jpg" alt="DuitNow" />
+<img src="https://www.100cuci.ad/media/914d18baf1896f2c29722.png" alt="FPX" />
+<img src="https://www.100cuci.ad/media/0434bfa8f18961018c377.png" alt="Maybank" />
+<img src="https://www.100cuci.ad/media/249d98b8f18963919da18.png" alt="CIMB" />
+<img src="https://www.100cuci.ad/media/792a81c8f189632a6a06d.png" alt="RHB" />
+</p>
 
 <h2>Mixing games without mixing rules</h2>
 <p>Players often bounce from slots to live casino in one evening. That is fine for entertainment, but bad for tracking promo clearance if you do not know contribution rates. When a campaign is active, decide the primary game type for that campaign and stick to it until turnover completes. Then switch genres freely with cash balance.</p>

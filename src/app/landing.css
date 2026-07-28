@@ -435,6 +435,28 @@
   color: #111;
 }
 
+.lp-article-html .lp-pay-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 20px;
+  padding: 12px;
+  background: #f7f9fc;
+  border-radius: 10px;
+}
+
+.lp-article-html .lp-pay-row img {
+  width: 48px;
+  height: 48px;
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: contain;
+  margin: 0;
+  border-radius: 8px;
+  background: #fff;
+}
+
 .lp-article-html img {
   display: block;
   width: auto;
