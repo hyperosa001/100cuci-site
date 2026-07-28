@@ -8,6 +8,35 @@ import { KEYWORD_LINKS } from "@/content/keyword-links";
 import type { Article, Category } from "@/content/types";
 import { estimateReadMinutes, linkifyHtml, scrubCmsHtml } from "@/lib/linkify-html";
 
+/** 正文误用的图（如世界杯）→ 换成支付/银行相关原站图 */
+const MEDIA_SWAPS: Record<string, string> = {
+  // FIFA World Cup promo banner → WE ACCEPT / safe withdrawal
+  "35001f94353a647d86d7e.webp": "1ab4589f3219601fbb7cd.png",
+};
+
+const BANKING_MEDIA_SWAPS: Record<string, string> = {
+  // welcome promo → deposit/rebate banner with payment icons
+  "b0dc9b63d88967e6859cb.webp": "31081511821962ba4e3a6.png",
+  "125476a9d51965d355fb4.png": "31081511821962ba4e3a6.png",
+};
+
+function applyMediaSwaps(html: string, swaps: Record<string, string>): string {
+  let next = html;
+  for (const [from, to] of Object.entries(swaps)) {
+    const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    next = next.replace(new RegExp(escaped, "gi"), to);
+  }
+  return next;
+}
+
+function sanitizeArticleHtml(html: string, articleSlug?: string): string {
+  let next = applyMediaSwaps(html, MEDIA_SWAPS);
+  if (articleSlug && /bank|withdraw/i.test(articleSlug)) {
+    next = applyMediaSwaps(next, BANKING_MEDIA_SWAPS);
+  }
+  return next;
+}
+
 function stripLeadingImgs(html: string): string {
   return html.replace(
     /^(?:\s*<p>\s*)?(?:\s*<img\b[^>]*>\s*)+(?:\s*<\/p>\s*)?/i,
@@ -16,8 +45,12 @@ function stripLeadingImgs(html: string): string {
 }
 
 /** 去掉与封面相同的图，避免文章里出现两张一样的 */
-function stripDuplicateCoverImgs(html: string, coverPath?: string): string {
-  let next = stripLeadingImgs(scrubCmsHtml(html));
+function stripDuplicateCoverImgs(
+  html: string,
+  coverPath?: string,
+  articleSlug?: string,
+): string {
+  let next = stripLeadingImgs(scrubCmsHtml(sanitizeArticleHtml(html, articleSlug)));
   if (!coverPath) return next;
 
   const file = coverPath.split("/").pop();
@@ -47,7 +80,10 @@ export function ArticleBody({
   const cover = getArticleCover(article.slug, categorySlug);
   const minutes = estimateReadMinutes(articlePlainText(article));
   const linkedHtml = article.html
-    ? linkifyHtml(stripDuplicateCoverImgs(article.html, cover), KEYWORD_LINKS)
+    ? linkifyHtml(
+        stripDuplicateCoverImgs(article.html, cover, article.slug),
+        KEYWORD_LINKS,
+      )
     : null;
 
   return (

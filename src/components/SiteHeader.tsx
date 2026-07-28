@@ -14,7 +14,7 @@ export function SiteHeader() {
         <Link href="/" className="lp-logo-link">
           <img
             className="logo"
-            src="/media/d6838063072a67b0cddf5.gif"
+            src="/media/f44bef109d896efe53f88.gif"
             alt="100CUCI"
           />
         </Link>

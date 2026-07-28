@@ -143,7 +143,7 @@
 <p>Boring banking is good banking. Pick one primary channel and one backup. Test both with tiny amounts before you need a large top-up during a weekend peak. Keep screenshots of references until the balance updates. If a deposit is delayed, wait for the listed processing window before submitting a duplicate — double deposits create support tickets and temporary confusion.</p>
 <p>Never share OTP codes. Support will not ask you to forward SMS codes to a personal chat. Bookmark official 100CUCI entry points from this site so phishing pages that look similar do not catch you on a rushed mobile search.</p>
 
-<img src="https://www.100cuci.ad/media/125476a9d51965d355fb4.png" alt="100CUCI deposit lucky draw" />
+<img src="https://www.100cuci.ad/media/31081511821962ba4e3a6.png" alt="100CUCI deposit rebate and wallet methods" />
 
 <h2>Turnover before withdrawal</h2>
 <p>Turnover is where most confusion happens. Bonus credit almost always carries wagering rules. If you claimed free credit no deposit or a matched offer, open Promotions and read which games count and at what rate. Live casino contribution can differ from slots. Sportsbook or lottery play may not count at all. Track progress inside the account instead of guessing from memory.</p>
