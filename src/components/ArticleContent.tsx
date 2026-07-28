@@ -26,6 +26,16 @@ const LOTTERY_MEDIA_SWAPS: Record<string, string> = {
   "b0dc9b63d88967e6859cb.webp": "125476a9d51965d355fb4.png",
 };
 
+/** 体育文误用世界杯 AI 风 Banner → 换成原站 SOCCER BETTING / sportsbook 实拍卡 */
+const SPORTS_MEDIA_SWAPS: Record<string, string> = {
+  "18008343353a64f8a4481.png": "3bc80be352f36.jpg",
+  "35001f94353a647d86d7e.webp": "3bc80be352f36.jpg",
+  "a2629340ed2a69e4fa4c7.webp": "8c024e3bdbd9673e01f3c.png",
+  "965a2bf2db5a64602326e.png": "45b8316bdbd96e2b5cc20.png",
+  "e22f2ef8764a6d3b0a117.png": "1bf52db762196ad0e8abf.png",
+  "9bb336e08219612129751.png": "55baab9762196392df3bf.png",
+};
+
 function applyMediaSwaps(html: string, swaps: Record<string, string>): string {
   let next = html;
   for (const [from, to] of Object.entries(swaps)) {
@@ -39,8 +49,10 @@ function sanitizeArticleHtml(html: string, articleSlug?: string): string {
   const isSports = Boolean(
     articleSlug && /football|live-odds|sportsbook|sport/i.test(articleSlug),
   );
-  // 非体育文：世界杯 Banner 换成支付条；体育文保留世界杯图
-  let next = isSports ? html : applyMediaSwaps(html, MEDIA_SWAPS);
+  // 非体育文：世界杯 Banner 换成支付条；体育文换成原站真实体育图
+  let next = isSports
+    ? applyMediaSwaps(html, SPORTS_MEDIA_SWAPS)
+    : applyMediaSwaps(html, MEDIA_SWAPS);
   if (articleSlug && /bank|withdraw/i.test(articleSlug)) {
     next = applyMediaSwaps(next, BANKING_MEDIA_SWAPS);
   }

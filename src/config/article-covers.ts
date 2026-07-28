@@ -22,13 +22,13 @@ export const ARTICLE_COVERS: Record<string, string> = {
   "slot-free-credit-malaysia-using-it-wisely-at-100cuci":
     "/media/ba426dcef62a678dcc70a.webp",
 
-  // Sportsbook — World Cup for football; live-odds uses a different sports asset
-  "football-betting-malaysia-100cuci": "/media/18008343353a64f8a4481.png",
+  // Sportsbook — only origin CDN sports assets (real sportsbook / soccer UI art)
+  "football-betting-malaysia-100cuci": "/media/3bc80be352f36.jpg",
   "football-betting-malaysia-on-100cuci-sportsbook":
-    "/media/18008343353a64f8a4481.png",
-  "live-odds-basics-100cuci": "/media/a2629340ed2a69e4fa4c7.webp",
+    "/media/3bc80be352f36.jpg",
+  "live-odds-basics-100cuci": "/media/45b8316bdbd96e2b5cc20.png",
   "live-odds-basics-for-malaysian-players-at-100cuci":
-    "/media/a2629340ed2a69e4fa4c7.webp",
+    "/media/45b8316bdbd96e2b5cc20.png",
 
   // Lottery — number / lucky-draw style (not promo commission banners)
   "4d-lottery-guide-100cuci": "/media/125476a9d51965d355fb4.png",
@@ -51,7 +51,7 @@ export const ARTICLE_COVERS: Record<string, string> = {
 export const CATEGORY_COVERS: Record<string, string> = {
   casino: "/media/7a68e80182196c00919f4.png",
   slots: "/media/62f867f8764a68724ee87.png",
-  sportsbook: "/media/18008343353a64f8a4481.png",
+  sportsbook: "/media/3bc80be352f36.jpg",
   lottery: "/media/125476a9d51965d355fb4.png",
   promotions: "/media/f85eb31f3219680b10ca3.gif",
 };
