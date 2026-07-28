@@ -20,6 +20,12 @@ const BANKING_MEDIA_SWAPS: Record<string, string> = {
   "125476a9d51965d355fb4.png": "31081511821962ba4e3a6.png",
 };
 
+/** 彩票文误用了推广佣金图 → 换成彩票相关图 */
+const LOTTERY_MEDIA_SWAPS: Record<string, string> = {
+  "f85eb31f3219680b10ca3.gif": "9a34856f321963f19982f.gif",
+  "b0dc9b63d88967e6859cb.webp": "125476a9d51965d355fb4.png",
+};
+
 function applyMediaSwaps(html: string, swaps: Record<string, string>): string {
   let next = html;
   for (const [from, to] of Object.entries(swaps)) {
@@ -33,10 +39,13 @@ function sanitizeArticleHtml(html: string, articleSlug?: string): string {
   const isSports = Boolean(
     articleSlug && /football|live-odds|sportsbook|sport/i.test(articleSlug),
   );
-  // 非体育文：世界杯 Banner 换成支付条
+  // 非体育文：世界杯 Banner 换成支付条；体育文保留世界杯图
   let next = isSports ? html : applyMediaSwaps(html, MEDIA_SWAPS);
   if (articleSlug && /bank|withdraw/i.test(articleSlug)) {
     next = applyMediaSwaps(next, BANKING_MEDIA_SWAPS);
+  }
+  if (articleSlug && /lottery|4d|number-games|responsible-lottery/i.test(articleSlug)) {
+    next = applyMediaSwaps(next, LOTTERY_MEDIA_SWAPS);
   }
   return next;
 }

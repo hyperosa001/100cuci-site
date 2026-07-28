@@ -35,6 +35,11 @@ const CATEGORY_SHELLS: Omit<Category, "articles">[] = [
   },
 ];
 
+/** WP 后台实际 slug → 前端栏目 slug（兼容拼写/复数） */
+const WP_CATEGORY_SLUG_ALIASES: Record<string, string[]> = {
+  sportsbook: ["sportsbook", "sportbooks", "sportbook", "sports"],
+};
+
 type WpCategory = {
   id: number;
   slug: string;
@@ -62,6 +67,18 @@ function resolveWpRest(): string | null {
   const site = process.env.WORDPRESS_URL?.trim().replace(/\/$/, "");
   if (site) return `${site}/wp-json`;
   return null;
+}
+
+function resolveWpCategory(
+  bySlug: Map<string, WpCategory>,
+  shellSlug: string,
+): WpCategory | undefined {
+  const candidates = WP_CATEGORY_SLUG_ALIASES[shellSlug] ?? [shellSlug];
+  for (const candidate of candidates) {
+    const hit = bySlug.get(candidate);
+    if (hit) return hit;
+  }
+  return undefined;
 }
 
 export function isWordpressLive(): boolean {
@@ -147,7 +164,7 @@ export async function fetchCategoriesLive(): Promise<Category[]> {
   const categories: Category[] = [];
 
   for (const shell of CATEGORY_SHELLS) {
-    const wpCat = bySlug.get(shell.slug);
+    const wpCat = resolveWpCategory(bySlug, shell.slug);
     if (!wpCat) {
       categories.push({ ...shell, articles: [] });
       continue;
