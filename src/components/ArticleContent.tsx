@@ -30,7 +30,11 @@ function applyMediaSwaps(html: string, swaps: Record<string, string>): string {
 }
 
 function sanitizeArticleHtml(html: string, articleSlug?: string): string {
-  let next = applyMediaSwaps(html, MEDIA_SWAPS);
+  const isSports = Boolean(
+    articleSlug && /football|live-odds|sportsbook|sport/i.test(articleSlug),
+  );
+  // 非体育文：世界杯 Banner 换成支付条
+  let next = isSports ? html : applyMediaSwaps(html, MEDIA_SWAPS);
   if (articleSlug && /bank|withdraw/i.test(articleSlug)) {
     next = applyMediaSwaps(next, BANKING_MEDIA_SWAPS);
   }

@@ -34,15 +34,15 @@
 | slug | 封面 |
 |------|------|
 | `live-casino-first-session-100cuci` | `/media/7a68e80182196c00919f4.png` |
-| `100cuci-casino-banking-withdrawal` | `/media/31081511821962ba4e3a6.png` |
+| `100cuci-casino-banking-withdrawal` | `/media/5165631054b96399427ff.png` |
 | `jili-mega888-start-100cuci` | `/media/62f867f8764a68724ee87.png` |
-| `slot-free-credit-malaysia-100cuci` | `/media/cf8789d8764a6e04830fa.png` |
-| `football-betting-malaysia-100cuci` | `/media/e22f2ef8764a6d3b0a117.png` |
-| `live-odds-basics-100cuci` | `/media/0eae92f8764a601b27c2e.png` |
-| `4d-lottery-guide-100cuci` | `/media/18008343353a64f8a4481.png` |
-| `lottery-responsible-play-100cuci` | `/media/2636a9355b896f5d3413b.png` |
+| `slot-free-credit-malaysia-100cuci` | `/media/ba426dcef62a678dcc70a.webp` |
+| `football-betting-malaysia-100cuci` | `/media/18008343353a64f8a4481.png` |
+| `live-odds-basics-100cuci` | `/media/a2629340ed2a69e4fa4c7.webp` |
+| `4d-lottery-guide-100cuci` | `/media/125476a9d51965d355fb4.png` |
+| `lottery-responsible-play-100cuci` | `/media/9a34856f321963f19982f.gif` |
 | `free-credit-no-deposit-100cuci-guide` | `/media/b0dc9b63d88967e6859cb.webp` |
-| `referral-daily-rewards-100cuci` | `/media/5165631054b96399427ff.png` |
+| `referral-daily-rewards-100cuci` | `/media/f85eb31f3219680b10ca3.gif` |
 
 ---
 
@@ -88,7 +88,7 @@
 <p>Banking still matters even on night one. 100CUCI supports Malaysian-friendly rails such as e-wallets and FPX-style banking where listed. Withdrawals make sense only after eligible turnover is cleared. If you claimed free credit no deposit earlier, do not assume live tables clear it at 100%. Open Promotions and read the contribution table before you sit.</p>
 <p>Deposit with a method you already trust. Matching the name on the payment channel to your account profile reduces review friction later. Keep deposit references until the balance updates. Never share OTP codes with anyone claiming to be support — real support will not ask you to forward codes in chat apps.</p>
 
-<img src="https://www.100cuci.ad/media/125476a9d51965d355fb4.png" alt="100CUCI payment methods" />
+<img src="https://www.100cuci.ad/media/050e5c73d8896a0b30d90.webp" alt="100CUCI live casino promo" />
 
 <h2>Pace, tilt, and mobile habits</h2>
 <p>Live casino on a phone is convenient and also easy to overplay. Put the device on Do Not Disturb for the session so messages do not push you into revenge bets. If you lose three straight decisions that you cannot explain in one sentence, stand up for five minutes. Water and a short walk reset more sessions than “one more shoe” ever will.</p>
@@ -246,7 +246,7 @@
 <p>High-volatility slots can sit quiet for long stretches then jump. Low-to-medium titles often feel smoother for learning. If your goal is clearing a promo with a limited bonus balance, smoother games usually give more spins and more time to understand the lobby. Chasing the biggest advertised multiplier on day one is entertainment, not a clearance plan.</p>
 <p>Read the paytable for symbol values and free-spin rules. Thirty seconds of reading prevents ten minutes of confused spinning. If the interface offers a demo or very low stake, use it before you scale.</p>
 
-<img src="https://www.100cuci.ad/media/9bb336e08219612129751.png" alt="100CUCI hot games" />
+<img src="https://www.100cuci.ad/media/f01511fb45d9650f4c841.png" alt="100CUCI Fastspin slot game" />
 
 <h2>Promotions, Register, and first-week rhythm</h2>
 <p>Register cleanly, verify OTP, then open Promotions before your first long slot session. Claim only one offer you understand. Pair that offer with your warm-up set of familiar games. Keep a notes file with claim date and expiry. Unused campaigns clutter turnover tracking — disable what you will not finish.</p>
@@ -329,7 +329,7 @@
 <p>If an offer needs turnover, every eligible bet contributes toward a target. Ineligible games contribute little or nothing. That is why reading the game list matters more than the headline amount. A smaller credit with clear slot eligibility can be more useful than a larger credit locked to products you do not play.</p>
 <p>Track progress in the account UI. Do not rely on mental maths after a long session. If two offers appear at once, check stacking rules before claiming the second. Mixing unclear campaigns is a common reason withdrawals pause.</p>
 
-<img src="https://www.100cuci.ad/media/f85eb31f3219680b10ca3.gif" alt="100CUCI promo credit" />
+<img src="https://www.100cuci.ad/media/689de2def62a6bad84fc6.webp" alt="100CUCI exclusive slot game" />
 
 <h2>When to deposit</h2>
 <p>Deposit only after you already like the lobby and understand cashier options. RM1 entry points exist for a reason — test banking with a tiny amount first, then scale. Treat slot free credit as a tutorial, not a salary. Online casino Malaysia play stays healthier when free credit teaches the system instead of funding a chase.</p>
@@ -394,7 +394,7 @@
 <p>Markets to learn first: 1X2 or Asian handicap on big European leagues are enough for week one. Skip exotic player props until you can read settlement rules without guessing. A short menu beats a crowded slip. Write one sentence explaining each ticket before you submit. If you cannot explain it, do not place it.</p>
 <p>Follow leagues you already watch. Familiarity reduces silly mistakes like betting a suspended player or misreading kick-off times. Keep a simple notes file with claimed offers and expiry dates so Promotions do not surprise you at Saturday noon.</p>
 
-<img src="https://www.100cuci.ad/media/9bb336e08219612129751.png" alt="100CUCI betting markets" />
+<img src="https://www.100cuci.ad/media/a2629340ed2a69e4fa4c7.webp" alt="Football sportsbook" />
 
 <h2>Promo caution for sportsbook users</h2>
 <p>Sportsbook free credit or cashback may exclude certain bet types or require minimum odds. If your balance came from a slot campaign, do not assume it clears on football. Open Promotions inside 100CUCI and confirm before kick-off. Register and verify OTP before the weekend rush if you plan to deposit — peak hours are a bad time to discover a locked profile detail.</p>
@@ -405,7 +405,7 @@
 <li>One ticket idea at a time while you learn settlement.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/35001f94353a647d86d7e.webp" alt="100CUCI sports banking" />
+<img src="https://www.100cuci.ad/media/9bb336e08219612129751.png" alt="100CUCI hot games and markets" />
 
 <h2>Bankroll and emotional control</h2>
 <p>Football emotions are real. Rivals, late goals, and group chats push stake sizes up. Decide your unit size before the match starts and do not edit it after kick-off. If a ticket loses on a soft call, that is variance — not a signal to double the next stake. Players who keep boring unit sizes survive both winning and losing runs with clearer records.</p>
@@ -476,13 +476,13 @@
 <li>Keep unit size fixed for the whole match.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/01a587def62a6abcb8a32.jpg" alt="100CUCI live sports" />
+<img src="https://www.100cuci.ad/media/965a2bf2db5a64602326e.png" alt="100CUCI live play banner" />
 
 <h2>Latency and mobile networks</h2>
 <p>Peak-hour mobile networks can delay bet acceptance. Build a personal rule: one bet per game situation, fixed stake, no revenge clicks. If a slip rejects twice, pause. Rejections are information about price movement and connection — not a dare to click harder. Master pre-match tickets first, then add in-play on matches you are actually watching.</p>
 <p>Wi-Fi is usually calmer than unstable mobile data for live markets. If you must use data, avoid underground or crowded venues where packets drop. A delayed confirmation can leave you unsure whether a bet landed — check history before placing another.</p>
 
-<img src="https://www.100cuci.ad/media/f01511fb45d9650f4c841.png" alt="100CUCI session control" />
+<img src="https://www.100cuci.ad/media/e22f2ef8764a6d3b0a117.png" alt="100CUCI in-play style game card" />
 
 <h2>Promotions and live markets</h2>
 <p>Some Promotions exclude live bets or require minimum odds. Free credit no deposit offers often focus on slots. Never assume a welcome campaign clears through rapid in-play football tickets. Open the promo card, read the list, and only then decide whether tonight is a live-odds night or a pre-match night.</p>
@@ -559,13 +559,13 @@
 <li>Set a weekly RM cap and stop when it is hit.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/2636a9355b896f5d3413b.png" alt="100CUCI number games" />
+<img src="https://www.100cuci.ad/media/2636a9355b896f5d3413b.png" alt="100CUCI fast number-style games" />
 
 <h2>Budgets across products</h2>
 <p>The same wallet often powers casino, slots, and lottery, so a lottery chase can quietly drain a slots budget. Keep separate mental envelopes: lottery money, slot money, sports money. If a near-miss tempts you to “make it back” on the next draw, that feeling is not mathematics. Walk away when the cap is hit.</p>
 <p>Number games can feel “due” after close results. They are not due. Each draw is independent entertainment. Players who accept that keep calmer records and clearer banking habits.</p>
 
-<img src="https://www.100cuci.ad/media/125476a9d51965d355fb4.png" alt="100CUCI wallet and banking" />
+<img src="https://www.100cuci.ad/media/24174c823fa9681119cd8.jpg" alt="100CUCI lobby for number and slot play" />
 
 <h2>Promotions and banking</h2>
 <p>Many free credit no deposit and slot free credit campaigns exclude lottery. Always read the promo card. Deposit with a familiar Malaysian rail and verify one payout channel early. Boring banking still matters even if you only buy small tickets.</p>
@@ -641,13 +641,13 @@
 <li>Log out on shared phones and remove saved passwords.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/f01511fb45d9650f4c841.png" alt="100CUCI lottery reminder" />
+<img src="https://www.100cuci.ad/media/644a0cef3219689f26d07.gif" alt="100CUCI community reminder" />
 
 <h2>Account hygiene on 100CUCI</h2>
 <p>Enable a strong password, never share OTP, and use official entry links from this site. If you need a break, log out and remove saved passwords from shared phones. Family-shared devices are a common leak point. Phishing pages often appear in rushed search results — bookmark the path you trust.</p>
 <p>When to stop: if you hide play from family, borrow to fund tickets, or feel restless without a daily draw, stop and seek local support resources for gambling harm. No promotion — including free credit no deposit elsewhere on the site — is worth that cost.</p>
 
-<img src="https://www.100cuci.ad/media/35001f94353a647d86d7e.webp" alt="100CUCI player safety" />
+<img src="https://www.100cuci.ad/media/f85eb31f3219680b10ca3.gif" alt="100CUCI daily rewards reminder" />
 
 <h2>Promotions without pressure</h2>
 <p>Daily rewards and referral credits can encourage frequent logins. That is fine when you already have a budget. It is not fine when streaks push you to play money you planned to skip. Disable reminders if they create pressure. Register for entertainment, not obligation.</p>
@@ -722,7 +722,7 @@
 <li>Request withdrawal through a verified e-wallet or bank channel.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/b0dc9b63d88967e6859cb.webp" alt="100CUCI welcome offers" />
+<img src="https://www.100cuci.ad/media/f85eb31f3219680b10ca3.gif" alt="100CUCI free credit and commission promo" />
 
 <h2>What “no deposit” does not mean</h2>
 <p>It does not mean unlimited cash with no rules. It means you may receive bonus credit without funding first. Wagering still applies unless a campaign explicitly says otherwise. Slot free credit campaigns can look similar but carry different game lists — always read both cards if both appear. Online casino Malaysia players who skip the fine print usually burn the trial on ineligible games.</p>
@@ -731,7 +731,7 @@
 <h2>Stacking and daily extras</h2>
 <p>Daily check-in or referral rewards may stack in some periods. Read whether they share turnover with the welcome free credit. When unsure, clear one campaign before opting into another. Mixing unclear offers is the fastest way to freeze a withdrawal.</p>
 
-<img src="https://www.100cuci.ad/media/35001f94353a647d86d7e.webp" alt="100CUCI promo checklist" />
+<img src="https://www.100cuci.ad/media/5165631054b96399427ff.png" alt="100CUCI cashout payment options" />
 
 <h2>From trial to first deposit</h2>
 <p>After the trial, deposit only if you like the lobby. Test banking with a tiny RM amount. Keep live casino, slots, and sportsbook budgets separate if you play more than one product. Register cleanly once; do not create duplicate accounts to chase extra credit — that usually violates rules and risks closure.</p>
@@ -799,7 +799,7 @@
 <h2>Daily rewards without living inside the app</h2>
 <p>Check-in or daily missions work only if you log in consistently. Missing days often resets streaks. Put a reminder on your phone if you intend to collect — do not stay up late only for a tiny credit amount. If streaks create pressure, disable notifications and treat rewards as optional extras.</p>
 
-<img src="https://www.100cuci.ad/media/f85eb31f3219680b10ca3.gif" alt="100CUCI daily promo" />
+<img src="https://www.100cuci.ad/media/644a0cef3219689f26d07.gif" alt="100CUCI share and subscribe rewards" />
 
 <h2>Combining with free credit no deposit</h2>
 <ul>
@@ -810,7 +810,7 @@
 <li>Confirm whether slot free credit and referral credit share the same game list.</li>
 </ul>
 
-<img src="https://www.100cuci.ad/media/24174c823fa9681119cd8.jpg" alt="100CUCI playable credit" />
+<img src="https://www.100cuci.ad/media/9bb336e08219612129751.png" alt="100CUCI playable games after rewards" />
 
 <h2>Responsible growth</h2>
 <p>Referral and daily rewards are slow compounding tools, not jackpots. Pair them with responsible stakes and clear banking habits. Register, open Promotions, and enable only the rewards you will actually complete at 100CUCI. If a reward pushes you to play beyond your weekly budget, skip it. Entertainment should not schedule your sleep or your bills.</p>

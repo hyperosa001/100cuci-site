@@ -12,15 +12,15 @@ const meta = JSON.parse(readFileSync(join(articlesDir, "_meta.json"), "utf8"));
 
 const covers = {
   "live-casino-first-session-100cuci": "/media/7a68e80182196c00919f4.png",
-  "100cuci-casino-banking-withdrawal": "/media/31081511821962ba4e3a6.png",
+  "100cuci-casino-banking-withdrawal": "/media/5165631054b96399427ff.png",
   "jili-mega888-start-100cuci": "/media/62f867f8764a68724ee87.png",
-  "slot-free-credit-malaysia-100cuci": "/media/cf8789d8764a6e04830fa.png",
-  "football-betting-malaysia-100cuci": "/media/e22f2ef8764a6d3b0a117.png",
-  "live-odds-basics-100cuci": "/media/0eae92f8764a601b27c2e.png",
-  "4d-lottery-guide-100cuci": "/media/18008343353a64f8a4481.png",
-  "lottery-responsible-play-100cuci": "/media/2636a9355b896f5d3413b.png",
+  "slot-free-credit-malaysia-100cuci": "/media/ba426dcef62a678dcc70a.webp",
+  "football-betting-malaysia-100cuci": "/media/18008343353a64f8a4481.png",
+  "live-odds-basics-100cuci": "/media/a2629340ed2a69e4fa4c7.webp",
+  "4d-lottery-guide-100cuci": "/media/125476a9d51965d355fb4.png",
+  "lottery-responsible-play-100cuci": "/media/9a34856f321963f19982f.gif",
   "free-credit-no-deposit-100cuci-guide": "/media/b0dc9b63d88967e6859cb.webp",
-  "referral-daily-rewards-100cuci": "/media/5165631054b96399427ff.png",
+  "referral-daily-rewards-100cuci": "/media/f85eb31f3219680b10ca3.gif",
 };
 
 let md = `# 100CUCI CMS 内容包（直接复制发文）
