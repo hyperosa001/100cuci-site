@@ -1,0 +1,20 @@
+{
+  "site": "https://www.100cuci.ad",
+  "gscProperty": "https://www.100cuci.ad/",
+  "sitemap": "https://www.100cuci.ad/sitemap.xml",
+  "rotation": {
+    "articlesPerMonth": 3,
+    "priorityOrder": [39, 29, 17, 41, 27, 25, 31, 35, 23, 33, 37],
+    "homepageEveryMonth": true,
+    "notes": "Promotions & slots first; 3 articles per month; homepage lastUpdated monthly"
+  },
+  "gscCheckpoints": [
+    { "week": 1, "check": "Pages indexed count vs 24 discovered" },
+    { "week": 2, "check": "Performance impressions for homepage + promotions" },
+    { "week": 4, "check": "Top queries and CTR; request indexing for any stuck URLs" }
+  ],
+  "promoWatch": {
+    "fields": ["RM5 register bonus", "RM1 min deposit", "free credit campaigns"],
+    "action": "Update Promotions articles (39, 41) within 48h when live promo changes"
+  }
+}

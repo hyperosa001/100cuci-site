@@ -34,6 +34,10 @@
     "typecheck": "tsc --noEmit",
     "check": "npm run lint && npm run typecheck && npm run build",
     "sync:wp": "node scripts/sync-wp-content.mjs",
+    "push:wp-articles": "node scripts/push-cms-articles-to-wp.mjs",
+    "seo:plan": "node scripts/seo-maintenance.mjs plan",
+    "seo:status": "node scripts/seo-maintenance.mjs status",
+    "seo:bump-homepage": "node scripts/seo-maintenance.mjs bump-homepage",
     "cms:local": "npx decap-server",
     "package:plugin": "node scripts/package-plugin.mjs",
     "package": "npm run package:plugin"
