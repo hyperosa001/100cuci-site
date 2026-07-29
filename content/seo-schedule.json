@@ -3,10 +3,36 @@
   "gscProperty": "https://www.100cuci.ad/",
   "sitemap": "https://www.100cuci.ad/sitemap.xml",
   "rotation": {
-    "articlesPerMonth": 3,
+    "rotationStart": { "year": 2026, "month": 6, "day": 30 },
     "priorityOrder": [39, 29, 17, 41, 27, 25, 31, 35, 23, 33, 37],
+    "phases": [
+      {
+        "id": "bootstrap-3d",
+        "label": "前期：每 3 天 2 篇（跑完 11 篇 = 1 cycle）",
+        "intervalDays": 3,
+        "articlesPerRun": 2
+      },
+      {
+        "id": "ramp-7d",
+        "label": "中期：每 7 天 3 篇（跑完 11 篇 = 1 cycle）",
+        "intervalDays": 7,
+        "articlesPerRun": 3
+      },
+      {
+        "id": "ramp-15d",
+        "label": "后期：每 15 天 3 篇（跑完 11 篇 = 1 cycle）",
+        "intervalDays": 15,
+        "articlesPerRun": 3
+      },
+      {
+        "id": "steady-monthly",
+        "label": "稳定：每 30 天 3 篇（持续 cycle）",
+        "intervalDays": 30,
+        "articlesPerRun": 3
+      }
+    ],
     "homepageEveryMonth": true,
-    "notes": "Promotions & slots first; 3 articles per month; homepage lastUpdated monthly"
+    "notes": "3d×2 → 7d×3 → 15d×3 → 30d×3 per full cycle"
   },
   "gscCheckpoints": [
     { "week": 1, "check": "Pages indexed count vs 24 discovered" },

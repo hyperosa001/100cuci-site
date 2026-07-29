@@ -1,6 +1,16 @@
 {
   "runs": [
     {
+      "at": "2026-07-29T19:03:13.633Z",
+      "action": "plan",
+      "month": "July 2026",
+      "articleIds": [
+        39,
+        29,
+        17
+      ]
+    },
+    {
       "at": "2026-07-29T09:48:45.982Z",
       "action": "status",
       "month": "July 2026"

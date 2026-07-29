@@ -1,0 +1,31 @@
+# Auto-push this month's SEO articles → WordPress → Telegram notify.
+# Schedule: 1st of each month, 10:00 AM Malaysia (UTC+8) = 02:00 UTC
+#
+# Required GitHub repo secrets:
+#   WP_APP_USER, WP_APP_PASSWORD, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+name: SEO Monthly Push
+
+on:
+  schedule:
+    - cron: "0 2 1 * *"
+  workflow_dispatch:
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Push this month's articles to WordPress
+        env:
+          NEXT_PUBLIC_SITE_URL: https://www.100cuci.ad
+          WP_REST_URL: https://cms.100cuci.ad/wp-json
+          WP_APP_USER: ${{ secrets.WP_APP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node scripts/seo-auto-push.mjs

@@ -1,72 +1,54 @@
 /**
- * SEO maintenance planner for 100cuci.ad
+ * SEO maintenance — phased rotation + homepage bump.
  *
  * Usage:
- *   node scripts/seo-maintenance.mjs plan      # this month's 3 articles + homepage
- *   node scripts/seo-maintenance.mjs status    # WP dates + GSC reminders
- *   node scripts/seo-maintenance.mjs bump-homepage  # refresh Last updated on homepage SEO
+ *   node scripts/seo-maintenance.mjs plan
+ *   node scripts/seo-maintenance.mjs calendar
+ *   node scripts/seo-maintenance.mjs status
+ *   node scripts/seo-maintenance.mjs bump-homepage
+ *   node scripts/seo-maintenance.mjs auto-push [--force] [--dry-run]
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
+import {
+  loadEnvLocal,
+  loadSchedule,
+  pickArticlesForRun,
+  getRotationStatus,
+  buildRotationTimeline,
+  resolveWpPostMapPath,
+} from "./seo-rotation.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const schedulePath = join(root, "content", "seo-schedule.json");
-const mapPath = join(root, "docs", "cms-content-pack", "wp-post-map.json");
+loadEnvLocal(root);
+
+const cmd = process.argv[2] ?? "plan";
+const extraArgs = process.argv.slice(3);
 const homepageSeoPath = join(root, "content", "homepage-seo.json");
 const logPath = join(root, "content", "seo-maintenance-log.json");
 
-function loadEnvLocal() {
-  const path = join(root, ".env.local");
-  if (!existsSync(path)) return;
-  for (const line of readFileSync(path, "utf8").split("\n")) {
-    const t = line.trim();
-    if (!t || t.startsWith("#")) continue;
-    const i = t.indexOf("=");
-    if (i < 0) continue;
-    if (!process.env[t.slice(0, i).trim()])
-      process.env[t.slice(0, i).trim()] = t.slice(i + 1).trim();
-  }
+if (cmd === "auto-push") {
+  const script = join(root, "scripts", "seo-auto-push.mjs");
+  const result = spawnSync(process.execPath, [script, ...extraArgs], {
+    cwd: root,
+    stdio: "inherit",
+    env: process.env,
+  });
+  process.exit(result.status ?? 1);
 }
 
-loadEnvLocal();
-
-const cmd = process.argv[2] ?? "plan";
-const schedule = JSON.parse(readFileSync(schedulePath, "utf8"));
+const schedule = loadSchedule(root);
+const mapPath = resolveWpPostMapPath(root, schedule);
 const map = JSON.parse(readFileSync(mapPath, "utf8"));
-
-function monthLabel(d = new Date()) {
-  return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
-}
-
-function pickThisMonthArticles() {
-  const order = schedule.rotation.priorityOrder;
-  const n = schedule.rotation.articlesPerMonth;
-  const now = new Date();
-  /** July 2026 = first rotation month (right after bulk incremental update) */
-  const epoch =
-    (now.getFullYear() - 2026) * 12 + now.getMonth() - 6;
-  const start =
-    (((epoch * n) % order.length) + order.length) % order.length;
-  const picks = [];
-  for (let i = 0; i < n; i++) {
-    picks.push(order[(start + i) % order.length]);
-  }
-  return picks;
-}
 
 function rowByWpId(id) {
   return map.find((r) => r.wpId === id);
 }
 
-async function fetchWpPosts() {
-  const base = (process.env.WP_REST_URL ?? "").replace(/\/$/, "");
-  if (!base) return null;
-  const res = await fetch(
-    `${base}/wp/v2/posts?per_page=100&status=publish&_fields=id,slug,title,date,modified`,
-  );
-  if (!res.ok) return null;
-  return res.json();
+function monthLabel(d = new Date()) {
+  return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 }
 
 function appendLog(entry) {
@@ -74,8 +56,18 @@ function appendLog(entry) {
     ? JSON.parse(readFileSync(logPath, "utf8"))
     : { runs: [] };
   log.runs.unshift({ at: new Date().toISOString(), ...entry });
-  log.runs = log.runs.slice(0, 24);
+  log.runs = log.runs.slice(0, 48);
   writeFileSync(logPath, `${JSON.stringify(log, null, 2)}\n`);
+}
+
+async function fetchWpPosts() {
+  const wpRest = process.env.WP_REST_URL?.replace(/\/$/, "");
+  if (!wpRest) return null;
+  const res = await fetch(
+    `${wpRest}/wp/v2/posts?per_page=100&status=publish&_fields=id,slug,title,date,modified`,
+  );
+  if (!res.ok) return null;
+  return res.json();
 }
 
 if (cmd === "bump-homepage") {
@@ -88,55 +80,69 @@ if (cmd === "bump-homepage") {
   process.exit(0);
 }
 
+if (cmd === "calendar") {
+  const { timeline } = buildRotationTimeline(schedule);
+  console.log(`\n=== SEO calendar (bootstrap → steady) ===\n`);
+  for (const r of timeline) {
+    const ids = r.articleIds.map((id) => `#${id}`).join(", ");
+    console.log(
+      `${r.runDate.toISOString().slice(0, 10)}  [${r.phaseId}]  run ${r.runIndex + 1}/${r.runsInPhase}  ${ids}`,
+    );
+  }
+  console.log("\nAfter last row: steady phase repeats every 30 days.\n");
+  process.exit(0);
+}
+
 if (cmd === "plan") {
-  const ids = pickThisMonthArticles();
-  const label = monthLabel();
-  console.log(`\n=== SEO plan — ${label} ===\n`);
-  console.log("This month (3 articles, content-only push — no publish-date churn):\n");
-  for (const id of ids) {
+  const status = getRotationStatus(schedule);
+  const { articleIds } = pickArticlesForRun(schedule, new Date(), { force: true });
+
+  console.log(`\n=== SEO plan ===\n`);
+  console.log(`Site:        ${schedule.site}`);
+  console.log(`Start:       ${status.rotationStart}`);
+  console.log(`Today:       day ${status.elapsedDays}`);
+  console.log(`Phase:       ${status.activePhase?.label}`);
+  console.log(
+    status.isDueToday ? "Due today:   ✅ YES — run auto-push" : "Due today:   no",
+  );
+  if (status.nextRun && !status.isDueToday) {
+    console.log(
+      `Next run:    ${status.nextRun.runDate.toISOString().slice(0, 10)}  (#${status.nextRun.articleIds.join(", #")})`,
+    );
+  }
+  console.log(`\nThis slot (${articleIds.length} articles):\n`);
+  for (const id of articleIds) {
     const row = rowByWpId(id);
     console.log(`  • WP #${id}  ${row?.note ?? row?.html ?? "?"}`);
   }
-  if (schedule.rotation.homepageEveryMonth) {
-    console.log("\nHomepage:");
-    console.log("  • Bump Last updated: npm run seo:bump-homepage → git push");
+  if (schedule.rotation?.homepageEveryMonth) {
+    console.log("\nHomepage: npm run seo:bump-homepage → git push");
   }
-  console.log("\nAfter editing HTML in docs/cms-content-pack/articles/:");
-  console.log(`  npm run push:wp-articles -- ${ids.join(" ")}`);
-  console.log("\nOptional (only big promo changes): add --touch-date\n");
-  console.log("GSC checkpoints:");
-  for (const c of schedule.gscCheckpoints) {
-    console.log(`  Week ${c.week}: ${c.check}`);
-  }
-  appendLog({ action: "plan", month: label, articleIds: ids });
+  console.log("\nEdit local HTML, then:");
+  console.log("  node scripts/seo-auto-push.mjs");
+  console.log("  node scripts/seo-auto-push.mjs --force");
+  console.log("  node scripts/seo-maintenance.mjs calendar\n");
+  appendLog({ action: "plan", articleIds, phase: status.activePhase?.id });
   process.exit(0);
 }
 
 if (cmd === "status") {
+  const status = getRotationStatus(schedule);
   const posts = await fetchWpPosts();
-  console.log(`\n=== SEO status — ${monthLabel()} ===\n`);
-  console.log(`Site:     ${schedule.site}`);
-  console.log(`GSC:      ${schedule.gscProperty}`);
-  console.log(`Sitemap:  ${schedule.sitemap}\n`);
-
+  console.log(`\n=== SEO status ===\n`);
+  console.log(`Site:   ${schedule.site}`);
+  console.log(`Phase:  ${status.activePhase?.label}`);
+  console.log(`Day:    ${status.elapsedDays} since ${status.rotationStart}\n`);
   if (posts) {
-    console.log("WP articles (newest first):\n");
+    console.log("WP modified (newest first):\n");
     for (const p of [...posts].sort((a, b) => b.modified.localeCompare(a.modified))) {
-      console.log(`  #${p.id}  modified ${p.modified.slice(0, 16)}  ${p.slug}`);
+      console.log(`  #${p.id}  ${p.modified.slice(0, 16)}  ${p.slug}`);
     }
-  } else {
-    console.log("(WP_REST_URL not set — skipping live post list)\n");
   }
-
-  const homepage = JSON.parse(readFileSync(homepageSeoPath, "utf8"));
-  console.log(`\nHomepage lastUpdated (code): ${homepage.lastUpdated}`);
-
-  const ids = pickThisMonthArticles();
-  console.log(`\nScheduled this month: #${ids.join(", #")}`);
-  console.log("\nYour job now: check GSC Performance weekly; content updates run on schedule.\n");
-  appendLog({ action: "status", month: monthLabel() });
+  console.log("");
+  appendLog({ action: "status", phase: status.activePhase?.id });
   process.exit(0);
 }
 
-console.error("Usage: plan | status | bump-homepage");
+console.error("Usage: plan | calendar | status | bump-homepage | auto-push [--force]");
 process.exit(1);
