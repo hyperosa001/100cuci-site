@@ -18,6 +18,11 @@
 import { readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  formatPushSummary,
+  isTelegramConfigured,
+  sendTelegramMessage,
+} from "./telegram-notify.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const articlesDir = join(root, "docs", "cms-content-pack", "articles");
@@ -107,11 +112,16 @@ console.log(
 );
 
 let failed = 0;
+const updated = [];
+const failedRows = [];
+
 for (const row of jobs) {
   try {
     await updatePost(row);
+    updated.push(row);
   } catch (err) {
     failed++;
+    failedRows.push({ ...row, error: err.message });
     console.error(`✗ #${row.wpId} (${row.note}):`, err.message);
   }
 }
@@ -121,3 +131,14 @@ console.log(
     ? `\nDone with ${failed} error(s).`
     : "\nDone. Live site refreshes in ~60 seconds.",
 );
+
+if (isTelegramConfigured() && (updated.length || failedRows.length)) {
+  const text = formatPushSummary({
+    updated,
+    failed: failedRows,
+    touchDate,
+    siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.100cuci.ad",
+  });
+  const sent = await sendTelegramMessage(text);
+  if (sent) console.log("\n[telegram] notification sent.");
+}

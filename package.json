@@ -38,6 +38,8 @@
     "seo:plan": "node scripts/seo-maintenance.mjs plan",
     "seo:status": "node scripts/seo-maintenance.mjs status",
     "seo:bump-homepage": "node scripts/seo-maintenance.mjs bump-homepage",
+    "telegram:chat-id": "node scripts/telegram-get-chat-id.mjs",
+    "telegram:test": "node scripts/telegram-test.mjs",
     "cms:local": "npx decap-server",
     "package:plugin": "node scripts/package-plugin.mjs",
     "package": "npm run package:plugin"
