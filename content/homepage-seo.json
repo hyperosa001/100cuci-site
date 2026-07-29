@@ -4,78 +4,75 @@
   "cuciLinkExternal": false,
   "sections": [
     {
-      "title": "100CUCI for Malaysian Players — Free Credit No Deposit in 2026",
+      "title": "What 100CUCI Actually Offers Malaysian Players in 2026",
       "paragraphs": [
-        "100CUCI is built for players in Malaysia who want a clear path from registration to first spin. The homepage focus is simple: claim free credit no deposit when the campaign is live, learn the lobby, then deposit only after the platform feels familiar.",
-        "Searches for online casino Malaysia, slot free credit, and Syarikat Cuci style brands usually mean the same three questions — is the entry bonus real, are banking rails local, and can withdrawals finish without drama. This page answers those questions in plain English."
+        "100CUCI (100cuci.ad) is a Malaysia-facing casino lobby promoted under the Syarikat Cuci brand family. This site is the English SEO front door: it explains how to Register, what the RM5 new-member free credit path looks like when live, and which local rails — Touch n Go, GrabPay, DuitNow, FPX, Boost — appear on the cashier banner shown on our homepage.",
+        "Unlike generic “online casino Malaysia” pages that only repeat bonus headlines, 100cuci.ad publishes five fixed guide hubs — Casino, Slots, Sportsbook, Lottery, and Promotions — each with long-form articles synced from our WordPress CMS at cms.100cuci.ad. Articles cover live-casino first sessions, JILI and MEGA888-style slot starts, football betting basics, 4D habits, and free-credit claim rules."
       ]
     },
     {
-      "title": "What Makes Online Casino Malaysia Play on 100CUCI Different",
+      "title": "Numbers You Can Verify Before You Register",
       "paragraphs": [
-        "Many sites advertise one welcome headline and leave the rest unclear. 100CUCI keeps the first week structured: OTP verification, Promotions cards you can actually read, and Malaysian-friendly cashiers such as Touch n Go, GrabPay, DuitNow, telco reload, and FPX-style banking where listed.",
-        "Minimum deposits can start from RM1 when the cashier allows it. That low entry is useful for testing a channel before you scale. Free credit no deposit remains a trial balance with rules — treat it as a tutorial budget, not withdrawable cash on day one.",
-        "Players who open Promotions before they open tables usually clear turnover with less confusion. Live casino, slots, sportsbook, and lottery can contribute differently, so matching the offer to the game type matters more than chasing the largest headline number."
+        "The homepage trust strip advertises RM1 minimum deposit, RM5 free register bonus (when the campaign is active), 24/7 live support, and roughly 15-minute withdrawal targets after turnover clears. Treat these as marketing claims until you confirm the live Promotions card inside your account — amounts, eligible games, and expiry change by period.",
+        "Our Hot Games marquee lists titles you will recognise in the lobby: Tai Chi (VertexPlay, RTP 98.80), Muscle Fortune Cat and DJ Boom Boom (JILI), 100 CUCI Super Gems (Playstar), Gates of Olympus (Pragmatic Play), Golden Empire (JILI), and branded rooms such as 100 CUCI Rage T-Rex 2 (VPlus). RTP figures come from provider sheets; they are not a guarantee of session results."
       ]
     },
     {
-      "title": "Slot Free Credit and How New Members Usually Start",
+      "title": "How 100CUCI Banking Differs From Random Clone Sites",
       "paragraphs": [
-        "Slot free credit is the most common first-week path. After you Register and verify OTP, look for campaigns that list slots as eligible. Familiar studios such as JILI, MEGA888-style rooms, Pragmatic Play, and PG Soft help you learn paytables without guessing every symbol.",
-        "Keep stakes small enough to survive a full learning session. If a title drains the bonus in a few minutes, switch to a smoother game rather than depositing out of frustration. The goal of slot free credit is information: which providers you like, how promo progress is tracked, and whether the cashier feels trustworthy.",
-        "When you are ready to fund, test with a tiny RM amount first. Screenshots of deposit references and promo terms save time if support ever needs context."
+        "The Malaysian Banking Rails section on this page mirrors the payment strip inside 100CUCI: e-wallets and FPX-style online banking rather than obscure offshore-only channels. Name matching between your profile and payout method still matters — first withdrawals can take longer while a channel is verified.",
+        "Login and Register URLs are managed through the 100CUCI Site Links plugin on our CMS. When we update conversion links in WordPress, the Next.js front end picks them up on the next content sync — you do not need to hunt for a new APK or mirror domain every week."
       ]
     },
     {
-      "title": "Games, Providers, and What Unlocks After You Register",
+      "title": "Content Structure on 100cuci.ad (Not a Single Landing Page)",
       "paragraphs": [
-        "The 100CUCI catalogue spans slots, live casino, sportsbook, and fast games. Provider lists change over time, but Malaysian players typically recognise JILI, Pragmatic Play, PG Soft, Playtech, Microgaming, MEGAH5 / MEGA888-style rooms, FACHAI, Spade Gaming, and live studios such as Evolution when listed.",
-        "Registration unlocks the full lobby and Promotions centre. Until then, this site explains categories through guides under Casino, Slots, Sportsbook, Lottery, and Promotions so you can plan before you play."
+        "Every guide lives under /articles/{category}/{slug}. Category landing pages list Casino (3 guides), Slots (2), Sportsbook (2), Lottery (2), and Promotions (2) — seventeen URLs in our sitemap including the homepage. Google sees a small but structured site, not one long sales letter.",
+        "Homepage SEO text, article bodies, and Yoast fields in WordPress are written for Malaysian players who search in English for slot free credit, free credit no deposit new member, and Syarikat Cuci-style brands. We update the “Last updated” line when campaigns or banking visuals change."
       ]
     },
     {
-      "title": "Step-by-Step: Register, Claim, Play, Withdraw",
+      "title": "Register → Claim → Play → Withdraw (100CUCI Order of Operations)",
       "list": [
-        "Tap Register on this page and create your username, password, and contact details.",
-        "Enter the OTP sent to your phone — verification unlocks welcome free credit no deposit when the offer is active.",
-        "Open Promotions inside 100CUCI and claim only one offer you understand end-to-end.",
-        "Start with eligible slots or other listed games; keep a written RM session limit.",
-        "After turnover clears, withdraw through one verified e-wallet or bank channel (FPX, Touch n Go, GrabPay, DuitNow where available)."
+        "Use the Register button on 100cuci.ad — it pulls the live URL from cms.100cuci.ad via REST.",
+        "Complete OTP on your Malaysian mobile number; unverified accounts often cannot claim welcome credit.",
+        "Open Promotions and read one card fully: eligible products (slots vs live vs sports), turnover, bet cap, expiry.",
+        "Start on eligible games — many welcome paths are slot-first; live casino may contribute at a reduced rate.",
+        "After turnover clears, withdraw through one verified channel (Touch n Go, GrabPay, DuitNow, or FPX where listed); submit one request at a time."
       ]
     },
     {
-      "title": "Banking Safety and Support Habits",
+      "title": "Safety Habits Specific to 100CUCI Entry Points",
       "paragraphs": [
-        "Use official entry points bookmarked from this site. Never share OTP codes. Reject cashier pages that push unusual APK downloads or remote-control apps.",
-        "Name matching between your profile and payment channel reduces review friction. First-time withdrawals can take longer than later ones — plan around that instead of forcing same-hour cashouts for real-life bills.",
-        "Live chat is available around the clock for account and promo questions. Ask precise questions about eligibility, contribution rates, and expiry so answers become a reusable record."
+        "Bookmark https://www.100cuci.ad only. Our canonical domain redirects bare 100cuci.ad to www. Phishing clones copy our colours but not our CMS-synced login links — if the Register button destination looks wrong, stop.",
+        "Never share OTP or install remote-access apps because “support” asked in Telegram. Real 100CUCI live chat will not request SMS codes in personal chats. Screenshot promo terms and deposit references — they speed up legitimate support tickets if a cashier message looks unusual."
       ]
     }
   ],
   "faq": [
     {
-      "q": "What does free credit no deposit mean at 100CUCI?",
-      "a": "It means bonus credit that can be claimed without funding first when a campaign is live. It is still bound by wagering rules, eligible games, and any max cashout listed on the Promotions card."
+      "q": "What is the 100CUCI new member free credit in 2026?",
+      "a": "When active, the homepage promotes RM5 free register bonus after OTP verification. The exact tile name, wagering, and eligible games appear only on the live Promotions page — not on social-media screenshots. See our Promotions guide for the step-by-step claim flow."
     },
     {
-      "q": "How do new members usually receive the first free credit?",
-      "a": "Complete Register and OTP verification, then check Promotions. Many welcome paths credit a small RM amount automatically after verification — always confirm the live card rather than a screenshot from social media."
+      "q": "Can I deposit RM1 at 100CUCI?",
+      "a": "The site advertises RM1 minimum deposit when the cashier allows it. Test with the smallest amount first to confirm your chosen e-wallet or FPX bank appears and credits correctly before larger sessions."
     },
     {
-      "q": "Can I clear slot free credit on live casino tables?",
-      "a": "Only if the promo card says live games contribute. Many slot free credit offers are slot-focused or reduce live contribution. Read the contribution table before you sit at a table."
+      "q": "Which games appear on the 100cuci.ad homepage?",
+      "a": "The Hot Games strip currently highlights JILI titles (Muscle Fortune Cat, DJ Boom Boom, Golden Empire), Pragmatic Play (Gates of Olympus, Monkey King Rush), Playstar (100 CUCI Super Gems), Fastspin (Super Elements 2), VertexPlay (Tai Chi), VPlus (100 CUCI Rage T-Rex 2), and Meta Gaming (The Myth Wukong). The in-lobby list may differ as providers rotate."
     },
     {
-      "q": "Is 100CUCI suitable for online casino Malaysia beginners?",
-      "a": "Yes, if you treat the first sessions as a systems check: small stakes, one promo at a time, and banking tested with a tiny deposit. Adults 18+ only, using money you can afford to entertain with."
+      "q": "Where is 100CUCI content edited?",
+      "a": "Long articles are authored in WordPress at cms.100cuci.ad with Yoast SEO fields. The public site at www.100cuci.ad rebuilds from synced JSON — so article updates can go live without editing Next.js code."
     },
     {
-      "q": "How fast are withdrawals after turnover is done?",
-      "a": "Many e-wallet and FPX payouts complete within roughly 15–30 minutes after clearance, but weekends and first-time channel checks can take longer. Submit one request at a time."
+      "q": "How fast are 100CUCI withdrawals?",
+      "a": "Marketing copy targets roughly 15–30 minutes for e-wallet and FPX payouts after turnover clears. First-time channel verification, weekends, and bank queues can extend that window — plan entertainment cash separately from bill money."
     },
     {
-      "q": "Which products can I explore after registration?",
-      "a": "Slots, live casino, sportsbook, and lottery-style games when listed — plus Promotions for free credit no deposit, daily rewards, and referral campaigns during active periods."
+      "q": "Is 100cuci.ad the same as 100cuci.com?",
+      "a": "They are related Syarikat Cuci / 100CUCI brand properties. This domain (100cuci.ad) is our AD-zone SEO site built on Next.js + WordPress CMS. Always use the official Register link from this page rather than third-party download pages."
     }
   ]
 }

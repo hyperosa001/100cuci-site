@@ -28,31 +28,31 @@ const CATEGORY_SHELLS = [
     slug: "casino",
     title: "Casino",
     description:
-      "Live casino, online casino Malaysia guides, registration, banking and safety at 100CUCI.",
+      "Live casino first-session checklists, FPX/e-wallet banking, and withdrawal timing — written for 100CUCI members in Malaysia.",
   },
   {
     slug: "slots",
     title: "Slots",
     description:
-      "Slot Malaysia guides — JILI, MEGA888, Pragmatic Play and free credit slot play.",
+      "JILI, MEGA888-style rooms, and slot free credit guides — stake plans tied to 100CUCI Promotions eligibility.",
   },
   {
     slug: "sportsbook",
     title: "Sportsbook",
     description:
-      "Sports betting Malaysia — football, live odds and how to bet at 100CUCI.",
+      "Football betting Malaysia and live-odds discipline on 100CUCI — unit stakes, promo checks, mobile latency tips.",
   },
   {
     slug: "lottery",
     title: "Lottery",
     description:
-      "4D, lottery games and number betting guides for 100CUCI members.",
+      "4D-style number games and responsible caps for 100CUCI — cut-offs, ticket screenshots, weekly budgets.",
   },
   {
     slug: "promotions",
     title: "Promotions",
     description:
-      "Free credit no deposit, daily rewards, referral bonus and latest 100CUCI promos.",
+      "Free credit no deposit, RM5 register path, referral and daily rewards — 100CUCI claim rules for 2026.",
   },
 ];
 

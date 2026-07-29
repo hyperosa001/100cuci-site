@@ -156,8 +156,9 @@ export function LandingPage({ categories }: { categories: Category[] }) {
         </div>
         <h1>100CUCI | Free Credit No Deposit New Member Malaysia</h1>
         <p className="lp-hero-sub">
-          Online casino Malaysia play with local banking, slot free credit
-          campaigns when live, and a clear Register → claim → withdraw path.
+          Syarikat Cuci brand lobby for Malaysia — RM1 min deposit, RM5 new-member
+          credit when live, Touch n Go / GrabPay / FPX cashiers, and guides for
+          JILI, MEGA888-style rooms, and Pragmatic Play slots.
         </p>
         <RegisterLink className="lp-btn lp-btn-register lp-btn-lg">
           REGISTER NOW — PLAY FREE
@@ -283,24 +284,27 @@ export function LandingPage({ categories }: { categories: Category[] }) {
         <h2 className="lp-section-title">Why Choose 100CUCI?</h2>
         <div className="lp-features">
           <div className="lp-feature">
-            <h3>Free Credit No Deposit</h3>
+            <h3>RM5 Register Path</h3>
             <p>
-              New members can claim a small welcome credit after Register and OTP
-              when the campaign is live — use it to learn the lobby first.
+              New members who complete OTP can claim the welcome free credit tile
+              when Promotions show it live — start on eligible slots before live
+              tables unless the card says otherwise.
             </p>
           </div>
           <div className="lp-feature">
-            <h3>30+ Game Providers</h3>
+            <h3>Hot Games You See Here</h3>
             <p>
-              Slots, live casino, sportsbook and more — JILI, MEGA888-style
-              rooms, Pragmatic Play, PG Soft and other studios when listed.
+              Homepage marquee matches lobby highlights: Tai Chi, Muscle Fortune
+              Cat, Gates of Olympus, 100 CUCI Super Gems, Golden Empire, and
+              other JILI / Pragmatic / Playstar rooms with published RTP labels.
             </p>
           </div>
           <div className="lp-feature">
-            <h3>Safe &amp; Fast Withdrawal</h3>
+            <h3>Malaysia Cashiers</h3>
             <p>
-              Local rails such as Touch n Go, GrabPay and FPX. Many payouts
-              finish in roughly 15–30 minutes after eligible turnover clears.
+              Banking strip shows Touch n Go, GrabPay, DuitNow, Boost, FPX, and
+              major banks. Many payouts target 15–30 minutes after turnover — first
+              withdrawal may need channel verification.
             </p>
           </div>
         </div>
