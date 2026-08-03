@@ -3,7 +3,7 @@
   "gscProperty": "https://www.100cuci.ad/",
   "sitemap": "https://www.100cuci.ad/sitemap.xml",
   "rotation": {
-    "rotationStart": { "year": 2026, "month": 6, "day": 30 },
+    "rotationStart": { "date": "2026-07-29" },
     "priorityOrder": [39, 29, 17, 41, 27, 25, 31, 35, 23, 33, 37],
     "phases": [
       {

@@ -37,22 +37,46 @@ export function resolveWpPostMapPath(root, schedule) {
   throw new Error("wp-post-map.json not found");
 }
 
+/** Calendar YMD in Malaysia time — same on local PC and GitHub UTC runners. */
+const TZ = "Asia/Kuala_Lumpur";
+
+function ymdInTz(date = new Date(), timeZone = TZ) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const get = (type) => parts.find((p) => p.type === type)?.value;
+  return `${get("year")}-${get("month")}-${get("day")}`;
+}
+
+/** UTC noon for a YMD string — stable day arithmetic across timezones. */
+function utcNoonFromYmd(ymd) {
+  const [y, m, d] = ymd.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d, 12, 0, 0));
+}
+
 function startOfDay(d) {
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  return utcNoonFromYmd(ymdInTz(d));
 }
 
 export function parseRotationStart(schedule) {
   const s = schedule.rotation?.rotationStart;
-  if (s?.date) return startOfDay(new Date(`${s.date}T12:00:00`));
+  if (s?.date) return utcNoonFromYmd(s.date);
   if (s?.year != null && s?.month != null) {
-    return startOfDay(new Date(s.year, s.month, s.day ?? 1));
+    // month is 1-based in schedule JSON (7 = July)
+    const month = Number(s.month);
+    const ymd = `${s.year}-${String(month).padStart(2, "0")}-${String(s.day ?? 1).padStart(2, "0")}`;
+    return utcNoonFromYmd(ymd);
   }
   return startOfDay(new Date());
 }
 
 export function daysSinceStart(schedule, now = new Date()) {
   const start = parseRotationStart(schedule);
-  return Math.floor((startOfDay(now) - start) / 86400000);
+  const today = startOfDay(now);
+  return Math.round((today - start) / 86400000);
 }
 
 export function getPhases(schedule) {
@@ -80,9 +104,7 @@ function articlesForRun(order, runIndex, articlesPerRun) {
 }
 
 function addDays(base, days) {
-  const d = new Date(base);
-  d.setDate(d.getDate() + days);
-  return startOfDay(d);
+  return new Date(base.getTime() + days * 86400000);
 }
 
 function formatDate(d) {

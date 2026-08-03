@@ -1,13 +1,14 @@
-# Auto-push this month's SEO articles → WordPress → Telegram notify.
-# Schedule: 1st of each month, 10:00 AM Malaysia (UTC+8) = 02:00 UTC
+# Daily check → push due SEO articles → WordPress → Telegram.
+# Cron: every day 10:00 AM Malaysia (UTC+8) = 02:00 UTC
+# Script exits 0 when not due (no Telegram); only notifies after a real push.
 #
 # Required GitHub repo secrets:
 #   WP_APP_USER, WP_APP_PASSWORD, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
-name: SEO Monthly Push
+name: SEO Auto Push
 
 on:
   schedule:
-    - cron: "0 2 1 * *"
+    - cron: "0 2 * * *"
   workflow_dispatch:
 
 jobs:
@@ -20,7 +21,7 @@ jobs:
         with:
           node-version: "24"
 
-      - name: Push this month's articles to WordPress
+      - name: Push due articles to WordPress
         env:
           NEXT_PUBLIC_SITE_URL: https://www.100cuci.ad
           WP_REST_URL: https://cms.100cuci.ad/wp-json
@@ -28,4 +29,5 @@ jobs:
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TZ: Asia/Kuala_Lumpur
         run: node scripts/seo-auto-push.mjs
