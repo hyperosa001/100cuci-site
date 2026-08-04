@@ -1,9 +1,9 @@
 # Daily check → push due SEO articles → WordPress → Telegram.
 # Cron: every day 10:00 AM Malaysia (UTC+8) = 02:00 UTC
-# Script exits 0 when not due (no Telegram); only notifies after a real push.
 #
-# Required GitHub repo secrets:
+# Required GitHub repo secrets (Settings → Secrets and variables → Actions):
 #   WP_APP_USER, WP_APP_PASSWORD, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+# Without these, the job fails silently from your view — Telegram will warn if bot secrets exist.
 name: SEO Auto Push
 
 on:
@@ -21,6 +21,32 @@ jobs:
         with:
           node-version: "24"
 
+      - name: Check required secrets
+        env:
+          WP_APP_USER: ${{ secrets.WP_APP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          missing=0
+          for key in WP_APP_USER WP_APP_PASSWORD TELEGRAM_BOT_TOKEN TELEGRAM_CHAT_ID; do
+            eval "val=\$$key"
+            if [ -z "$val" ]; then
+              echo "::error::$key is empty — add it in GitHub → Settings → Secrets → Actions"
+              missing=1
+            else
+              echo "$key=set"
+            fi
+          done
+          if [ "$missing" = "1" ]; then
+            if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
+              curl -sS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+                -H "Content-Type: application/json" \
+                -d "{\"chat_id\":\"${TELEGRAM_CHAT_ID}\",\"text\":\"❌ 100cuci.ad SEO auto-push failed\\nGitHub Secrets incomplete (WP_APP_USER / WP_APP_PASSWORD).\\nLocal PC scheduler may still work.\"}" || true
+            fi
+            exit 1
+          fi
+
       - name: Push due articles to WordPress
         env:
           NEXT_PUBLIC_SITE_URL: https://www.100cuci.ad
@@ -31,3 +57,17 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TZ: Asia/Kuala_Lumpur
         run: node scripts/seo-auto-push.mjs
+
+      - name: Telegram on failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "No Telegram secrets — skip failure notify"
+            exit 0
+          fi
+          curl -sS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d "{\"chat_id\":\"${TELEGRAM_CHAT_ID}\",\"text\":\"❌ 100cuci.ad SEO auto-push FAILED\\nCheck GitHub Actions logs.\"}" || true
