@@ -2,7 +2,8 @@
  * Push local CMS content pack HTML → WordPress posts by post ID.
  * After update, www.100cuci.ad picks up changes in ~60s (runtime WP fetch).
  *
- * Default: content only (SEO-safe — does NOT change publish date).
+ * Default: **正文 only** — 不改标题、摘要、slug、分类（主题不变，只刷新段落).
+ * Use --with-meta to also push title + excerpt from _meta.json.
  * Use --touch-date when promo/game list changed substantially.
  *
  * Requires .env.local:
@@ -52,7 +53,11 @@ loadEnvLocal();
 
 const args = process.argv.slice(2);
 const touchDate = args.includes("--touch-date");
-const filterIds = args.filter((a) => a !== "--touch-date").map(Number).filter(Boolean);
+const withMeta = args.includes("--with-meta");
+const filterIds = args
+  .filter((a) => !["--touch-date", "--with-meta"].includes(a))
+  .map(Number)
+  .filter(Boolean);
 
 const WP_REST = (process.env.WP_REST_URL ?? "").replace(/\/$/, "");
 const WP_USER = process.env.WP_APP_USER ?? "";
@@ -80,11 +85,11 @@ async function updatePost(row) {
   const content = readFileSync(htmlPath, "utf8").trim();
   const info = metaByFile.get(row.html);
 
-  const payload = {
-    content,
-    ...(info?.excerpt ? { excerpt: info.excerpt } : {}),
-    ...(info?.title ? { title: info.title } : {}),
-  };
+  const payload = { content };
+  if (withMeta) {
+    if (info?.excerpt) payload.excerpt = info.excerpt;
+    if (info?.title) payload.title = info.title;
+  }
   if (touchDate) payload.date = new Date().toISOString();
 
   const res = await fetch(`${WP_REST}/wp/v2/posts/${row.wpId}`, {
@@ -108,7 +113,9 @@ async function updatePost(row) {
 }
 
 console.log(
-  `Pushing ${jobs.length} post(s) to ${WP_REST}${touchDate ? " [touch-date ON]" : " [content only]"}\n`,
+  `Pushing ${jobs.length} post(s) to ${WP_REST}${
+    touchDate ? " [touch-date ON]" : ""
+  }${withMeta ? " [title+excerpt]" : " [body only — slug/title unchanged]"}\n`,
 );
 
 let failed = 0;
