@@ -26,7 +26,11 @@ export function SiteHeader() {
             rel="noopener noreferrer"
             aria-label="Login"
           >
-            <span className="lp-header-btn-label">LOGIN</span>
+            <img
+              className="lp-header-btn-gif"
+              src="/media/cb5a3b4442196acd43447.gif"
+              alt=""
+            />
           </a>
           <a
             href={SITE_LINKS.register}
@@ -35,7 +39,11 @@ export function SiteHeader() {
             rel="noopener noreferrer"
             aria-label="Register"
           >
-            <span className="lp-header-btn-label">REGISTER</span>
+            <img
+              className="lp-header-btn-gif"
+              src="/media/2567e75442196cdd01222.gif"
+              alt=""
+            />
           </a>
         </div>
       </header>

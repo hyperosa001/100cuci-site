@@ -56,29 +56,23 @@
   display: inline-block;
   width: 185px;
   height: 55px;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
   border-radius: 8px;
   flex-shrink: 0;
+  overflow: hidden;
   transition: filter 0.15s;
+  line-height: 0;
 }
 
 .lp-header-btn:hover {
   filter: brightness(1.08);
 }
 
-.lp-header-btn-login {
-  background-image: url("/media/cb5a3b4442196acd43447.gif");
-}
-
-.lp-header-btn-register {
-  background-image: url("/media/2567e75442196cdd01222.gif");
-}
-
-.lp-header-btn-label {
-  color: transparent;
-  user-select: none;
+.lp-header-btn-gif {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
 }
 
 .lp-header-btn:focus-visible {
@@ -1061,55 +1055,37 @@
 /* —— Mobile-first polish —— */
 @media (max-width: 768px) {
   .lp-header {
-    padding: 8px 12px;
-    gap: 8px;
+    padding: 6px 8px;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .lp-logo-link {
+    flex: 0 1 auto;
+    min-width: 0;
   }
 
   .lp-header .logo {
-    height: 30px;
-    max-width: min(38vw, 120px);
+    height: 32px;
+    max-width: 28vw;
+    width: auto;
     object-fit: contain;
   }
 
   .lp-header-actions {
-    gap: 6px;
-    flex-shrink: 0;
+    flex: 1 1 0;
+    display: flex;
+    gap: 5px;
+    min-width: 0;
   }
 
-  /* Mobile: readable text buttons (GIFs are too small in the header) */
+  /* Same GIF buttons as desktop — scaled to fit header row (like 100cuci.com pinfo) */
   .lp-header-btn {
+    flex: 1 1 0;
     width: auto;
-    min-width: 72px;
-    height: auto;
-    min-height: 36px;
-    padding: 8px 10px;
-    background-image: none !important;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.4px;
-    text-align: center;
-  }
-
-  .lp-header-btn-label {
-    color: inherit;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1;
-    text-transform: uppercase;
-  }
-
-  .lp-header-btn-login {
-    background: #fff;
-    color: var(--lp-red);
-    border: 2px solid var(--lp-red);
-  }
-
-  .lp-header-btn-register {
-    background: linear-gradient(180deg, #ff4d4d, var(--lp-red));
-    color: #fff;
-    border: none;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    min-width: 0;
+    height: 48px;
+    max-width: none;
   }
 
   .lp-nav {
