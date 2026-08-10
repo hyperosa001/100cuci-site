@@ -9,8 +9,6 @@ export const ARTICLE_COVERS: Record<string, string> = {
   "100cuci-live-casino-malaysia-first-session-checklist":
     "/media/7a68e80182196c00919f4.png",
   "100cuci-casino-banking-withdrawal": "/media/5165631054b96399427ff.png",
-  "banking-withdrawal-at-100cuci-casino-malaysia-guide":
-    "/media/5165631054b96399427ff.png",
   "casino-banking-withdrawal-at-100cuci-casino-malaysia-guide":
     "/media/31081511821962ba4e3a6.png",
 
