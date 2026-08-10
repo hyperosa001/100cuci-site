@@ -1,3 +1,11 @@
+#firework-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
 .landing {
   --lp-blue: #022f8a;
   --lp-blue-dark: #001a52;
@@ -40,6 +48,37 @@
 .lp-header-actions {
   display: flex;
   gap: 8px;
+  align-items: center;
+}
+
+/* Header LOGIN / REGISTER — animated GIF buttons (100cuci.com) */
+.lp-header-btn {
+  display: inline-block;
+  width: 185px;
+  height: 55px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: filter 0.15s;
+}
+
+.lp-header-btn:hover {
+  filter: brightness(1.08);
+}
+
+.lp-header-btn-login {
+  background-image: url("/media/cb5a3b4442196acd43447.gif");
+}
+
+.lp-header-btn-register {
+  background-image: url("/media/2567e75442196cdd01222.gif");
+}
+
+.lp-header-btn-label {
+  color: transparent;
+  user-select: none;
 }
 
 .lp-nav {
@@ -1027,14 +1066,13 @@
     object-fit: contain;
   }
 
-  .lp-header-actions .lp-btn-login {
+  .lp-header-actions .lp-header-btn-login {
     display: none;
   }
 
-  .lp-header-actions .lp-btn-register {
-    padding: 9px 14px;
-    font-size: 13px;
-    min-height: 40px;
+  .lp-header-actions .lp-header-btn-register {
+    width: 140px;
+    height: 42px;
   }
 
   .lp-nav {

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./landing.css";
+import { FireworkEffect } from "@/components/FireworkEffect";
 import { getStructuredDataGraph } from "@/config/structured-data";
 import {
   SITE_DESCRIPTION,
@@ -94,6 +95,7 @@ export default function RootLayout({
             __html: JSON.stringify(getStructuredDataGraph()),
           }}
         />
+        <FireworkEffect />
         {children}
       </body>
     </html>

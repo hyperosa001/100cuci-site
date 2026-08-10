@@ -21,19 +21,21 @@ export function SiteHeader() {
         <div className="lp-header-actions">
           <a
             href={SITE_LINKS.login}
-            className="lp-btn lp-btn-login"
+            className="lp-header-btn lp-header-btn-login"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Login"
           >
-            LOGIN
+            <span className="lp-header-btn-label">Login</span>
           </a>
           <a
             href={SITE_LINKS.register}
-            className="lp-btn lp-btn-register"
+            className="lp-header-btn lp-header-btn-register"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Register"
           >
-            REGISTER
+            <span className="lp-header-btn-label">Register</span>
           </a>
         </div>
       </header>
