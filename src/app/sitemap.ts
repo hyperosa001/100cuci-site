@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/config/site";
 import {
+  articleUrl,
   categoryUrl,
   getAllArticlePaths,
   getAllCategories,
@@ -10,7 +11,7 @@ import {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const home = {
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 1,
@@ -29,7 +30,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const articlePaths = await getAllArticlePaths();
   const articlePages = articlePaths.map(({ category, slug }) => ({
-    url: `${SITE_URL}/articles/${category}/${slug}`,
+    url: `${SITE_URL}${articleUrl(category, slug)}`,
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.7,
