@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { LEGACY_ARTICLE_SLUG_REDIRECTS } from "./src/config/slug-redirects";
 
 const nextConfig: NextConfig = {
   output: "standalone",
@@ -10,6 +11,13 @@ const nextConfig: NextConfig = {
         pathname: "/media/**",
       },
     ],
+  },
+  async redirects() {
+    return LEGACY_ARTICLE_SLUG_REDIRECTS.map(({ category, from, to }) => ({
+      source: `/articles/${category}/${from}`,
+      destination: `/articles/${category}/${to}`,
+      permanent: true,
+    }));
   },
 };
 
