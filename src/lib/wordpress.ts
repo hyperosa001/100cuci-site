@@ -40,6 +40,22 @@ const WP_CATEGORY_SLUG_ALIASES: Record<string, string[]> = {
   sportsbook: ["sportsbook", "sportbooks", "sportbook", "sports"],
 };
 
+/** 固定五个栏目之后的新栏目顺序；其余按名称排 */
+const EXTRA_CATEGORY_ORDER = ["about-us", "contact-us", "faq"];
+
+const EXTRA_CATEGORY_DESCRIPTIONS: Record<string, string> = {
+  "about-us":
+    "Who 100CUCI is, how these guides are written, and what this site covers.",
+  "contact-us":
+    "How to reach 100CUCI support and where to send editorial inquiries.",
+  faq: "Common questions about 100CUCI accounts, bonuses, banking, and play.",
+};
+
+function extraCategoryRank(slug: string): number {
+  const index = EXTRA_CATEGORY_ORDER.indexOf(slug);
+  return index === -1 ? EXTRA_CATEGORY_ORDER.length : index;
+}
+
 type WpCategory = {
   id: number;
   slug: string;
@@ -162,6 +178,7 @@ export async function fetchCategoriesLive(): Promise<Category[]> {
 
   const bySlug = new Map(cats.map((c) => [c.slug, c]));
   const categories: Category[] = [];
+  const usedIds = new Set<number>();
 
   for (const shell of CATEGORY_SHELLS) {
     const wpCat = resolveWpCategory(bySlug, shell.slug);
@@ -170,6 +187,7 @@ export async function fetchCategoriesLive(): Promise<Category[]> {
       continue;
     }
 
+    usedIds.add(wpCat.id);
     const posts = await wpFetch<WpPost[]>(
       `/wp/v2/posts?categories=${wpCat.id}&per_page=100&status=publish`,
     );
@@ -179,6 +197,32 @@ export async function fetchCategoriesLive(): Promise<Category[]> {
       title: shell.title,
       description: stripHtml(wpCat.description ?? "") || shell.description,
       articles: (posts ?? []).map(mapPost),
+    });
+  }
+
+  const extras = cats
+    .filter((cat) => !usedIds.has(cat.id) && cat.slug !== "uncategorized")
+    .sort((a, b) => {
+      const rank = extraCategoryRank(a.slug) - extraCategoryRank(b.slug);
+      if (rank !== 0) return rank;
+      return a.name.localeCompare(b.name);
+    });
+
+  for (const wpCat of extras) {
+    const posts = await wpFetch<WpPost[]>(
+      `/wp/v2/posts?categories=${wpCat.id}&per_page=100&status=publish`,
+    );
+    if (!posts || posts.length === 0) continue;
+
+    const title = stripHtml(wpCat.name) || wpCat.slug;
+    categories.push({
+      slug: wpCat.slug,
+      title,
+      description:
+        stripHtml(wpCat.description ?? "") ||
+        EXTRA_CATEGORY_DESCRIPTIONS[wpCat.slug] ||
+        `${title} guides published on 100CUCI.`,
+      articles: posts.map(mapPost),
     });
   }
 

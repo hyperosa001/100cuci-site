@@ -52,6 +52,9 @@ export const CATEGORY_COVERS: Record<string, string> = {
   sportsbook: "/media/3bc80be352f36.jpg",
   lottery: "/media/125476a9d51965d355fb4.png",
   promotions: "/media/f85eb31f3219680b10ca3.gif",
+  "about-us": "/media/f5e0ed4082196f7432355.png",
+  "contact-us": "/media/1ab4589f3219601fbb7cd.png",
+  faq: "/media/2636a9355b896f5d3413b.png",
 };
 
 export function getArticleCover(

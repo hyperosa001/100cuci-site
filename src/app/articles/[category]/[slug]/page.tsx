@@ -8,11 +8,13 @@ import {
   SiteFooter,
 } from "@/components/ArticleContent";
 import { SiteHeader } from "@/components/SiteHeader";
+import { navFromCategories } from "@/config/navigation";
 import { SITE_LINKS } from "@/config/site-links";
 import { SITE_URL } from "@/config/site";
 import {
   articleUrl,
   getAllArticlePaths,
+  getAllCategories,
   getArticle,
 } from "@/lib/content";
 
@@ -45,14 +47,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticlePage({ params }: Props) {
   const { category: categorySlug, slug } = await params;
-  const result = await getArticle(categorySlug, slug);
+  const [result, categories] = await Promise.all([
+    getArticle(categorySlug, slug),
+    getAllCategories(),
+  ]);
   if (!result) notFound();
 
   const { category, article } = result;
 
   return (
     <div className="landing">
-      <SiteHeader />
+      <SiteHeader sections={navFromCategories(categories)} />
       <main className="lp-content-page lp-article-page">
         <nav className="lp-breadcrumb">
           <Link href="/">Home</Link>

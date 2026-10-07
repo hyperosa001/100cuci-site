@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SITE_LINKS } from "@/config/site-links";
-import { MAIN_NAV } from "@/config/navigation";
+import { MAIN_NAV, type NavItem } from "@/config/navigation";
 
-export function SiteHeader() {
+export function SiteHeader({ sections }: { sections?: readonly NavItem[] }) {
   const pathname = usePathname();
+  const nav = sections ?? MAIN_NAV;
 
   return (
     <>
@@ -49,7 +50,7 @@ export function SiteHeader() {
       </header>
 
       <nav className="lp-nav" aria-label="Site sections">
-        {MAIN_NAV.map((item) => {
+        {nav.map((item) => {
           const active =
             item.href === "/"
               ? pathname === "/"

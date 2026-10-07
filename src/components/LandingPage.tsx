@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { MobileRegisterBar, SiteFooter } from "@/components/ArticleContent";
 import { CATEGORY_COVERS } from "@/config/article-covers";
+import { navFromCategories } from "@/config/navigation";
 import { SITE_LINKS } from "@/config/site-links";
 import type { Category } from "@/content/types";
 import {
@@ -135,7 +136,7 @@ export function LandingPage({ categories }: { categories: Category[] }) {
 
   return (
     <div className="landing">
-      <SiteHeader />
+      <SiteHeader sections={navFromCategories(categories)} />
 
       <div className="lp-marquee">
         <span>
