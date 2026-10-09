@@ -71,7 +71,7 @@ jobs:
             exit 0
           fi
           git commit -m "Record SEO auto-update topic log"
-          git push
+          git push origin HEAD:main || echo "topic log stayed on the runner"
 
       - name: Telegram on failure
         if: failure()
