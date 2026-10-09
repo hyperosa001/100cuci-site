@@ -112,6 +112,7 @@ export function ArticleBody({
         KEYWORD_MAX_PER_ARTICLE,
       )
     : null;
+  const htmlHasH1 = Boolean(linkedHtml && /<h1[\s>]/i.test(linkedHtml));
 
   return (
     <article className="lp-article-body">
@@ -121,7 +122,7 @@ export function ArticleBody({
       <p className="lp-article-meta">
         Last updated: {article.updatedAt} · {minutes} min read
       </p>
-      <h1>{article.title}</h1>
+      {htmlHasH1 ? null : <h1>{article.title}</h1>}
       <p className="lp-article-excerpt">
         <LinkedText text={article.excerpt} links={keywordLinks} />
       </p>

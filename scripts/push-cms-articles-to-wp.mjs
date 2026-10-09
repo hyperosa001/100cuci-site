@@ -54,8 +54,9 @@ loadEnvLocal();
 const args = process.argv.slice(2);
 const touchDate = args.includes("--touch-date");
 const withMeta = args.includes("--with-meta");
+const noTelegram = args.includes("--no-telegram");
 const filterIds = args
-  .filter((a) => !["--touch-date", "--with-meta"].includes(a))
+  .filter((a) => !["--touch-date", "--with-meta", "--no-telegram"].includes(a))
   .map(Number)
   .filter(Boolean);
 
@@ -139,7 +140,7 @@ console.log(
     : "\nDone. Live site refreshes in ~60 seconds.",
 );
 
-if (isTelegramConfigured() && (updated.length || failedRows.length)) {
+if (!noTelegram && isTelegramConfigured() && (updated.length || failedRows.length)) {
   const text = formatPushSummary({
     updated,
     failed: failedRows,

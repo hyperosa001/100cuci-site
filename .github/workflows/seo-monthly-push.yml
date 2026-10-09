@@ -14,6 +14,8 @@ on:
 jobs:
   push:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -47,7 +49,7 @@ jobs:
             exit 1
           fi
 
-      - name: Push due articles to WordPress
+      - name: Check and push the due article slot
         env:
           NEXT_PUBLIC_SITE_URL: https://www.100cuci.ad
           WP_REST_URL: https://cms.100cuci.ad/wp-json
@@ -56,7 +58,20 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TZ: Asia/Kuala_Lumpur
-        run: node scripts/seo-auto-push.mjs
+        run: node scripts/seo-auto-update.mjs
+
+      - name: Save topic log and retry queue
+        if: success()
+        run: |
+          git config user.name "100cuci seo"
+          git config user.email "seo@100cuci.ad"
+          git add content/seo-topic-log.json content/seo-queued-retry.json
+          if git diff --cached --quiet; then
+            echo "no log changes"
+            exit 0
+          fi
+          git commit -m "Record SEO auto-update topic log"
+          git push
 
       - name: Telegram on failure
         if: failure()

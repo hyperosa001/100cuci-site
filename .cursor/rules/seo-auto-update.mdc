@@ -1,0 +1,26 @@
+---
+description: 100cuci SEO auto-update. Run only when the owner says Auto-update site, Generate weekly content batch, or names only a frequency.
+alwaysApply: false
+---
+
+# SEO auto-update
+
+Site: https://www.100cuci.ad. CMS: https://cms.100cuci.ad. Article HTML lives in `docs/cms-content-pack/articles/`. Push with `scripts/seo-auto-update.mjs` (body only). Do not copy 96mas.online paths or brand names.
+
+Do not update randomly. Only the article slot that is due, or rows in `content/seo-queued-retry.json`. Do not change the homepage, hero, footer, or other pages.
+
+1. `node scripts/seo-auto-update.mjs --select`
+2. If it says not due and the retry file is empty, stop.
+3. Rewrite only that article HTML. Keep the WordPress title, slug, and category unchanged. Use the printed next title as the single H1. If the line says `ready to push`, leave the HTML and run the updater. Never repeat a title in `content/seo-topic-log.json`.
+4. `node scripts/seo-writing-check.mjs <file>`. If it fails, revise the same article until it passes. Do not skip or replace it.
+5. `node scripts/seo-auto-update.mjs` pushes a passing body and sends Telegram.
+
+Writing rules are enforced by `scripts/seo-writing-check.mjs`: one H1 and a lead paragraph; 4 or 5 H2 sections ending with "Frequently Asked Questions"; at least 3 FAQ H3 questions with an answer paragraph each; at least 6 H3 headings; at least 2 lists; a closing `<div class="lp-summary">`; 3 to 5 internal links; brand and product names are plain text, not anchor text; 18+, a fixed budget or bankroll, a time limit, do not chase losses, and a separate entertainment wallet; Malaysia and RM only. No guaranteed-win, risk-free, sure-win, or secret-system claims. Prefer the mobile browser. Do not push APK installs.
+
+Pillars, in order: local payment and banking UX; game mechanics and math without promising winnings; mobile browser hygiene; responsible gaming and 18+.
+
+Telegram pass: `✅ www.100cuci.ad 已更新 N 篇文章`
+
+Telegram fail (different sentence): `❌ www.100cuci.ad 这轮文章没通过检查，正在修改，通过后才会更新。` Then the article, the first failed rule, and `这一轮不会跳过。`
+
+A failed check stays in `content/seo-queued-retry.json`. The next run finishes it before a new topic.

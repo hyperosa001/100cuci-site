@@ -1,0 +1,88 @@
+{
+  "site": "https://www.100cuci.ad",
+  "pillars": [
+    { "id": "payment", "label": "Local payment and banking UX" },
+    { "id": "mechanics", "label": "Game mechanics and math, without promising winnings" },
+    { "id": "mobile", "label": "Mobile browser and technical hygiene" },
+    { "id": "responsible", "label": "Responsible gaming and safety, including 18+" }
+  ],
+  "articlePillar": {
+    "17": "responsible",
+    "25": "payment",
+    "27": "mechanics",
+    "29": "payment",
+    "31": "mechanics",
+    "33": "mechanics",
+    "35": "mechanics",
+    "37": "responsible",
+    "39": "payment",
+    "41": "payment"
+  },
+  "topics": [
+    {
+      "wpId": 31,
+      "pillar": "mechanics",
+      "title": "Pre-match football tickets versus in-play re-clicks"
+    },
+    {
+      "wpId": 35,
+      "pillar": "mechanics",
+      "title": "How 4D cut-off times affect a fixed ticket budget"
+    },
+    {
+      "wpId": 33,
+      "pillar": "mechanics",
+      "title": "Why live odds move before the bet slip confirms"
+    },
+    {
+      "wpId": 25,
+      "pillar": "payment",
+      "title": "How a Malaysian e-wallet deposit reaches the cashier"
+    },
+    {
+      "wpId": 29,
+      "pillar": "payment",
+      "title": "What slot free credit turnover does to an RM balance"
+    },
+    {
+      "wpId": 39,
+      "pillar": "payment",
+      "title": "Reading a no-deposit offer before the first RM claim"
+    },
+    {
+      "wpId": 41,
+      "pillar": "payment",
+      "title": "Where referral credit sits relative to cash balance"
+    },
+    {
+      "wpId": 17,
+      "pillar": "responsible",
+      "title": "A first live-table session with a fixed RM stop"
+    },
+    {
+      "wpId": 37,
+      "pillar": "responsible",
+      "title": "A weekly RM cap for number games"
+    },
+    {
+      "wpId": 27,
+      "pillar": "mechanics",
+      "title": "How slot volatility changes a twenty-minute session"
+    },
+    {
+      "wpId": 31,
+      "pillar": "mobile",
+      "title": "Placing a football ticket in the mobile browser"
+    },
+    {
+      "wpId": 33,
+      "pillar": "mobile",
+      "title": "Watching live odds in the browser without an APK"
+    },
+    {
+      "wpId": 25,
+      "pillar": "mobile",
+      "title": "Opening the cashier in a phone browser, not a download"
+    }
+  ]
+}
