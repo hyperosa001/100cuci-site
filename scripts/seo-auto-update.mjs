@@ -141,10 +141,13 @@ const plan = targets();
 if (selectOnly || plan.source === "none") {
   if (plan.source === "none") {
     const next = plan.status?.nextRun;
+    const nextLabel = next
+      ? `Next slot ${next.runDate.toISOString().slice(0, 10)}: ${next.articleIds.join(", ")}`
+      : "No queued retry.";
     console.log(
-      next
-        ? `Not due. Next slot ${next.runDate.toISOString().slice(0, 10)}: ${next.articleIds.join(", ")}`
-        : "Not due. No queued retry.",
+      plan.status?.skippedToday
+        ? `Skipped ${plan.status.skippedRunDate}. ${nextLabel}`
+        : `Not due. ${nextLabel}`,
     );
     process.exit(0);
   }

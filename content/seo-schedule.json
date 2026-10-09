@@ -32,7 +32,8 @@
       }
     ],
     "homepageEveryMonth": true,
-    "notes": "3d×2 → 7d×3 → 15d×3 → 30d×3 per full cycle"
+    "skippedRunDates": ["2026-10-10"],
+    "notes": "3d×2 → 7d×3 → 15d×3 → 30d×3 per full cycle. 2026-10-10 omitted: those articles were updated manually."
   },
   "gscCheckpoints": [
     { "week": 1, "check": "Pages indexed count vs 24 discovered" },

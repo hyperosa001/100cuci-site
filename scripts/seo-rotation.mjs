@@ -205,6 +205,33 @@ export function getRotationStatus(schedule, now = new Date()) {
     }
   }
 
+  const skipped = new Set(
+    (schedule.rotation?.skippedRunDates ?? []).map((d) => String(d).slice(0, 10)),
+  );
+  const skippedToday = Boolean(dueRun && skipped.has(formatDate(dueRun.runDate)));
+  if (skippedToday) {
+    lastRun = dueRun;
+    dueRun = null;
+    if (lastRun?.intervalDays && (!nextRun || skipped.has(formatDate(nextRun.runDate)))) {
+      const steady = phases[phases.length - 1];
+      const steadyRuns = runsInPhase(order.length, steady.articlesPerRun);
+      const nextDay = lastRun.runDay + lastRun.intervalDays;
+      const cr = (lastRun.runIndex + 1) % steadyRuns;
+      nextRun = {
+        phaseIndex: phases.length - 1,
+        phaseId: steady.id,
+        phaseLabel: steady.label,
+        runIndex: cr,
+        runsInPhase: steadyRuns,
+        runDay: nextDay,
+        runDate: addDays(start, nextDay),
+        articlesPerRun: steady.articlesPerRun,
+        intervalDays: steady.intervalDays,
+        articleIds: articlesForRun(order, cr, steady.articlesPerRun),
+      };
+    }
+  }
+
   const active = dueRun ?? nextRun ?? timeline[timeline.length - 1];
   const phase = phases[active?.phaseIndex ?? 0];
 
@@ -212,6 +239,8 @@ export function getRotationStatus(schedule, now = new Date()) {
     elapsedDays: elapsed,
     rotationStart: formatDate(start),
     isDueToday: Boolean(dueRun),
+    skippedToday,
+    skippedRunDate: skippedToday ? formatDate(lastRun.runDate) : null,
     dueRun,
     nextRun: dueRun ? nextRun : nextRun ?? dueRun,
     lastRun,

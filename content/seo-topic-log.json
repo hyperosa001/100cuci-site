@@ -59,27 +59,6 @@
       "pillar": "payment",
       "wpId": 41,
       "source": "existing"
-    },
-    {
-      "title": "Pre-match football tickets versus in-play re-clicks",
-      "pillar": "mechanics",
-      "wpId": 31,
-      "source": "rewrite",
-      "pendingPush": true
-    },
-    {
-      "title": "How 4D cut-off times affect a fixed ticket budget",
-      "pillar": "mechanics",
-      "wpId": 35,
-      "source": "rewrite",
-      "pendingPush": true
-    },
-    {
-      "title": "Why live odds move before the bet slip confirms",
-      "pillar": "mechanics",
-      "wpId": 33,
-      "source": "rewrite",
-      "pendingPush": true
     }
   ]
 }

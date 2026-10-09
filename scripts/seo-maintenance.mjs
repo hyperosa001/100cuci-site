@@ -82,11 +82,14 @@ if (cmd === "bump-homepage") {
 
 if (cmd === "calendar") {
   const { timeline } = buildRotationTimeline(schedule);
+  const skipped = new Set(schedule.rotation?.skippedRunDates ?? []);
   console.log(`\n=== SEO calendar (bootstrap → steady) ===\n`);
   for (const r of timeline) {
     const ids = r.articleIds.map((id) => `#${id}`).join(", ");
+    const date = r.runDate.toISOString().slice(0, 10);
+    const mark = skipped.has(date) ? "  SKIP" : "";
     console.log(
-      `${r.runDate.toISOString().slice(0, 10)}  [${r.phaseId}]  run ${r.runIndex + 1}/${r.runsInPhase}  ${ids}`,
+      `${date}  [${r.phaseId}]  run ${r.runIndex + 1}/${r.runsInPhase}  ${ids}${mark}`,
     );
   }
   console.log("\nAfter last row: steady phase repeats every 30 days.\n");
