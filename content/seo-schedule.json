@@ -3,6 +3,9 @@
   "gscProperty": "https://www.100cuci.ad/",
   "sitemap": "https://www.100cuci.ad/sitemap.xml",
   "rotation": {
+    "paused": true,
+    "pausedAt": "2026-10-22",
+    "pausedReason": "Owner paused article auto-update on 2026-10-22. Resume only when they say to continue.",
     "rotationStart": { "date": "2026-07-29" },
     "priorityOrder": [39, 29, 17, 41, 27, 25, 31, 35, 33, 37],
     "phases": [

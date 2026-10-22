@@ -23,7 +23,17 @@ jobs:
         with:
           node-version: "24"
 
+      - name: Honor pause
+        id: pause
+        run: |
+          paused=$(node -e "const s=require('./content/seo-schedule.json'); process.stdout.write(s.rotation&&s.rotation.paused===true?'true':'false')")
+          echo "paused=$paused" >> "$GITHUB_OUTPUT"
+          if [ "$paused" = "true" ]; then
+            echo "SEO article auto-update is paused. This run will not select or push articles."
+          fi
+
       - name: Check required secrets
+        if: steps.pause.outputs.paused != 'true'
         env:
           WP_APP_USER: ${{ secrets.WP_APP_USER }}
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
@@ -50,6 +60,7 @@ jobs:
           fi
 
       - name: Check and push the due article slot
+        if: steps.pause.outputs.paused != 'true'
         env:
           NEXT_PUBLIC_SITE_URL: https://www.100cuci.ad
           WP_REST_URL: https://cms.100cuci.ad/wp-json
@@ -61,7 +72,7 @@ jobs:
         run: node scripts/seo-auto-update.mjs
 
       - name: Save topic log and retry queue
-        if: success()
+        if: success() && steps.pause.outputs.paused != 'true'
         run: |
           git config user.name "100cuci seo"
           git config user.email "seo@100cuci.ad"

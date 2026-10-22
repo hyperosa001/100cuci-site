@@ -15,6 +15,7 @@ import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 import {
   loadEnvLocal,
+  getRotationPause,
   loadSchedule,
   pickArticlesForRun,
   resolveWpPostMapPath,
@@ -28,6 +29,12 @@ loadEnvLocal(root);
 const selectOnly = process.argv.includes("--select");
 const dryRun = process.argv.includes("--dry-run");
 const schedule = loadSchedule(root);
+const pauseReason = getRotationPause(schedule);
+if (pauseReason) {
+  console.log(`Paused. ${pauseReason}`);
+  console.log("No article will be selected or pushed.");
+  process.exit(0);
+}
 const map = JSON.parse(readFileSync(resolveWpPostMapPath(root, schedule), "utf8"));
 const meta = JSON.parse(
   readFileSync(join(root, "docs", "cms-content-pack", "articles", "_meta.json"), "utf8"),

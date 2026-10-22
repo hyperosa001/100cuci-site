@@ -5,6 +5,8 @@ alwaysApply: false
 
 # SEO auto-update
 
+Paused. `content/seo-schedule.json` has `rotation.paused: true`. Do not select, rewrite, or push articles until the owner says to resume the article auto-update.
+
 Site: https://www.100cuci.ad. CMS: https://cms.100cuci.ad. Article HTML lives in `docs/cms-content-pack/articles/`. Push with `scripts/seo-auto-update.mjs` (body only). Do not copy 96mas.online paths or brand names.
 
 Do not update randomly. Only the article slot that is due, or rows in `content/seo-queued-retry.json`. Do not change the homepage, hero, footer, or other pages.

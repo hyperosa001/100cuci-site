@@ -12,6 +12,7 @@ import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 import {
   loadEnvLocal,
+  getRotationPause,
   loadSchedule,
   pickArticlesForRun,
   resolveWpPostMapPath,
@@ -24,6 +25,12 @@ const dryRun = process.argv.includes("--dry-run");
 const force = process.argv.includes("--force");
 const touchDate = process.argv.includes("--touch-date");
 const schedule = loadSchedule(root);
+const pauseReason = getRotationPause(schedule);
+if (pauseReason) {
+  console.log(`Paused. ${pauseReason}`);
+  console.log("No article will be pushed.");
+  process.exit(0);
+}
 const mapPath = resolveWpPostMapPath(root, schedule);
 const map = JSON.parse(readFileSync(mapPath, "utf8"));
 const { status, articleIds: ids } = pickArticlesForRun(schedule, new Date(), { force });

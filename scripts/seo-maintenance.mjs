@@ -105,8 +105,16 @@ if (cmd === "plan") {
   console.log(`Start:       ${status.rotationStart}`);
   console.log(`Today:       day ${status.elapsedDays}`);
   console.log(`Phase:       ${status.activePhase?.label}`);
+  if (schedule.rotation?.paused === true) {
+    console.log("Auto-update: PAUSED — no article will be pushed");
+    console.log(`Reason:      ${schedule.rotation.pausedReason ?? ""}`);
+  }
   console.log(
-    status.isDueToday ? "Due today:   ✅ YES — run auto-push" : "Due today:   no",
+    schedule.rotation?.paused === true
+      ? "Due today:   paused"
+      : status.isDueToday
+        ? "Due today:   ✅ YES — run auto-push"
+        : "Due today:   no",
   );
   if (status.nextRun && !status.isDueToday) {
     console.log(

@@ -23,6 +23,13 @@ export function loadSchedule(root) {
   return JSON.parse(readFileSync(path, "utf8"));
 }
 
+/** Null when the rotation may run. A reason string when the owner has paused it. */
+export function getRotationPause(schedule) {
+  if (schedule?.rotation?.paused !== true) return null;
+  const reason = String(schedule.rotation.pausedReason ?? "").trim();
+  return reason || "Article auto-update is paused.";
+}
+
 export function resolveWpPostMapPath(root, schedule) {
   if (schedule.paths?.wpPostMap) {
     return join(root, schedule.paths.wpPostMap);
@@ -254,6 +261,7 @@ export function getRotationStatus(schedule, now = new Date()) {
 /** Articles to push right now (due today, or next run if --force). */
 export function pickArticlesForRun(schedule, now = new Date(), { force = false } = {}) {
   const status = getRotationStatus(schedule, now);
+  if (getRotationPause(schedule)) return { status, articleIds: [] };
   const run = status.isDueToday ? status.dueRun : force ? status.nextRun ?? status.dueRun : null;
   if (!run) return { status, articleIds: [] };
   return { status, articleIds: run.articleIds };
