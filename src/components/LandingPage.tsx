@@ -213,7 +213,7 @@ export function LandingPage({ categories }: { categories: Category[] }) {
                 {cover ? (
                   <img
                     src={cover}
-                    alt=""
+                    alt={category.title}
                     className="lp-category-card-cover"
                   />
                 ) : null}
@@ -230,7 +230,7 @@ export function LandingPage({ categories }: { categories: Category[] }) {
 
       <section className="lp-section lp-hot-games">
         <h2 className="lp-section-title">
-          <img src="/media/a633e1ae197967554ac5e.webp" alt="" />
+          <img src="/media/a633e1ae197967554ac5e.webp" alt="Hot Games" />
           HOT GAMES — Register to Play
         </h2>
         <div className="lp-games-marquee" aria-label="Hot games marquee">

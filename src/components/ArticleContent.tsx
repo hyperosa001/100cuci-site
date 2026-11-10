@@ -191,7 +191,7 @@ export function CategoryArticleList({
               className="lp-article-card"
             >
               {cover ? (
-                <img src={cover} alt="" className="lp-article-card-cover" />
+                <img src={cover} alt={article.title} className="lp-article-card-cover" />
               ) : null}
               <p className="lp-article-card-meta">
                 {article.updatedAt} · {minutes} min read
@@ -238,7 +238,7 @@ export function RelatedArticles({
               className="lp-article-card"
             >
               {cover ? (
-                <img src={cover} alt="" className="lp-article-card-cover" />
+                <img src={cover} alt={article.title} className="lp-article-card-cover" />
               ) : null}
               <h2>{article.title}</h2>
               <p>{article.excerpt}</p>
