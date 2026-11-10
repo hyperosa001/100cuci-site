@@ -30,7 +30,7 @@ export function SiteHeader({ sections }: { sections?: readonly NavItem[] }) {
             <img
               className="lp-header-btn-gif"
               src="/media/cb5a3b4442196acd43447.gif"
-              alt=""
+              alt="Login"
             />
           </a>
           <a
@@ -43,7 +43,7 @@ export function SiteHeader({ sections }: { sections?: readonly NavItem[] }) {
             <img
               className="lp-header-btn-gif"
               src="/media/2567e75442196cdd01222.gif"
-              alt=""
+              alt="Register"
             />
           </a>
         </div>
